@@ -1,0 +1,14 @@
+<h1>index user </h1>
+
+<table class="table table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th>Nombre de usuario</th>
+      <th>email</th>
+      <th class='text-right'><%= link_to 'Nueva', new_backend_user_path, class: 'btn btn-primary' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @users %>
+  </tbody>
+</table>
