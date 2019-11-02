@@ -1,6 +1,6 @@
 # 
 module Backend
-  
+
   class UsersController < BackendController
     before_action :set_user, only: [
       :edit
@@ -9,8 +9,13 @@ module Backend
       @users = User.all
     end
 
-    def new; end
+    def new
+      @user = User.new
+    end
 
+    def create
+      
+    end
     def edit; end
 
     private
