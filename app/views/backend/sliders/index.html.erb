@@ -1,17 +1,18 @@
 <!-- Button trigger modal -->
+<h1 class='mt-2'>Sliders</h1>
+<%= render 'flash_message'%>
+
 <table class="table table-bordered">
   <thead class="thead-light">
     <tr>
-      <th>Nombre</th>
-      <th class='text-right'><%= link_to 'Nueva', new_backend_category_path, remote: true, class: 'btn btn-primary' %></th>
+      <th>Sliders</th>
+      <th class='text-right'><%= link_to 'Nuevo slider', new_backend_slider_path, remote: true, class: 'btn btn-primary' %></th>
     </tr>
   </thead>
-  <tbody id='categories_container'>
-    <%= render @categories %>
+  <tbody id='sliders_container'>
+    <%= render @sliders %>
   </tbody>
 </table>
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="modal" tabindex="-1">

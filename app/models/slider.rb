@@ -3,4 +3,8 @@ class Slider < ApplicationRecord
 
   # -- Validations
   validates :name, presence: true, uniqueness: true
+
+  def get_image
+    image.attached? ? image : 'missing.png'
+  end
 end

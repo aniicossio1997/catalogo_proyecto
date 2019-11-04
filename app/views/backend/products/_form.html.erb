@@ -1,0 +1,45 @@
+<%= form_with model: [:backend, @product], local: true do |f| %>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">
+      <%= @product.persisted? ? "Editar producto" : 'Nueva producto' %>
+    </h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="form-group">
+    <%= f.label :name, 'Nombre' %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.label :description, 'Descripción' %>
+    <%= f.text_field :description, class: 'form-control' %>
+
+    <%= f.label :code, 'Código' %>
+    <%= f.text_field :code, class: 'form-control' %>
+
+    <%= f.label :price, 'Precio' %>
+    <%= f.number_field :price, class: 'form-control' %>
+
+    <%= f.label :cost, 'Costo' %>
+    <%= f.number_field :cost, class: 'form-control' %>
+
+    <%= f.label :active, 'Activo' %>
+    <%= f.check_box :active, class: 'form-control'  %>
+
+    <%= f.label :category_id, 'Categoría'%>
+    <%= f.collection_select :category_id, Category.all, :id, :name, {}, class:'form-control' %>
+
+    <%= f.label :tags_ids, 'Tags'%>
+    <%= f.collection_select :tag_ids, Tag.all, :id, :name, {}, class:'form-control', multiple: true %>
+
+    <div id='sections'>
+      <%= f.fields_for :sections do |s| %>
+        <%= render 'product_images', f: s %>
+      <% end %>
+      <div class='links'>
+        <%= link_to_add_association 'add section', f, :sections %>
+      </div>
+    </div>
+
+  </div>
+<% end %>

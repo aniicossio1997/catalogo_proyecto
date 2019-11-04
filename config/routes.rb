@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :tags
     resources :slider
+    resources :products
   end
 
 end

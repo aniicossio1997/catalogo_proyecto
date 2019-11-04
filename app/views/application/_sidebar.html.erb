@@ -1,14 +1,16 @@
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Start Bootstrap </div>
-      <div class="list-group list-group-flush">
+<div class="bg-light border-right" id="sidebar-wrapper">
+  <div class="sidebar-heading">Start Bootstrap </div>
+  <div class="list-group list-group-flush">
 
-        <% if user_signed_in? %>
-        
-        <%= link_to 'Usuarios', backend_users_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
-        <%= link_to 'Categorias', backend_categories_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
-        <% else %>
-        <%= link_to 'Iniciar sesión', new_user_session_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
-        <% end %>
+    <% if user_signed_in? %>
+    
+    <%= link_to 'Usuarios', backend_users_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
+    <%= link_to 'Productos', backend_products_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
+    <%= link_to 'Categorias', backend_categories_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
+    <%= link_to 'Tags', backend_tags_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
+    <% else %>
+    <%= link_to 'Iniciar sesión', new_user_session_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
+    <% end %>
 
-      </div>
-    </div>
+  </div>
+</div>

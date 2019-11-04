@@ -3,6 +3,8 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :product_tags
   has_many :tags, through: :product_tags
+  has_many :product_images, dependent: :destroy
+  accepts_nested_attributes_for :product_images, allow_destroy: true
 
   # -- Validations
   validates :name, presence: true, uniqueness: true
@@ -11,12 +13,12 @@ class Product < ApplicationRecord
   validates :category, presence: true
   validates :price,
             presence: true,
-            numeralicity: {
+            numericality: {
               greater_than_or_equal_to: 0
             }
   validates :cost,
             presence: true,
-            numeralicity: {
+            numericality: {
               greater_than_or_equal_to: 0
             }
 end

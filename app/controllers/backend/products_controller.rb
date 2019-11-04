@@ -7,6 +7,7 @@ module Backend
       :update,
       :destroy
     ]
+
     def index
       @products = Product.all
     end
@@ -15,30 +16,35 @@ module Backend
 
     def new
       @product = Product.new
-      render :modal
     end
 
-    def edit
-      render :modal
-    end
+    def edit; end
 
     def create
       @product = Product.new(product_params)
       if @product.save
         flash.now[:notice] = 'Categoría creada'
+        redirect_to backend_products_path
       else
         flash.now[:alert] = 'Error creando categoría'
-        render :modal
+        render :new
       end
     end
 
     def update
       if @product.update(product_params)
         flash.now[:notice] = 'Categoría modificada'
+        redirect_to backend_products_path
       else
         flash.now[:alert] = 'Error modificando categoría'
-        render :modal
+        render :edit
       end
+    end
+
+    def destroy
+      @product.destroy
+      flash[:notice] = 'Producto eliminado'
+      redirect_to backend_products_path
     end
 
     private
@@ -48,7 +54,14 @@ module Backend
     end
 
     def product_params
-      params.require(:product).permit(:name)
+      params.require(:product).permit(
+        :name,
+        product_images_attributes: [
+          :id,
+          :image,
+          :_destroy
+        ]
+      )
     end
   end
 end

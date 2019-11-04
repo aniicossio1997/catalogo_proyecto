@@ -1,0 +1,12 @@
+<div class='nested-fields card'>
+  <div class='card-body'>
+    <div class="form-group">
+        <%= f.label :image, 'Image' %>
+        <%= image_tag @product_image.get_image %>
+        <%= f.file_field :image, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= link_to_remove_association "remove section", f %>
+    </div>
+  </div>
+</div>

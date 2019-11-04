@@ -1,7 +1,7 @@
-<%= form_with model: @category , url: backend_categories_path do |f| %>
+<%= form_with model: [:backend, @tag] do |f| %>
   <div class="modal-header">
     <h5 class="modal-title" id="exampleModalLabel">
-      <%= @category.persisted? ? "Editar categoria" : 'Nueva categoria' %>
+      <%= @tag.persisted? ? "Editar tag" : 'Nuevo tag' %>
     </h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">&times;</span>
