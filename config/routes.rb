@@ -5,13 +5,16 @@ Rails.application.routes.draw do
   unauthenticated do
     root 'frontend/main#index'
   end
- 
+
   authenticated do
     root 'backend/main#index'
   end
-  
+
   namespace :backend do
     resources :users, only: [:index, :edit, :new]
     resources :categories
+    resources :tags
+    resources :slider
   end
+
 end
