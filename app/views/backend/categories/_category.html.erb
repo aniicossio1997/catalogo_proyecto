@@ -1,0 +1,7 @@
+<tr id='<%= dom_id(category) %>'>
+  <td><%= category.name %></td>
+  <td class='text-right'>
+    <%= link_to 'Editar', edit_backend_category_path(category), remote: true, class: 'btn btn-sm btn-outline-warning' %>
+    <%= link_to 'Borrar', backend_category_path(category), method: :delete, remote: true, data: { confirm: 'Esta seguro?' }, class: 'btn btn-sm btn-outline-danger' %>
+  </td>
+</tr>

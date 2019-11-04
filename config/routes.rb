@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   
   namespace :backend do
     resources :users, only: [:index, :edit, :new]
+    resources :categories
   end
 end

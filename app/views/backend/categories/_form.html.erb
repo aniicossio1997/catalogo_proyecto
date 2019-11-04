@@ -1,0 +1,22 @@
+<%= form_with model: @category , url: backend_categories_path do |f| %>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">
+      <%= @category.persisted? ? "Editar categoria" : 'Nueva categoria' %>
+    </h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <div class="form-group">
+      <%= f.label :name, 'Nombre' %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+    <%= f.submit 'Guardar', class: 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -1,5 +1,5 @@
 
-<%= form_with model: @user, local: true do |f| %>
+<%= form_with model: @user , url: backend_users_path, local: true do |f| %>
     <div class="form-group">
       <%= f.label :username, 'Nombre de usuario' %>
       <%= f.text_field :username, class: 'form-control' %>

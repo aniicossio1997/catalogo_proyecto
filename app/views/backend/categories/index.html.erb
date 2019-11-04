@@ -1,0 +1,22 @@
+<!-- Button trigger modal -->
+<table class="table table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th>Nombre</th>
+      <th class='text-right'><%= link_to 'Nueva', new_backend_category_path, remote: true, class: 'btn btn-primary' %></th>
+    </tr>
+  </thead>
+  <tbody id='categories_container'>
+    <%= render @categories %>
+  </tbody>
+</table>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
