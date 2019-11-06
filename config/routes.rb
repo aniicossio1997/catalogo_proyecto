@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :edit, :new]
     resources :categories
     resources :tags
-    resources :slider
+    resources :sliders
     resources :products
   end
 

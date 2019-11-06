@@ -8,6 +8,7 @@
     <%= link_to 'Productos', backend_products_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
     <%= link_to 'Categorias', backend_categories_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
     <%= link_to 'Tags', backend_tags_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
+    <%= link_to 'Configuracion Web', backend_sliders_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
     <% else %>
     <%= link_to 'Iniciar sesión', new_user_session_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
     <% end %>

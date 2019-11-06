@@ -33,11 +33,11 @@
     <%= f.collection_select :tag_ids, Tag.all, :id, :name, {}, class:'form-control', multiple: true %>
 
     <div id='sections'>
-      <%= f.fields_for :sections do |s| %>
+      <%= f.fields_for :images do |s| %>
         <%= render 'product_images', f: s %>
       <% end %>
       <div class='links'>
-        <%= link_to_add_association 'add section', f, :sections %>
+        <%# link_to_add_association 'add image', f, :images %>
       </div>
     </div>
 

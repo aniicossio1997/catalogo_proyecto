@@ -5,6 +5,7 @@ class Product < ApplicationRecord
   has_many :tags, through: :product_tags
   has_many :product_images, dependent: :destroy
   accepts_nested_attributes_for :product_images, allow_destroy: true
+  has_one_attached :image
 
   # -- Validations
   validates :name, presence: true, uniqueness: true
@@ -21,4 +22,9 @@ class Product < ApplicationRecord
             numericality: {
               greater_than_or_equal_to: 0
             }
+
+  # -- Scopes
+  def get_image
+    image.attached? ? image : 'missing.png'
+  end
 end
