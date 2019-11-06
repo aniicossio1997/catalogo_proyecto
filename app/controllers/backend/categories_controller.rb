@@ -1,20 +1,20 @@
 module Backend
-  class ProductsController < BackendController
+  class CategoriesController < BackendController
 
-    before_action :set_product, only: [
+    before_action :set_category, only: [
       :show,
       :edit,
       :update,
       :destroy
     ]
     def index
-      @products = Product.all
+      @categories = Category.all
     end
 
     def show; end
 
     def new
-      @product = Product.new
+      @category = Category.new
       render :modal
     end
 
@@ -23,8 +23,8 @@ module Backend
     end
 
     def create
-      @product = Product.new(product_params)
-      if @product.save
+      @category = Category.new(category_params)
+      if @category.save
         flash.now[:notice] = 'Categoría creada'
       else
         flash.now[:alert] = 'Error creando categoría'
@@ -33,7 +33,7 @@ module Backend
     end
 
     def update
-      if @product.update(product_params)
+      if @category.update(category_params)
         flash.now[:notice] = 'Categoría modificada'
       else
         flash.now[:alert] = 'Error modificando categoría'
@@ -43,12 +43,12 @@ module Backend
 
     private
 
-    def set_product
-      @product = Product.find(params[:id])
+    def set_category
+      @category = Category.find(params[:id])
     end
 
-    def product_params
-      params.require(:product).permit(:name)
+    def category_params
+      params.require(:category).permit(:name)
     end
   end
 end

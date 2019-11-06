@@ -1,5 +1,5 @@
 
-<%= form_with model: @user , url: backend_users_path, local: true do |f| %>
+<%= form_with model:  [:backend, @user], local: true do |f| %>
     <div class="form-group">
       <%= f.label :username, 'Nombre de usuario' %>
       <%= f.text_field :username, class: 'form-control' %>
@@ -8,8 +8,12 @@
       <%= f.label :email, 'Email' %>
       <%= f.email_field :email, class: 'form-control' %>
     </div>
-  
- 
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+    </div>
+
+
   <div class='card-footer'>
     <%= link_to 'Volver', backend_users_path, class: 'btn btn-outline-secondary' %>
     <%= f.submit 'Guardar', class: 'btn btn-primary' %>
