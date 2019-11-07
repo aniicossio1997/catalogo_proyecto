@@ -1,4 +1,4 @@
-class ProductFilter
+class ProductsFilter
   include ActiveModel::Model
 
   attr_accessor :query, :category_id
@@ -9,7 +9,7 @@ class ProductFilter
   end
 
   def call
-    products = Products.all
+    products = Product.all
     products = products.with_name(@query) unless @query.blank?
     products = products.with_category(@category_id) unless @category_id.blank?
 

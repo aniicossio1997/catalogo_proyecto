@@ -27,7 +27,13 @@
       <b>Categoria</b><br/>
       <%= @product.category_name %>
     </div>
-    
+    <div class="mb-3">
+      <%= image_tag(@product.image_principal, size:"75x75") %>
+    </div>
+    <div class="">
+      <%= render @product.images_secondaries  %>
+    </div>
+
     <div>
       <hr>
       <h4>Images</h4>
@@ -35,7 +41,8 @@
         <thead class="thead-light">
         </thead>
         <tbody>
-          <%= render @product.product_images %>
+          <%# render @product.image_principal %>
+
         </tbody>
       </table>
     </div>
@@ -43,6 +50,6 @@
   </div>
 
   <div class='card-footer'>
-    <%= link_to 'Volver', products_path, class: 'btn btn-outline-secondary' %>
+    <%# link_to 'Volver', products_path, class: 'btn btn-outline-secondary' %>
   </div>
 </div>
