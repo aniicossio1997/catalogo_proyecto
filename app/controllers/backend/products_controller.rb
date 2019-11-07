@@ -23,20 +23,20 @@ module Backend
     def create
       @product = Product.new(product_params)
       if @product.save
-        flash.now[:notice] = 'Categoría creada'
+        flash.now[:notice] = 'Producto creado'
         redirect_to backend_products_path
       else
-        flash.now[:alert] = 'Error creando categoría'
+        flash.now[:alert] = 'Error creando producto'
         render :new
       end
     end
 
     def update
       if @product.update(product_params)
-        flash.now[:notice] = 'Categoría modificada'
+        flash.now[:notice] = 'Producto modificada'
         redirect_to backend_products_path
       else
-        flash.now[:alert] = 'Error modificando categoría'
+        flash.now[:alert] = 'Error modificando producto'
         render :edit
       end
     end
@@ -56,6 +56,12 @@ module Backend
     def product_params
       params.require(:product).permit(
         :name,
+        :description,
+        :active,
+        :price,
+        :cost,
+        :category_id,
+        tag_ids: [],
         product_images_attributes: [
           :id,
           :image,

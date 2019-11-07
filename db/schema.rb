@@ -39,11 +39,11 @@ ActiveRecord::Schema.define(version: 2019_11_04_154534) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "product_image", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "product_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_product_image_on_product_id"
+    t.index ["product_id"], name: "index_product_images_on_product_id"
   end
 
   create_table "product_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -94,5 +94,5 @@ ActiveRecord::Schema.define(version: 2019_11_04_154534) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "product_image", "products"
+  add_foreign_key "product_images", "products"
 end

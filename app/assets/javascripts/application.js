@@ -18,3 +18,4 @@
 //= require bootstrap
 //= require bundle.min
 //= require main
+//= require cocoon

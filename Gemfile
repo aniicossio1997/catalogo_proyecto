@@ -74,3 +74,5 @@ gem 'draper'
 gem 'jquery-rails'
 
 gem 'byebug'
+
+gem 'cocoon'
