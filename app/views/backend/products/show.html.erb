@@ -1,0 +1,48 @@
+<h1>Publicacion #<%= @product.id %></h1>
+<%= render 'flash_message' %>
+
+<div class='card'>
+  <div class='card-body'>
+    <div class="mb-3">
+      <b>Name</b><br/>
+      <%= @product.name %>
+    </div>
+    <div class="mb-3">
+      <b>Description</b><br/>
+      <%= @product.description %>
+    </div>
+    <div class="mb-3">
+      <b>Price</b><br/>
+      <%= @product.price %>
+    </div>
+    <div class="mb-3">
+      <b>Cost</b><br/>
+      <%= @product.cost %>
+    </div>
+    <div class="mb-3">
+      <b>Active</b><br/>
+      <%= @product.active %>
+    </div>
+    <div class="mb-3">
+      <b>Categoria</b><br/>
+      <%= @product.category_name %>
+    </div>
+    
+    <div>
+      <hr>
+      <h4>Images</h4>
+      <table class="table table-bordered">
+        <thead class="thead-light">
+        </thead>
+        <tbody>
+          <%= render @product.product_images %>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class='card-footer'>
+    <%= link_to 'Volver', products_path, class: 'btn btn-outline-secondary' %>
+  </div>
+</div>

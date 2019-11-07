@@ -1,6 +1,5 @@
 module Backend
   class ProductsController < BackendController
-
     before_action :set_product, only: [
       :show,
       :edit,
@@ -9,7 +8,7 @@ module Backend
     ]
 
     def index
-      @products = Product.all
+      @presenter = ProductPresenter.new(params)
     end
 
     def show; end
@@ -26,7 +25,7 @@ module Backend
         flash.now[:notice] = 'Producto creado'
         redirect_to backend_products_path
       else
-        flash.now[:alert] = 'Error creando producto'
+        flash.now[:alert] = @product.decorate.errores
         render :new
       end
     end
@@ -50,7 +49,7 @@ module Backend
     private
 
     def set_product
-      @product = Product.find(params[:id])
+      @product = Product.find(params[:id]).decorate
     end
 
     def product_params
@@ -58,6 +57,7 @@ module Backend
         :name,
         :description,
         :active,
+        :code,
         :price,
         :cost,
         :category_id,
@@ -65,6 +65,7 @@ module Backend
         product_images_attributes: [
           :id,
           :image,
+          :principal,
           :_destroy
         ]
       )

@@ -5,7 +5,6 @@ class Product < ApplicationRecord
   has_many :tags, through: :product_tags
   has_many :product_images, dependent: :destroy
   accepts_nested_attributes_for :product_images, allow_destroy: true
-  has_one_attached :image
 
   # -- Validations
   validates :name, presence: true, uniqueness: true
@@ -22,9 +21,15 @@ class Product < ApplicationRecord
             numericality: {
               greater_than_or_equal_to: 0
             }
+  validate :only_one_image_checked
 
   # -- Scopes
-  def get_image
-    image.attached? ? image : 'missing.png'
+  scope :with_name, ->(name) { where('name LIKE ?', "%#{name}%") }
+  
+
+  def only_one_image_checked
+    return if product_images.select(&:principal).count == 1
+
+    errors.add(:product_images, 'Solo puede haber una única imagen principal')
   end
 end

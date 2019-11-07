@@ -1,3 +1,4 @@
+<%= render 'flash_message'%>
 <%= form_with model: [:backend, @product], local: true do |f| %>
   <div class="modal-header">
     <h5 class="modal-title" id="exampleModalLabel">
@@ -23,8 +24,10 @@
     <%= f.label :cost, 'Costo' %>
     <%= f.number_field :cost, class: 'form-control' %>
 
-    <%= f.label :active, 'Activo' %>
-    <%= f.check_box :active, class: 'form-control'  %>
+    <div class="form-group">
+      <%= f.label :active, 'Activo' %>
+      <%= f.check_box :active %>
+    </div>
 
     <%= f.label :category_id, 'Categoría'%>
     <%= f.collection_select :category_id, Category.all, :id, :name, {}, class:'form-control' %>
@@ -41,5 +44,7 @@
       </div>
     </div>
 
+    <%= f.submit 'Guardar', class: 'btn btn-primary' %>
+    <%= link_to 'Volver', backend_products_path %>
   </div>
 <% end %>

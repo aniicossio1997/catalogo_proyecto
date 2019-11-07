@@ -1,7 +1,15 @@
 <tr id='<%= dom_id(product) %>'>
-  <td><%= product.name %></td>
+  <td>
+    <%= image_tag(product.product_images.first.get_image, size:"25x25") %>
+    <%= product.name %>
+  </td>
   <td><%= product.active %></td>
-  <td><%= product.price %></td>
-  <td><%= product.image %></td>
-  
+  <td>
+    <%= product.price %>
+    <div class='text-right'>
+      <%= link_to 'Ver', backend_product_path(product),  class: 'btn btn-sm btn-outline-info' %>
+      <%= link_to 'Editar', edit_backend_product_path(product), class: 'btn btn-sm btn-outline-warning' %>
+      <%= link_to 'Borrar', backend_product_path(product), method: :delete, data: { confirm: 'Esta seguro?' }, class: 'btn btn-sm btn-outline-danger' %>
+    </div>
+  </td>  
 </tr>
