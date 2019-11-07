@@ -24,4 +24,12 @@ class ProductDecorator < ApplicationDecorator
   def category_name
     object.category.name
   end
+
+  def tags_name
+    object.tags
+          .pluck(:name)
+          .map{ |t| h.print_badge(t)}
+          .join
+          .html_safe
+  end
 end

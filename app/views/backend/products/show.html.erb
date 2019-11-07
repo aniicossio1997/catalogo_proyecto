@@ -30,9 +30,6 @@
     <div class="mb-3">
       <%= image_tag(@product.image_principal, size:"75x75") %>
     </div>
-    <div class="">
-      <%= render @product.images_secondaries  %>
-    </div>
 
     <div>
       <hr>
@@ -41,8 +38,11 @@
         <thead class="thead-light">
         </thead>
         <tbody>
-          <%# render @product.image_principal %>
-
+          <tr>
+            <% @product.images_secondaries.each do |img| %>
+              <%= image_tag(img, size:"75x75") %>
+            <% end %>            
+          </tr>
         </tbody>
       </table>
     </div>
