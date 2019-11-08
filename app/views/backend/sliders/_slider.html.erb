@@ -1,5 +1,8 @@
 <tr id='<%= dom_id(slider) %>'>
-  <td><%= slider.name %></td>
+  <td>
+    <%= image_tag(slider.get_image, size:"50x50") %>
+    <%= slider.name %>
+  </td>
   <td class='text-right'>
     <%= link_to 'Ver', backend_slider_path(slider), remote: true, class: 'btn btn-sm btn-outline-info' %>
     <%= link_to 'Editar', edit_backend_slider_path(slider), remote: true, class: 'btn btn-sm btn-outline-warning' %>

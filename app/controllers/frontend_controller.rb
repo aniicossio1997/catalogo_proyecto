@@ -1,3 +1,9 @@
 class FrontendController < ApplicationController
-  def index; end
+  before_action :set_category
+
+  private
+
+  def set_category
+    @categories = Category.all
+  end
 end

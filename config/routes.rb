@@ -1,14 +1,24 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   unauthenticated do
-    root 'frontend/main#index'
+    devise_scope :user do
+      get 'signup', to: 'devise/registrations#new'
+      get 'login', to: 'devise/sessions#new'
+      get 'logout', to: 'devise/sessions#destroy'
+      root 'devise/sessions#new'
+    end
   end
-
   authenticated do
     root 'backend/main#index'
   end
+
+
+  scope module: :frontend do
+    get 'home', to: 'main#home'
+    get 'products', to: 'product#index'
+  end
+
 
   namespace :backend do
     resources :users
@@ -17,5 +27,6 @@ Rails.application.routes.draw do
     resources :sliders
     resources :products
   end
+
 
 end

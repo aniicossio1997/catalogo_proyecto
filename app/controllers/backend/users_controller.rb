@@ -17,12 +17,15 @@ module Backend
     end
 
     def create
-      #byebug
+
       @user = User.new(user_params)
+      @user.set_default_password
       if @user.save
+        byebug
         flash[:notice] = 'Usuario creado'
         redirect_to backend_users_path
       else
+        byebug
         flash.now[:alert] = 'Error al crear usuario'
         render :new
       end
@@ -57,7 +60,7 @@ module Backend
     end
 
     def user_params
-      params.require(:user).permit(:username, :email, :password)
+      params.require(:user).permit(:username, :email)
     end
   end
 end
