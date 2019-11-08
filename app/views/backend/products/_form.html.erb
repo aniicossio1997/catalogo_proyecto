@@ -1,64 +1,85 @@
-<div class="container">
+
 <%= render 'flash_message'%>
 <%= form_with model: [:backend, @product], local: true do |f| %>
-  <div class="row">
-    <div class="col">
-        <%= f.label :name, 'Nombre' %>
-        <%= f.text_field :name, class: 'form-control' %>
-    </div>
-    <div class="col">
-        <%= f.label :code, 'Código' %>
-        <%= f.text_field :code, class: 'form-control' %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <%= f.label :category_id, 'Categoría'%>
-      <%= f.collection_select :category_id, Category.all, :id, :name, {}, class:'form-control' %>
-    </div>
-    <div class="col">
-      <%= f.label :active, 'Activo' %>
-      <%= f.check_box :active %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <%= f.label :tags_ids, 'Tags'%>
-      <%= f.collection_select :tag_ids, Tag.all, :id, :name, {}, class:'form-control', multiple: true %>
 
+<div class="row">
+  <div class="col-8">
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <%= f.label :name, 'Nombre' %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <%= f.label :code, 'Código' %>
+          <%= f.text_field :code, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col">
+        <%= f.label :category_id, 'Categoría'%>
+        <%= f.collection_select :category_id, Category.all, :id, :name, {}, class:'form-control' %>
+      </div>
+      <div class="col">
+        <%= f.label :active, 'Activo' %>
+        <%= f.check_box :active %>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col">
+        <%= f.label :tags_ids, 'Tags'%>
+        <%= f.collection_select :tag_ids, Tag.all, :id, :name, {}, class:'form-control', multiple: true %>
+
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col">
+        <%= f.label :price, 'Precio' %>
+        <%= f.number_field :price, class: 'form-control' %>
+      </div>
+      <div class="col">
+        <%= f.label :cost, 'Costo' %>
+        <%= f.number_field :cost, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col">
+        <%= f.label :description, 'Descripción' %>
+        <%= f.text_area :description, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col">
+        <br>
+      <div class="form-group">
+        <%= f.submit 'Guardar', class: 'btn btn-primary' %>
+        <%= link_to 'Volver', backend_products_path %>
+      </div>
+
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-      <%= f.label :price, 'Precio' %>
-      <%= f.number_field :price, class: 'form-control' %>
-    </div>
-    <div class="col">
-      <%= f.label :cost, 'Costo' %>
-      <%= f.number_field :cost, class: 'form-control' %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <%= f.label :description, 'Descripción' %>
-      <%= f.text_area :description, class: 'form-control' %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div id='imagenes' class="form-group">
-        <%= f.fields_for :product_images do |s| %>
-          <%= render 'product_image_fields', f: s %>
-        <% end %>
-        <div class='links'>
-          <%= link_to_add_association 'add image', f, :product_images %>
+  <div class="col-4">
+    <div class="row form-group">
+      <div class="col">
+        <br>
+        <div id='imagenes' >
+          <div class='links'>
+            <%= link_to_add_association 'add image', f, :product_images ,class: 'btn btn-primary'%>
+          </div>
+          <%= f.fields_for :product_images do |s| %>
+            <%= render 'product_image_fields', f: s  %>
+          <% end %>
+
         </div>
       </div>
     </div>
   </div>
+</div>
 
-    <%= f.submit 'Guardar', class: 'btn btn-primary' %>
-    <%= link_to 'Volver', backend_products_path %>
+
 
 <% end %>
-</div>

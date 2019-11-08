@@ -17,21 +17,23 @@ module Backend
     end
 
     def create
+      #byebug
       @user = User.new(user_params)
       if @user.save
-      flash[:notice] = 'Usuario creado'
-      redirect_to backend_users_path
+        flash[:notice] = 'Usuario creado'
+        redirect_to backend_users_path
       else
         flash.now[:alert] = 'Error al crear usuario'
         render :new
       end
     end
+
     def edit; end
 
     def update
       if @user.update(user_params)
-      flash[:notice] = 'Usuario modificado'
-      redirect_to backend_users_path
+        flash[:notice] = 'Usuario modificado'
+        redirect_to backend_users_path
       else
         flash.now[:alert] = 'Error al modificar usuario'
         render :edit
@@ -42,12 +44,10 @@ module Backend
       if @user != current_user
         @user.destroy
         flash[:notice] = 'Usuario eliminado'
-        redirect_to backend_users_path
       else
-        flash[:notice] = 'No se puede eliminar usted mismo'
-        redirect_to backend_users_path
+        flash[:alert] = 'No se puede eliminar usted mismo'
       end
-
+      redirect_to backend_users_path
     end
 
     private
