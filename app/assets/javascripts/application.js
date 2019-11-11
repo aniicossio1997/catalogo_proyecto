@@ -16,5 +16,5 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
-//= require main
 //= require cocoon
+//= require main

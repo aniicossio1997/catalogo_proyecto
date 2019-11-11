@@ -1,7 +1,5 @@
-
 <%= render 'flash_message'%>
 <%= form_with model: [:backend, @product], local: true do |f| %>
-
 <div class="row">
   <div class="col-8">
     <div class="row">
@@ -32,7 +30,6 @@
       <div class="col">
         <%= f.label :tags_ids, 'Tags'%>
         <%= f.collection_select :tag_ids, Tag.all, :id, :name, {}, class:'form-control', multiple: true %>
-
       </div>
     </div>
     <div class="row form-group">
@@ -54,11 +51,10 @@
     <div class="row form-group">
       <div class="col">
         <br>
-      <div class="form-group">
-        <%= f.submit 'Guardar', class: 'btn btn-primary' %>
-        <%= link_to 'Volver', backend_products_path %>
-      </div>
-
+        <div class="form-group">
+          <%= f.submit 'Guardar', class: 'btn btn-primary' %>
+          <%= link_to 'Volver', backend_products_path %>
+        </div>
       </div>
     </div>
   </div>
@@ -66,20 +62,16 @@
     <div class="row form-group">
       <div class="col">
         <br>
-        <div id='imagenes' >
+        <div id='imagenes' class="card" >
           <div class='links'>
-            <%= link_to_add_association 'add image', f, :product_images ,class: 'btn btn-primary'%>
+            <%= link_to_add_association 'add image', f, :product_images , class: 'btn btn-primary' %>
+            <%= f.fields_for :product_images do |s| %>
+              <%= render 'product_image_fields', f: s  %>
+            <% end %>
           </div>
-          <%= f.fields_for :product_images do |s| %>
-            <%= render 'product_image_fields', f: s  %>
-          <% end %>
-
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
 <% end %>
