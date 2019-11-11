@@ -16,12 +16,13 @@ class ProductsFilter
 
   def call
     products = Product.all
-    # byebug
     products = products.sort_name(@sort) if @sort.present? && sort_valid?
     products = products.with_name(@query) unless @query.blank?
     products = products.with_category(@category_id) unless @category_id.blank?
+
     products
   end
+
   private
 
   def sort_valid?
