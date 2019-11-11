@@ -30,4 +30,5 @@ class ProductDecorator < ApplicationDecorator
           .join
           .html_safe
   end
+  
 end

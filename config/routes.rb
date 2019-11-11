@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
   scope module: :frontend do
     get 'home', to: 'main#home'
-    get 'products', to: 'products#index'
+    resources :products, only: [:index, :show ] 
   end
 
 
