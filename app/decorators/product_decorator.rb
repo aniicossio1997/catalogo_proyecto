@@ -30,5 +30,8 @@ class ProductDecorator < ApplicationDecorator
           .join
           .html_safe
   end
-  
+
+  def pretty_price
+    h.print_badge(h.number_to_currency(object.price)).html_safe
+  end
 end

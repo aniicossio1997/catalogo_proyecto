@@ -1,15 +1,23 @@
 <div class="row">
-<div class="col-6">
-<div class="row">
   <div class="col">
-    <p class="text-secondary">Categoria</p>
-    <%= @product.category_name%>
-  </div>
-  <div class="col">
-  <p class="text-secondary">Precio</p>
-  <%= @product.price%>
+    <p>
+      <%= @product.name%>
+    </p>
   </div>
 </div>
+
+<div class="row">
+<div class="col-8">
+  <div class="row">
+    <div class="col">
+      <p class="text-secondary">Categoria</p>
+      <%= @product.category_name%>
+    </div>
+    <div class="col">
+    <p class="text-secondary">Precio</p>
+    <%= @product.pretty_price%>
+    </div>
+  </div>
 <div class="row">
   <div class="col">
     <p class="text-secondary"> Tags</p>
@@ -20,10 +28,25 @@
 <div class="row">
   <div class="col">
     <p class="text-secondary"> Descripción</p>
+    <%= @product.description%>
   </div>
 </div>
 </div>
-<div class="col-6">
-
+<div class="col-4">
+  <div class="text-center">
+    <%= image_tag(@product.image_principal)%>
+  </div>
+  <br>
+  <div class="container-fluid">
+    <div class="row flex-nowrap" style="overflow:auto">
+      <% @product.images_secondaries.each do |prod| %>
+        <div class="col-2">
+          <div class="card card-block">
+            <%= image_tag(prod, size: "40x40") %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 </div>
