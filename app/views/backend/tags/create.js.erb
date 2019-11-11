@@ -1,4 +1,5 @@
 $('#modal .modal-content').html('');
 $('#tags_container').append('<%= j render 'tag', tag: @tag %>');
-$('#modal').modal('hide');
-$('#flash_messages_container').replaceWith('<%= j render 'flash_message' %>')
+
+$('#flash_messages_container').replaceWith('<%= j render 'flash_message' %>');
+$('#modal').modal('toggle');
