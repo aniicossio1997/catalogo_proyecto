@@ -4,7 +4,9 @@ class ProductPresenter
   end
 
   def products
-    @products ||= filter.call.decorate
+    @products ||= filter.call
+                        .paginate(page: @params[:page], per_page: 10)
+                        .decorate
   end
 
   def filter
