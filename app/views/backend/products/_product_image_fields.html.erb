@@ -1,7 +1,6 @@
 <div class='nested-fields card'>
   <div class='card-body'>
     <div class="form-group">
-        <%= f.label :image, 'Imagen' %>
 
         <% if f.object.image.attached? %>
           <%= f.hidden_field :image, value: f.object.image.signed_id %>
@@ -13,8 +12,7 @@
     <div class="form-group">
       <%= f.label :principal, 'principal' %>
       <%= f.check_box :principal, class: 'js-card-checkbox' %>
-    </div>
-    <div class="form-group">
+      <br>
       <%= link_to_remove_association "remove image", f %>
     </div>
   </div>

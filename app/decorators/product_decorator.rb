@@ -2,8 +2,7 @@ class ProductDecorator < ApplicationDecorator
   delegate_all
 
   def image_principal
-    images_principals = object.product_images.select do |img|  img.principal
-    end
+    images_principals = object.product_images.select(&:principal)
     images_principals.first.get_image
   end
 
@@ -16,8 +15,7 @@ class ProductDecorator < ApplicationDecorator
   end
 
   def images_secondaries
-    images_secondaries = object.product_images.reject do |img| img.principal 
-    end
+    images_secondaries = object.product_images.reject(&:principal)
     images_secondaries.map(&:get_image)
   end
 

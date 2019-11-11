@@ -6,7 +6,9 @@
   <td><%= product.active %></td>
   <td>
     <%= product.price %>
-    <div class='text-right'>
+  </td>
+  <td class='text-right'>
+    <div >
       <%= link_to 'Ver', backend_product_path(product),  class: 'btn btn-sm btn-outline-info' %>
       <%= link_to 'Editar', edit_backend_product_path(product), class: 'btn btn-sm btn-outline-warning' %>
       <%= link_to 'Borrar', backend_product_path(product), method: :delete, data: { confirm: 'Esta seguro?' }, class: 'btn btn-sm btn-outline-danger' %>
