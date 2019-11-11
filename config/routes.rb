@@ -12,11 +12,9 @@ Rails.application.routes.draw do
   authenticated do
     root 'backend/main#index'
   end
-
-
   scope module: :frontend do
     get 'home', to: 'main#home'
-    get 'products', to: 'product#index'
+    get 'products', to: 'products#index'
   end
 
 

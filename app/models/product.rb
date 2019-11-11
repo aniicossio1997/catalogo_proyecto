@@ -25,7 +25,8 @@ class Product < ApplicationRecord
 
   # -- Scopes
   scope :with_name, ->(name) { where('name LIKE ?', "%#{name}%") }
-  
+  scope :with_category, ->(category_id) { where(category_id: category_id) }
+
 
   def only_one_image_checked
     return if product_images.select(&:principal).count == 1
