@@ -1,13 +1,12 @@
 <!-- Button trigger modal -->
-<div class='text-right'>
-  <%= link_to 'Nueva', new_backend_product_path, class: 'btn btn-primary' %>
-</div>
+<br>
 <table class="table table-bordered">
   <thead class="thead-light">
     <tr>
       <th>Productos</th>
       <th>Activo</th>
       <th>Precio</th>
+      <th class="text-right"><%= link_to 'Nueva', new_backend_product_path, class: 'btn btn-primary' %></th>
     </tr>
   </thead>
   <tbody id='products_container'>
