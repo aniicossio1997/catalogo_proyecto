@@ -3,9 +3,6 @@ Rails.application.routes.draw do
 
   unauthenticated do
     devise_scope :user do
-      get 'signup', to: 'devise/registrations#new'
-      get 'login', to: 'devise/sessions#new'
-      get 'logout', to: 'devise/sessions#destroy'
       root 'devise/sessions#new'
     end
   end
@@ -14,7 +11,7 @@ Rails.application.routes.draw do
   end
   scope module: :frontend do
     get 'home', to: 'main#home'
-    resources :products, only: [:index, :show ] 
+    resources :products, only: [:index, :show ]
   end
 
   namespace :backend do

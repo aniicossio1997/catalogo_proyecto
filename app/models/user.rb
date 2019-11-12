@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :username, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
   devise :database_authenticatable, :validatable, password_length: 1..128
   devise :database_authenticatable, authentication_keys: [:username]
   def set_default_password
