@@ -1,60 +1,59 @@
-<h3>Producto #<%= @product.id %></h3>
-
-    <div class="row">
-      <div class="col">
-        <b>Nombre</b><br/>
-        <%= @product.name %>
-      </div>
-      <div class="col">
-        <b>Active</b><br/>
-        <%= @product.active %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <b>Precio</b><br/>
-        <%= @product.pretty_price %>
-      </div>
-      <div class="col">
-        <b>Cost</b><br/>
-        <%= @product.pretty_cost %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <b>Categoria</b><br/>
-        <%= @product.category_name %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <b>Descripción</b><br/>
-        <%= @product.description %>
-      </div>
-    </div>
-
-    <div class="mb-3">
-      <%= image_tag(@product.image_principal, size:"75x75") %>
-    </div>
-
-    <div>
-      <hr>
-      <h4>Images</h4>
-      <table class="table table-bordered">
-        <thead class="thead-light">
-        </thead>
+  <br>
+  <h3>Producto #<%= @product.id %></h3>
+  <div class="row">
+    <div class="col-8">
+      <table class="table table-striped">
         <tbody>
           <tr>
-            <% @product.images_secondaries.each do |img| %>
-              <%= image_tag(img, size:"75x75") %>
-            <% end %>
+            <th scope="row">Nombre</th>
+            <td><%= @product.name%></td>
+          </tr>
+          <tr>
+            <th scope="row">Activo</th>
+            <td><%= @product.active%></td>
+          </tr>
+          <tr>
+            <th scope="row">Categoria</th>
+            <td><%= @product.category_name%></td>
+          </tr>
+          <tr>
+            <th scope="row">precio</th>
+            <td><%= @product.pretty_price%></td>
+          </tr>
+          <tr>
+            <th scope="row">Costo</th>
+            <td><%= @product.pretty_cost%></td>
+          </tr>
+          <tr>
+            <th scope="row">Tags</th>
+            <td><%= @product.tags_name%></td>
+          </tr>
+          <tr>
+            <th scope="row">Descripción</th>
+            <td><%= @product.description%></td>
           </tr>
         </tbody>
       </table>
     </div>
+    <div class="col-4">
+        <b>Imagen principal: </b><br>
+        <%= image_tag(@product.image_principal, size:"150x150") %>
+      <hr>
+      <h4>Images secundarias: </h4>
+      <table class="table table-bordered scrolly">
+        <tbody>
+          <tr>
+            <% @product.images_secondaries.each do |img| %>
+              <%= image_tag(img, size:"100x100") %>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+</div>
+  </div>
+
 
 
   <div class='card-footer'>
     <%= link_to 'Volver', backend_products_path, class: 'btn btn-outline-secondary' %>
   </div>
-</div>
