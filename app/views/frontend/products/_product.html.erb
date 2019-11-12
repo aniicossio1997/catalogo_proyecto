@@ -3,6 +3,10 @@
     <%= image_tag(product.image_principal, class: 'card-img-top', size: "320x200") %>
         <div class="card-body">
           <p class="card-text"><%= product.name %></p>
+          <div class="text-right">
+            <%= product.pretty_price %>
+          </div >
+          <br>
           <%= link_to 'Ver', product_path(product),  class: 'btn btn-primary btn-lg btn-block' %>
         </div>
       </div>
