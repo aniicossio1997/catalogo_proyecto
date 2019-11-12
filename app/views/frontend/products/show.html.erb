@@ -1,11 +1,9 @@
-<div class="row">
-  <div class="col">
-    <p>
-      <%= @product.name%>
-    </p>
-  </div>
+<div class="p-3 mb-2 bg-secondary text-white">
+  <h2>
+    <%= @product.name%>
+  </h2>
 </div>
-
+<div class="container-fluid">
 <div class="row">
 <div class="col-8">
   <div class="row">
@@ -42,11 +40,15 @@
       <% @product.images_secondaries.each do |prod| %>
         <div class="col-2">
           <div class="card card-block">
-            <%= image_tag(prod, size: "40x40") %>
+            <%= image_tag(prod, size: "100x100") %>
           </div>
         </div>
       <% end %>
     </div>
   </div>
 </div>
+</div>
+</div>
+<div class='card-footer'>
+  <%= link_to 'Todos los productos', products_path, class: 'btn btn-outline-secondary' %>
 </div>

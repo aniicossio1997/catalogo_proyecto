@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :tags
     resources :sliders
     resources :products
-    resources :configs, except: [:show, :destroy, :index, :edit] do
+    resources :configs, except: [:show, :destroy, :index,:edit] do
       get 'edit', on: :collection
     end
   end

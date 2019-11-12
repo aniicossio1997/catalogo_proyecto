@@ -1,5 +1,12 @@
 <div class="bg-light border-right" id="sidebar-wrapper">
-  <div class="sidebar-heading">Catálogo </div>
+  <div class="sidebar-heading">
+  <% if !@config.nil? %>
+    <%= image_tag(@config.get_logo, size:'50x50', id: 'js-logo' )%>
+  <% end %>
+  <small  class="form-text text-muted">
+  Catalogo
+  </small>
+  </div>
   <div class="list-group list-group-flush">
 
     <% if user_signed_in? %>

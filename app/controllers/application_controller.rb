@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_config
 
   protected
 
@@ -9,4 +10,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 
+  def set_config
+    @config = Config.instance
+  end
 end

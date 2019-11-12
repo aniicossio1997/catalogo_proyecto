@@ -1,4 +1,6 @@
+
 <%= form_with model: [:backend, @config] do |f| %>
+
   <div class="modal-header">
     <h5 class="modal-title" id="configModalLabel">
       <%= @config.persisted? ? "Update config" : 'New config' %>

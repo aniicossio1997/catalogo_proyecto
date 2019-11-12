@@ -1,22 +1,17 @@
 module Backend
   class ConfigsController < BackendController
-    before_action :set_config, only: [
-      :edit,
-      :update
-    ]
 
     def edit
       render :modal
     end
 
     def new
-      @config = Config.new
+      @config = Config.instance
       render :modal
     end
 
     def create
-      @config = Config.new(config_params)
-      if @config.save
+      if @config.update(config_params)
         flash.now[:notice] = 'Config created'
         redirect_to backend_sliders_path
       else
@@ -37,9 +32,6 @@ module Backend
 
     private
 
-    def set_config
-      @config = Config.last
-    end
 
     def config_params
       params.require(:config).permit(
