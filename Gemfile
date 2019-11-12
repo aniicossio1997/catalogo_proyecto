@@ -75,3 +75,5 @@ gem 'draper'
 gem 'jquery-rails'
 
 gem 'cocoon'
+
+gem 'will_paginate', '~> 3.1.1'

@@ -1,0 +1,4 @@
+$('#modal .modal-content').html('');
+$('#sliders_container').append('<%= j render 'config', config: @config %>');
+$('#modal').modal('hide');
+$('#flash_messages_container').replaceWith('<%= j render 'flash_message' %>')
