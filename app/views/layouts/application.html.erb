@@ -9,7 +9,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column">
+  <div class="" id="page-content">
     <div class="d-flex" id="wrapper">
      <%= render 'sidebar' %>
     <div id="page-content-wrapper">
@@ -20,5 +21,11 @@
        </div>
      </div>
    </div>
+  </div>
+   <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright &copy; Catalogo</small>
+    </div>
+  </footer>
   </body>
 </html>
