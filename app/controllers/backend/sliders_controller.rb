@@ -7,7 +7,7 @@ module Backend
     ]
     def index
       @sliders = Slider.all
-      @config = Config.last
+      @config = Config.last 
     end
 
     def new
