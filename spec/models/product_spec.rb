@@ -22,6 +22,7 @@ RSpec.describe Product, type: :model do
     it { should validate_presence_of(:cost) }
     it { should validate_presence_of(:active) }
     it { should validate_presence_of(:code) }
+    it { should validate_presence_of(:category_id)}
   end
 
 end
