@@ -18,5 +18,7 @@ module Catalogo
     config.generators do |generator|
       generator.test_framework :rspec
     end
+
+    config.i18n.default_locale = :es
   end
 end

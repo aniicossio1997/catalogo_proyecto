@@ -1,0 +1,5 @@
+es:
+  activerecord:
+    errors:
+      buy:
+        error_profile: El perfil de usuario solo debe ser cliente

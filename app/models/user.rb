@@ -10,4 +10,5 @@ class User < ApplicationRecord
   def set_default_password
     self.password = username
   end
+  belongs_to :profile
 end
