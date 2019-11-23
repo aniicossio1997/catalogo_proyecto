@@ -25,18 +25,18 @@ module Backend
     def create
       @category = Category.new(category_params)
       if @category.save
-        flash.now[:notice] = 'Categoría creada'
+        flash.now[:notice] = '#Usar i18n'
       else
-        flash.now[:alert] = 'Error creando categoría'
+        flash.now[:alert] = '#Usar i18n'
         render :modal
       end
     end
 
     def update
       if @category.update(category_params)
-        flash.now[:notice] = 'Categoría modificada'
+        flash.now[:notice] = '#Usar i18n'
       else
-        flash.now[:alert] = 'Error modificando categoría'
+        flash.now[:alert] = '#Usar i18n'
         render :modal
       end
     end

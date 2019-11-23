@@ -3,3 +3,4 @@
   admin = Profile.create(kind: 'admin')
   User.create(username: 'cliente', email: 'cliente@cliente.com', password: 'cliente', profile: client)
   User.create(username: 'master', email: 'master@master.com', password: 'master', profile: admin)
+  Config.create(per_page: 3)

@@ -21,25 +21,25 @@ module Backend
     def create
       @tag = Tag.new(tag_params)
       if @tag.save
-        flash.now[:notice] = 'Tag creado'
+        flash.now[:notice] = '#Usar i18n'
       else
-        flash.now[:alert] = 'Error creando tag'
+        flash.now[:alert] = '#Usar i18n'
         render :modal
       end
     end
 
     def update
       if @tag.update(tag_params)
-        flash.now[:notice] = 'Tag modificado'
+        flash.now[:notice] = '#Usar i18n'
       else
-        flash.now[:alert] = 'Error modificando tag'
+        flash.now[:alert] = '#Usar i18n'
         render :modal
       end
     end
 
     def destroy
       @tag.destroy
-      flash.now[:notice] = 'Tag eliminado'
+      flash.now[:notice] = '#Usar i18n'
     end
 
     private

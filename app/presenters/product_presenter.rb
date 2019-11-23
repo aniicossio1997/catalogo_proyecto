@@ -7,7 +7,7 @@ class ProductPresenter
     @products ||= filter.call
                         .paginate(
                           page: @params[:page],
-                          per_page: Config.instance.per_page)
+                          per_page: Config.first.per_page)
                         .decorate
   end
 

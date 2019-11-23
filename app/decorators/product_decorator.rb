@@ -3,20 +3,16 @@ class ProductDecorator < ApplicationDecorator
 
   def image_principal
     images_principals = object.product_images.select(&:principal)
-    images_principals.first.get_image
+    images_principals.first.image_attached
   end
 
   def errores
-    message = ''
-    object.errors.messages.each do |key, value|
-      message += "· El campo #{key}, #{value[0]}"
-    end
-    message
+    object.errors.full_messages.join("\n").html_safe
   end
 
   def images_secondaries
-    images_secondaries = object.product_images.reject(&:principal)
-    images_secondaries.map(&:get_image)
+    images_secondaries = object.product_images.principals
+    images_secondaries.map(&:image_attached)
   end
 
   def category_name

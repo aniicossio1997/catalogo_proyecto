@@ -9,7 +9,7 @@ class Product < ApplicationRecord
 
   # -- Validations
   validates :name, presence: true, uniqueness: true
-  validates :description, presence: true, uniqueness: true
+  validates :description, presence: true
   validates :code, presence: true, uniqueness: true
   validates :category, presence: true
   validates :price,
@@ -33,6 +33,6 @@ class Product < ApplicationRecord
   def only_one_image_checked
     return if product_images.select(&:principal).count == 1
 
-    errors.add(:product_images, 'Solo puede haber una única imagen principal')
+    errors.add(:product_images, '') #Usar i18n
   end
 end

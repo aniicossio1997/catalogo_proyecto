@@ -6,26 +6,26 @@ module Backend
     end
 
     def new
-      @config = Config.instance
+      @config = Config.first
       render :modal
     end
 
     def create
       if @config.update(config_params)
-        flash.now[:notice] = 'Config created'
+        flash.now[:notice] = '#Usar i18n'
         redirect_to backend_sliders_path
       else
-        flash.now[:alert] = 'Error creando configuración'
+        flash.now[:alert] = '#Usar i18n'
         render :modal
       end
     end
 
     def update
       if @config.update(config_params)
-        flash.now[:notice] = 'Config updated'
+        flash.now[:notice] = '#Usar i18n'
         redirect_to backend_sliders_path
       else
-        flash.now[:alert] = 'Error updating config'
+        flash.now[:alert] = '#Usar i18n'
         render :modal
       end
     end

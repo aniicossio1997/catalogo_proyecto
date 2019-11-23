@@ -1,13 +1,9 @@
-#
 module Backend
-
   class UsersController < BackendController
-    before_action :set_user, only: [
-      :edit,
-      :update,
-      :destroy
-
-    ]
+    before_action :set_user, only: [  :edit,
+                                      :update,
+                                      :destroy
+                                   ]
     def index
       @users = User.all
     end
@@ -17,14 +13,13 @@ module Backend
     end
 
     def create
-
       @user = User.new(user_params)
       @user.set_default_password
       if @user.save
-        flash[:notice] = 'Usuario creado'
+        flash[:notice] = '#Usar i18n'
         redirect_to backend_users_path
       else
-        flash.now[:alert] = 'Error al crear usuario'
+        flash.now[:alert] = '#Usar i18n'
         render :new
       end
     end
@@ -33,10 +28,10 @@ module Backend
 
     def update
       if @user.update(user_params)
-        flash[:notice] = 'Usuario modificado'
+        flash[:notice] = '#Usar i18n'
         redirect_to backend_users_path
       else
-        flash.now[:alert] = 'Error al modificar usuario'
+        flash.now[:alert] = '#Usar i18n'
         render :edit
       end
     end
@@ -44,9 +39,9 @@ module Backend
     def destroy
       if @user != current_user
         @user.destroy
-        flash[:notice] = 'Usuario eliminado'
+        flash[:notice] = '#Usar i18n'
       else
-        flash[:alert] = 'No se puede eliminar usted mismo'
+        flash[:alert] = '#Usar i18n'
       end
       redirect_to backend_users_path
     end

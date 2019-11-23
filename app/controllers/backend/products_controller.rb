@@ -22,7 +22,7 @@ module Backend
     def create
       @product = Product.new(product_params)
       if @product.save
-        flash.now[:notice] = 'Producto creado'
+        flash.now[:notice] = '#Usar i18n'
         redirect_to backend_products_path
       else
         flash.now[:alert] = @product.decorate.errores
@@ -32,17 +32,17 @@ module Backend
 
     def update
       if @product.update(product_params)
-        flash.now[:notice] = 'Producto modificada'
+        flash.now[:notice] = '#Usar i18n'
         redirect_to backend_products_path
       else
-        flash.now[:alert] = 'Error modificando producto'
+        flash.now[:alert] = '#Usar i18n'
         render :edit
       end
     end
 
     def destroy
       @product.destroy
-      flash[:notice] = 'Producto eliminado'
+      flash[:notice] = '#Usar i18n'
       redirect_to backend_products_path
     end
 
