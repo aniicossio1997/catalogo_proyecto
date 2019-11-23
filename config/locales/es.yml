@@ -1,5 +1,3 @@
 es:
-  activerecord:
-    errors:
-      buy:
-        error_profile: El perfil de usuario solo debe ser cliente
+  category_created_without_errors: La categoría creada correctamente
+  category_creation_error: La categoría no pudo ser creada por un error

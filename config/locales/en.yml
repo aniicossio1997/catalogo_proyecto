@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    categories:
+      create:
+        success:
+          category_created_without_errors: La categoría creada correctamente
+        errors:
+          category_creation_error: Category created with

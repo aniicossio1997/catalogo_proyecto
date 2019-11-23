@@ -25,9 +25,9 @@ module Backend
     def create
       @category = Category.new(category_params)
       if @category.save
-        flash.now[:notice] = '#Usar i18n'
+        flash.now[:notice] = t(:category_created_without_errors)
       else
-        flash.now[:alert] = '#Usar i18n'
+        flash.now[:alert] = t(:category_creation_error)
         render :modal
       end
     end
