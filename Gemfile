@@ -92,4 +92,4 @@ gem 'cancancan'
 
 gem 'i18n'
 
-<%= t('hello') %>
+#<%t('hello') %>
