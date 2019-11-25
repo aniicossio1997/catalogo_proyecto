@@ -1,20 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  unauthenticated do
-    devise_scope :user do
-      root 'devise/sessions#new'
-    end
-  end
-  authenticated do
-    root 'backend/main#index'
-  end
+  root to: 'frontend/main#home'
+
   scope module: :frontend do
-    get 'home', to: 'main#home'
     resources :products, only: [:index, :show ]
   end
 
   namespace :backend do
+    root 'main#index'
     resources :users
     resources :categories
     resources :tags

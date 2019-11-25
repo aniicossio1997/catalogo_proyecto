@@ -1,12 +1,11 @@
 module Backend
   class ConfigsController < BackendController
-
+    before_action :set_config
     def edit
       render :modal
     end
 
     def new
-      @config = Config.first
       render :modal
     end
 
@@ -32,6 +31,9 @@ module Backend
 
     private
 
+    def set_config
+      @config = Config.first
+    end
 
     def config_params
       params.require(:config).permit(
