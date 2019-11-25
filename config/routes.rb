@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-
   root to: 'frontend/main#home'
-
   scope module: :frontend do
     resources :products, only: [:index, :show ]
   end
-
   namespace :backend do
     root 'main#index'
     resources :users
