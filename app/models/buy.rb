@@ -1,15 +1,15 @@
 class Buy < ApplicationRecord
   # -- Relations
-  belongs_to :profile
+  belongs_to :user
   has_many :items
 
-  enum state: [:pending, :accepted, :rejected], default: :pending
+  enum state: [:pending, :accepted, :rejected]
 
   # -- Validations
-  validate profile_client
+  validate :profile_client
 
   def profile_client
-    return if Profile.find(profile_id).client?
-    errors.add(:profile_id, t('error_profile'))
+    return if User.find(user_id).client?
+    errors.add(:user_id, t('error_profile'))
   end
 end

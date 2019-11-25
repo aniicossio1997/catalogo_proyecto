@@ -35,10 +35,10 @@ ActiveRecord::Schema.define(version: 2019_11_23_152614) do
 
   create_table "buys", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "state"
-    t.bigint "profile_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["profile_id"], name: "index_buys_on_profile_id"
+    t.index ["user_id"], name: "index_buys_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
