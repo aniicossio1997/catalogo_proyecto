@@ -1,5 +1,6 @@
-
-  <%= image_tag(@config.logo, size:'100x100', id: 'js-logo' )%>
+<% if !@config.nil? %>
+  <%= image_tag(@config.logo_attached, size:'100x100', id: 'js-logo' )%>
+<% end %>
   <%= link_to 'Edit config', new_backend_config_path, remote: true, class: 'btn btn-info' %>
 
 
