@@ -1,13 +1,19 @@
 # frozen_string_literal: true
 class Ability
   include CanCan::Ability
-
+  
   def initialize(user)
-    user ||= User.new # guest user (not logged in)
-    #visit
-    if user.profile_id? == false
-      cannot :manage, :all
-    
+    case user.profile.kind
+      when 'admin'
+        can :manage, :all
+      when 'client' # or whatever role you assigned to a normal logged in user
+        can :read, Category
+        can :read, Product
+        can :manage, Buy
+        can [:my_sales], Cart
+    end
+  end
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
@@ -35,4 +41,4 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
   end
-end
+

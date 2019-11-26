@@ -4,6 +4,7 @@ module Backend
                                       :update,
                                       :destroy
                                    ]
+    authorize_resource
     def index
       @users = User.all
     end

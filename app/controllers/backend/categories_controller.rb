@@ -1,6 +1,6 @@
 module Backend
   class CategoriesController < BackendController
-
+    authorize_resource
     before_action :set_category, only: [
       :show,
       :edit,

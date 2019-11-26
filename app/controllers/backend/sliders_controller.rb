@@ -5,6 +5,7 @@ module Backend
       :update,
       :destroy
     ]
+    authorize_resource
     def index
       @sliders = Slider.all
       @config = Config.last 
