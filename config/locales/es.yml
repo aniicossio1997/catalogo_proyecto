@@ -1,6 +1,12 @@
 es:
   category_created_without_errors: La categoría creada correctamente
   category_creation_error: La categoría no pudo ser creada por un error
-
-  errors:
-    missing: 'Todo mal'
+  profile:
+    error:
+      wrong_profile: el perfil de este usuario es incorrecto
+  devise:
+    forms:
+      edit:
+        passwords:
+          leave_blank: Dejar en blanco si no se quiere cambiar
+          minimum_characters: 'caractrer/es como mínimo'

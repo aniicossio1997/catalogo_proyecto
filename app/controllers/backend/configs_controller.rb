@@ -1,6 +1,7 @@
 module Backend
   class ConfigsController < BackendController
     before_action :set_config
+    authorize_resource
     def edit
       render :modal
     end

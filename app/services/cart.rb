@@ -4,6 +4,10 @@ class Cart
   end
 
   def add_product(product, count=0)
-    @products
+    @products << {product: product, count: count}
+  end
+
+  def remove_product(product)
+    @products.select { |prod| prod[:product].id == product.id }
   end
 end

@@ -5,6 +5,7 @@ module Backend
       :update,
       :destroy
     ]
+    authorize_resource
     def index
       @tags = Tag.all
     end
