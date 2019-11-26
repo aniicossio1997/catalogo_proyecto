@@ -3,12 +3,15 @@
     <%= image_tag(product.image_principal, class: 'card-img-top', size: "300x180") %>
         <div class="card-body">
           <p class="card-text"><%= product.name %></p>
-          <div class="text-left">
-            <%= link_to image_tag("cart2.png", size: "25x25", border: 0) ,:class => "button_with_image_save" %>
+          <div class="row">
+            <div class="col-sm text-left">
+              <button >
+              <%= link_to image_tag("cart2.png", size: "25x25", border: 0), class: "button_with_image_save" %>
+            </div>
+            <div class="col-sm text-right">
+              <%= product.pretty_price %>
+            </div >
           </div>
-          <div class="text-right">
-            <%= product.pretty_price %>
-          </div >
           <br>
           <%= link_to 'Ver', product_path(product),  class: 'btn btn-primary btn-lg btn-block' %>
         </div>
