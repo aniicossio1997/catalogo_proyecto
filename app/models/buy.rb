@@ -9,7 +9,8 @@ class Buy < ApplicationRecord
   validate :profile_client
 
   def profile_client
-    return if User.find(user_id).client?
-    errors.add(:user_id, t('error_profile'))
+    user = User.find(user_id)
+    return if user.profile.client?
+    errors.add(:user_id, t('profile.error.wrong_profile'))
   end
 end
