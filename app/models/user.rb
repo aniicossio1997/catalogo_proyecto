@@ -11,4 +11,5 @@ class User < ApplicationRecord
     self.password = username
   end
   belongs_to :profile
+  has_many :buys
 end

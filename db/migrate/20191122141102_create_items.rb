@@ -4,6 +4,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.decimal :price
       t.integer :count
       t.references :product, index: true
+      t.references :buy, index: true
       t.timestamps
     end
   end

@@ -56,8 +56,12 @@ ActiveRecord::Schema.define(version: 2019_11_23_152614) do
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.decimal "price", precision: 10
     t.integer "count"
+    t.bigint "product_id"
+    t.bigint "buy_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["buy_id"], name: "index_items_on_buy_id"
+    t.index ["product_id"], name: "index_items_on_product_id"
   end
 
   create_table "product_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
