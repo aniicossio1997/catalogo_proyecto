@@ -11,6 +11,7 @@ class Buy < ApplicationRecord
   def profile_client
     user = User.find(user_id)
     return if user.profile.client?
+    
     errors.add(:user_id, t('profile.error.wrong_profile'))
   end
 end
