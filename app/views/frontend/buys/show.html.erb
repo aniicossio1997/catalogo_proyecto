@@ -1,6 +1,8 @@
-  <br>
   <h3>Compra #<%= @buy.id %></h3>
-  <div class="row">
+ <div class="row">
+    <div class="col-8">
+    <table>
+    <tbody>
     <tr>
         <th scope="row">Fecha</th>
         <td><%= @buy.created_at %></td>
@@ -9,8 +11,11 @@
         <th scope="row">Estado</th>
         <td> <%= @buy.state %> </td>
      </tr>
+       </tbody>
+      </table>
+    </div> 
  </div> 
-
+  <br>
   <div class="row">
     <div class="col-8">
       <table class="table table-striped">
@@ -29,14 +34,13 @@
           </tr>
           <tr>
             <th scope="row">Subtotal</th>
-            <td><%=  @buy.items.total_price  %></td>
+            <td><%= @buy.total_buy %></td>
           </tr>
         </tbody>
       </table>
     </div>
-    
   </div>
 
   <div class='card-footer'>
-    <%= link_to 'Volver',  backend_root_path, class: 'btn btn-outline-secondary' %>
+    <%= link_to 'Volver', root_path, class: 'btn btn-outline-secondary' %>
   </div>
