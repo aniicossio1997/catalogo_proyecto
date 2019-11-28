@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'frontend/main#home'
 
   scope module: :frontend do
+    
     resources :products, only: [:index, :show ]
     resources :buys, only: [:index, :show]
   end
