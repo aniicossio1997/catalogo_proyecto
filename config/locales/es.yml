@@ -1,4 +1,7 @@
 es:
+  unauthorized:
+    manage:
+      all: "No está autorizado para acceder a este sitio."
   category_created_without_errors: La categoría creada correctamente
   category_creation_error: La categoría no pudo ser creada por un error
   profile:

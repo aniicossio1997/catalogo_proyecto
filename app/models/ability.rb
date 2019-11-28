@@ -1,16 +1,20 @@
 # frozen_string_literal: true
 class Ability
   include CanCan::Ability
-  
+
   def initialize(user)
     case user.profile.kind
       when 'admin'
-        can :manage, :all
+        can :manage, Product
+        can :manage, Category
+        can :manage, Item
+        can :manage, Tag
+        can :manage, User
+        can :manage, Config
+        can :manage, User
+        can :manage, Slider
       when 'client' # or whatever role you assigned to a normal logged in user
-        can :read, Category
-        can :read, Product
         can :manage, Buy
-        can [:my_sales], Cart
     end
   end
 
@@ -41,4 +45,3 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
   end
-

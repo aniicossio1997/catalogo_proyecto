@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   scope module: :frontend do
     resources :products, only: [:index, :show ]
+    get 'edit', to: 'client#edit'
+    #resources :client, only: [:edit]
   end
 
   namespace :backend do

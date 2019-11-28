@@ -10,6 +10,14 @@ class User < ApplicationRecord
   def set_default_password
     self.password = username
   end
+
+  def set_profile_admin
+    self.profile = Profile.find_by(kind: 'admin')
+  end
+
+  def set_profile_client
+    self.profile = Profile.find_by(kind: 'client')
+  end
   belongs_to :profile
   has_many :buys
 end

@@ -16,6 +16,7 @@ module Backend
     def create
       @user = User.new(user_params)
       @user.set_default_password
+      @user.set_profile_admin
       if @user.save
         flash[:notice] = '#Usar i18n'
         redirect_to backend_users_path
