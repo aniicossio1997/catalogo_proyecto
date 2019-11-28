@@ -1,19 +1,22 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  before_action :set_profile_client, only: [:create]
   # GET /resource/sign_up
   # def new
   #   super
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  #def create
+  #  super
+  #end
+
+  def build_resource(sign_up_params)
+    super(sign_up_params)
+    resource.profile = Profile.client.take
+  end
 
   # GET /resource/edit
   # def edit
@@ -62,10 +65,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
   protected
 
-  def set_profile_client
-    byebug
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-    
-    resource.set_profile_client
+
+  def after_update_path_for(resource)
+    resource.profile.admin? ? backend_root_path : root_path
   end
 end

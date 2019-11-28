@@ -3,8 +3,8 @@ class Cart
     @products = []
   end
 
-  def add_product(product, count=0)
-    @products << {product: product, count: count}
+  def add_product(product, count = 0)
+    @products << { product: product, count: count }
   end
 
   def remove_product(product)

@@ -6,7 +6,7 @@ module Backend
                                    ]
     authorize_resource
     def index
-      @users = User.all
+      @users = User.admins
     end
 
     def new

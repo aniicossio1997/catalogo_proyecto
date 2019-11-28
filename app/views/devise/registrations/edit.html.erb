@@ -1,5 +1,5 @@
-
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container"> 
+<h3>Edit <%= resource_name.to_s.humanize %></h3>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -39,8 +39,11 @@
   <div class='card-footer'>
     <%= f.submit "Update" , class:'btn btn-primary' %>
 
-  
+    <% if current_user.profile.admin?%>
     <%= link_to 'Volver', backend_users_path, class: 'btn btn-outline-secondary' %>
+    <% else %>
+    <%= link_to 'Volver', root_path, class: 'btn btn-outline-secondary'%>
+    <% end %>
   </div>
 <% end %>
-
+</div>

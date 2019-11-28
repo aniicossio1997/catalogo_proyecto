@@ -19,9 +19,11 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    added_attrs = [:username, :email, :password, :password_confirmation, :remember_me]
-    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
-    devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+    # added_attrs = [:username, :email, :password, :password_confirmation, :remember_me]
+    # devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+    # devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :email])
   end
 
   def set_category
@@ -31,4 +33,6 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     resource.profile.admin? ? backend_root_path : root_path
   end
+
+
 end
