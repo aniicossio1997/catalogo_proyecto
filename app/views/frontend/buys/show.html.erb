@@ -1,0 +1,42 @@
+  <br>
+  <h3>Compra #<%= @buy.id %></h3>
+  <div class="row">
+    <tr>
+        <th scope="row">Fecha</th>
+        <td><%= @buy.created_at %></td>
+    </tr>
+    <tr>
+        <th scope="row">Estado</th>
+        <td> <%= @buy.state %> </td>
+     </tr>
+ </div> 
+
+  <div class="row">
+    <div class="col-8">
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <th scope="row">Producto</th>
+            <td><%=  @buy.product_index %></td>
+          </tr>
+          <tr>
+            <th scope="row">Precio</th>
+            <td><%= @buy.item_price %></td>
+          </tr>
+          <tr>
+            <th scope="row">Cantidad</th>
+            <td><%= @buy.item_count %></td>
+          </tr>
+          <tr>
+            <th scope="row">Subtotal</th>
+            <td><%=  @buy.items.total_price  %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+
+  <div class='card-footer'>
+    <%= link_to 'Volver',  backend_root_path, class: 'btn btn-outline-secondary' %>
+  </div>

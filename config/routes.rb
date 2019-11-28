@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   scope module: :frontend do
     root to: 'main#home'
     resources :products, only: [:index, :show ]
+    resources :buys, only: [:index, :show]
+
   end
 
   namespace :backend do
