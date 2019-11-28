@@ -21,5 +21,10 @@ module Catalogo
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
     config.i18n.available_locales = [:en, :es]
     config.i18n.default_locale = :es
+    config.to_prepare do
+      # Configure single controller layout
+      Devise::SessionsController.layout 'frontend'
+      Devise::RegistrationsController.layout 'backend'
+    end
   end
 end

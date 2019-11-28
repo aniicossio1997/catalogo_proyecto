@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Users::root_path < Devise::root_path
+  layout :backend
+
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
