@@ -1,0 +1,19 @@
+<!--<tr id='<%= dom_id(buy) %>'>-->
+  <td><%= buy.id %>
+  <td><%= buy.state %>
+  </td>
+  <td>
+    <%= buy.items_count %>
+  </td>
+  <td>
+    <%= buy.total_buy %>
+  </td>
+  <td>
+    <%= buy.created_at %>
+  </td>
+  <td class='text-right'>
+    <div >
+      <%= link_to 'Ver', buy_path(buy),  class: 'btn btn-sm btn-outline-info' %>
+    </div>
+  </td>
+</tr>

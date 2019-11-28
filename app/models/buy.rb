@@ -14,4 +14,17 @@ class Buy < ApplicationRecord
     
     errors.add(:user_id, t('profile.error.wrong_profile'))
   end
+    
+  def total_buy
+    items.sum(&:total_price)
+  end
+  def item_count
+     items.sum(&:count)
+  end
+  def product_index
+     items.sum(&:product_id)
+  end
+  def item_price
+    items.sum(&:price)
+  end 
 end
