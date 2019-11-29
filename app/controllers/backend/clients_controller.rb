@@ -9,8 +9,17 @@ module Backend
       @clients = User.clients
     end
 
+    def show; end
+
     def destroy
       @client.destroy
+      if @client.errors.present?
+        flash[:alert] = @client.errors[:base].to_s
+      else
+        flash[:notice]= "Se elimino exitosamente"
+      end
+      #Usar i18n
+      redirect_to backend_clients_path
     end
 
     private

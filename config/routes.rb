@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :tags
     resources :sliders
     resources :products
-    resources :clients, only: %i[index destroy]
+    resources :clients, only: %i[index destroy show]
     resources :configs, except: %i[show destroy index edit] do
       get 'edit', on: :collection
     end
