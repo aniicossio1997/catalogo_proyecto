@@ -21,19 +21,20 @@
       </div>
       <div class="col">
         <div class="row">
-        <div class="col">
-        cantidad final: 
-        </div>
+          <div class="col">
+           cantidad final: 
+          </div>
         <div class="col">
           <%= @buy.item_count%>
         </div>
-        </div>
       </div>
-      <div class="col">
+    </div>
+    <div class="col">
       <h4><%= @buy.pretty_price_total%></h4>
-      </div>
+    </div>
   </div>
-</div>
+ </div>
+</div>  
 <div class='card-footer'>
     <%= link_to 'Volver', buys_path, class: 'btn btn-outline-secondary' %>
 </div>
