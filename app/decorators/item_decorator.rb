@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BuyDecorator < ApplicationDecorator
   delegate_all
 

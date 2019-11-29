@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -19,7 +21,7 @@ module Catalogo
       generator.test_framework :rspec
     end
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
-    config.i18n.available_locales = [:en, :es]
+    config.i18n.available_locales = %i[en es]
     config.i18n.default_locale = :es
     config.to_prepare do
       # Configure single controller layout

@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 module Backend
   class CategoriesController < BackendController
     authorize_resource
-    before_action :set_category, only: [
-      :show,
-      :edit,
-      :update,
-      :destroy
+    before_action :set_category, only: %i[
+      show
+      edit
+      update
+      destroy
     ]
     def index
       @categories = Category.all

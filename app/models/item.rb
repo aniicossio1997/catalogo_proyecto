@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Item < ApplicationRecord
   # -- Relations
   belongs_to :product
@@ -6,5 +8,4 @@ class Item < ApplicationRecord
   def subtotal
     price * count
   end
-
 end

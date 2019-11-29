@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :return_config
   before_action :set_category
+  before_action :set_cart
   def current_ability
     @current_ability ||= Ability.new(current_user)
   end
@@ -22,8 +25,8 @@ class ApplicationController < ActionController::Base
     # added_attrs = [:username, :email, :password, :password_confirmation, :remember_me]
     # devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     # devise_parameter_sanitizer.permit :account_update, keys: added_attrs
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:username, :email])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[username email])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[username email])
   end
 
   def set_category
@@ -34,5 +37,7 @@ class ApplicationController < ActionController::Base
     resource.profile.admin? ? backend_root_path : root_path
   end
 
-
+  def set_cart
+    @cart = session[:cart] = []
+  end
 end

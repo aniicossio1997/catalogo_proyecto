@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -11,7 +13,7 @@ class User < ApplicationRecord
   #--Scope
   scope :clients, -> { where(profile: Profile.find_by(kind: 'client')) }
   scope :admins, -> { where(profile: Profile.find_by(kind: 'admin')) }
-  
+
   def set_default_password
     self.password = username
   end
@@ -28,6 +30,6 @@ class User < ApplicationRecord
     byebug
     return if buys.count <= 0
 
-    errors.add(:buys, 'No se puede eliminar clientes con compras ') #Usar i18n
+    errors.add(:buys, 'No se puede eliminar clientes con compras ') # Usar i18n
   end
 end
