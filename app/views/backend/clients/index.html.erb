@@ -1,1 +1,14 @@
-<h1>Estas en index del cliente :v  </h1>
+<h3><%= t('index_client')%></h3>
+<%= render 'flash_message' %>
+<table class="table table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th>Nombre</th>
+      <th>Email</th>
+      <th>Options</th>
+     </tr>
+  </thead>
+  <tbody>
+    <%= render partial: 'client', collection: @clients, as: :client %>
+  </tbody>
+</table>

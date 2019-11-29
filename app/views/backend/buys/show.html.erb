@@ -1,0 +1,39 @@
+<br>
+<div class= "container-fluid"> 
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+     
+      <th scope="col">Producto</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+   <%= render @buy.items %>
+  </tbody>
+</table>
+  <div class="p-3 mb-2 bg-secondary text-white">
+    <div class="row">
+      <div class="col">
+      TOTAL
+      </div>
+      <div class="col">
+        <div class="row">
+        <div class="col">
+        cantidad final: 
+        </div>
+        <div class="col">
+          <%= @buy.item_count%>
+        </div>
+        </div>
+      </div>
+      <div class="col">
+      <h4><%= @buy.pretty_price_total%></h4>
+      </div>
+  </div>
+</div>
+  <div class='card-footer'>
+    <%= link_to 'Volver', backend_buys_path, class: 'btn btn-outline-secondary' %>
+  </div>

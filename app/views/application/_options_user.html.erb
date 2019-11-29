@@ -10,7 +10,7 @@
     <%= link_to 'Editar perfil', edit_user_registration_path, {method: :get, class: 'nav-link dropdown-item'} %>
     <% if can? :manage, Buy %>
   <!-- role checkboxes go here -->
-      <%= link_to 'Mis Compras',root_path,{method: :get, class: 'nav-link dropdown-item'} %>
+      <%= link_to 'Mis Compras',buys_path,{method: :get, class: 'nav-link dropdown-item'} %>
 
     <% end %>
     <div class="dropdown-divider"></div>

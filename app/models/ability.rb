@@ -13,10 +13,9 @@ class Ability
         can :manage, Config
         can :manage, User
         can :manage, Slider
-        
       when 'client' # or whatever role you assigned to a normal logged in user
         can :manage, Buy
-        can :manage, User, :id => user.id
+        #can :manage, User, id => user.id
     end
   end
 
@@ -46,4 +45,4 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
-  end
+end

@@ -15,7 +15,7 @@
   5.times do |i|
     p = Product.new(name: "Product ##{i}",
                     description: 'A product.',
-                    price: 278,
+                    price: 250,
                     cost: 200,
                     active: true,
                     code: i,
@@ -28,6 +28,13 @@
   Buy.create(state: 'pending', user: User.first)
   Buy.create(state: 'accepted', user: User.first)
   Buy.create(state: 'rejected', user: User.first)
-
+  #pending
   Item.create(product: Product.first, price: Product.first.price,count: 3, buy: Buy.first)
+  #rejected
   Item.create(product: Product.last, price: Product.last.price,count: 2, buy: Buy.last)
+  Item.create(product: Product.find(3), price: Product.find(3).price,count: 2, buy: Buy.last)
+  Item.create(product: Product.last, price: Product.last.price,count: 2, buy:  Buy.last)
+  #accepted
+  Item.create(product: Product.last, price: Product.last.price,count: 2, buy:  Buy.find(2))
+  Item.create(product: Product.last, price: Product.last.price,count: 2, buy:  Buy.find(2))
+  Item.create(product: Product.find(2), price: Product.find(2).price,count: 3, buy:  Buy.find(2))
