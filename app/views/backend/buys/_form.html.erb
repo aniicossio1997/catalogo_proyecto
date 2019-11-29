@@ -1,0 +1,5 @@
+<%= form_with model: [:backend, @buy,:change_state_accept] do |f| %>
+  
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+    <%= f.submit 'Guardar', class: 'btn btn-primary' %>
+<% end %>

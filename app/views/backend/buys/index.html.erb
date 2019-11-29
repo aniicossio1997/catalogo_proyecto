@@ -1,0 +1,16 @@
+<h3>Lista de Compras </h3>
+<%= render 'flash_message' %>
+<table class="table table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th>#</th>
+      <th>Cliente</th>
+      <th>Estado</th>
+      <th>Total</th>
+      <th>Fecha</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @buys %>
+  </tbody>
+</table>

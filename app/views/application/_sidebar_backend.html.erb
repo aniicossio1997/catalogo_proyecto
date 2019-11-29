@@ -8,6 +8,7 @@
   <div class="list-group list-group-flush">
 
     <% if user_signed_in? %>
+    <%= link_to 'Compras', backend_buys_path,{method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
     <%= link_to 'Clientes', backend_clients_path,{method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
     <%= link_to 'Usuarios', backend_users_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
     <%= link_to 'Productos', backend_products_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
