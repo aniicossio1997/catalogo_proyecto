@@ -1,11 +1,17 @@
 module Frontend
   class BuysController < FrontendController
+       
     def index
       @buys = current_user.buys
     end
 
     def show
-      @buy = Buy.find(params[:id])
+      @buy = Buy.find(params[:id]).decorate
+    end
+    
+    private
+    def buy_params
+      params.require(:buy).permit(:id)
     end
   end
 end
