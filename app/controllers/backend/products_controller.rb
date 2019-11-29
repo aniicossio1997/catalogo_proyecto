@@ -6,7 +6,7 @@ module Backend
       :update,
       :destroy
     ]
-    authorize_resource
+
     def index
       @presenter = ProductPresenter.new(params)
     end

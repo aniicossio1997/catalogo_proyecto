@@ -30,7 +30,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  welcome: 'Wellcome'
   hello: "Hello world"
+  index_client: 'Clients list'
+  index_user: Users list
+  rejected: Rechazado
+  accepted: Aceptado
+  pending: Pendiente
   unauthorized:
     manage:
       all: "Not authorized to %{action} %{subject}."

@@ -1,4 +1,13 @@
 es:
+  welcome: 'Bienvenido'
+  index_client: 'Clientes'
+  index_user: Administradores
+  change_buy_accepted: Se ha aceptado la compra exitosamente!
+  error_buy_change: Lo sentimos, la acción no se ha guardado
+  change_buy_rejected: Se ha rechazado la compra exitosamente!
+  rejected: Rechazado
+  accepted: Aceptado
+  pending: Pendiente
   unauthorized:
     manage:
       all: "No está autorizado para acceder a este sitio."

@@ -15,7 +15,7 @@ class Ability
         can :manage, Slider
       when 'client' # or whatever role you assigned to a normal logged in user
         can :manage, Buy
-        can :manage, User, id => user.id
+        #can :manage, User, id => user.id
     end
   end
 

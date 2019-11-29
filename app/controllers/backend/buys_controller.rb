@@ -11,9 +11,9 @@ module Backend
       # @buy.change_accepted_status
       # @buy.save
       if @buy.update(state: 'accepted')
-        flash.now[:notice] = '#Usar i18n'
+        flash.now[:notice] = t('change_buy_accepted')
       else
-        flash.now[:alert] = '#Usar i18n'
+        flash.now[:alert] = t('error_buy_change')
       end
       respond_to do |format|
         format.js { render 'update.js.erb' }
@@ -24,20 +24,22 @@ module Backend
 
     def state_change_rejected
       if @buy.update(state: 'rejected')
-        flash.now[:notice] = '#Usar i18n'
+        flash.now[:notice] = t('change_buy_rejected')
       else
-        flash.now[:alert] = '#Usar i18n'
+        flash.now[:alert] = t('error_buy_change')
       end
       respond_to do |format|
         format.js { render 'update.js.erb' }
-        format.html { render :index}
+        format.html { render :index }
       end
     end
+
+    def show;end
 
     private
 
     def set_buy
-      @buy = Buy.find(params[:id])
+      @buy = Buy.find(params[:id]).decorate
     end
 
     def buy_params

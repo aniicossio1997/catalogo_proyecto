@@ -19,7 +19,7 @@ class Buy < ApplicationRecord
   end
 
   def total_buy
-    items.sum(&:price)
+    items.sum(&:total_price)
   end
 
   def item_count

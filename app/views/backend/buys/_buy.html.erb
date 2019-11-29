@@ -4,11 +4,14 @@
   <td>
     <div class="row">
       <div class="col">
-      <%= buy.state %>
+      <%= buy.state_pretty %>
       </div>
       <%= render partial: "state_change", locals: { buy: buy } %>
     </div>
   </td>
-  <td><%= buy.pretty_price %> </td>
+  <td><%= buy.pretty_price_total %> </td>
   <td><%= buy.date%></td>
+  <td>
+    <%= link_to 'Ver', backend_buy_path(buy), method: :get, class: 'btn btn-sm btn-outline-info text-right' %>
+  </td>
 </tr>
