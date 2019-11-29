@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BuyDecorator < ApplicationDecorator
   delegate_all
 
@@ -10,7 +12,7 @@ class BuyDecorator < ApplicationDecorator
   end
 
   def date
-    object.created_at.strftime("%A, %B %e")
+    object.created_at.strftime('%A, %B %e')
   end
 
   def state_pretty

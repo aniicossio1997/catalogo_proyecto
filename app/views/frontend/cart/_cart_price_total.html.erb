@@ -1,0 +1,1 @@
+<%= @cart.inject { | sum, item | sum + (item.price * item.count) } %>

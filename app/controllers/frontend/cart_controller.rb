@@ -1,9 +1,17 @@
+# frozen_string_literal: true
+
 module Frontend
   class CartController < FrontendController
-    def show
-    end
+    before_action :set_cart, only: %i[show edit]
 
-    def edit
+    def show; end
+
+    def edit; end
+
+    private
+
+    def set_cart
+      @cart = session[:cart]
     end
   end
 end

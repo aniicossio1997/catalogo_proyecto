@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Backend
   class BuysController < BackendController
     before_action :set_buy, except: [
@@ -19,7 +21,6 @@ module Backend
         format.js { render 'update.js.erb' }
         format.html { render :index }
       end
-
     end
 
     def state_change_rejected
@@ -34,7 +35,7 @@ module Backend
       end
     end
 
-    def show;end
+    def show; end
 
     private
 

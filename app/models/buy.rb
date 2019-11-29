@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class Buy < ApplicationRecord
   # -- Relations
   belongs_to :user
   has_many :items
 
-  enum state: [:pending, :accepted, :rejected]
+  enum state: %i[pending accepted rejected]
 
   # -- Validations
   validate :profile_client
@@ -15,11 +17,12 @@ class Buy < ApplicationRecord
   def profile_client
     user = User.find(user_id)
     return if user.profile.client?
+
     errors.add(:user_id, t('profile.error.wrong_profile'))
   end
 
   def total_buy
-    items.sum(&:total_price)
+    items.sum(&:subtotal)
   end
 
   def item_count
@@ -33,5 +36,4 @@ class Buy < ApplicationRecord
   def item_price
     items.sum(&:price)
   end
-
 end
