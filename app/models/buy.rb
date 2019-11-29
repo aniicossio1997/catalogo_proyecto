@@ -16,15 +16,19 @@ class Buy < ApplicationRecord
   end
     
   def total_buy
-    items.sum(&:total_price)
+    items.sum(&:subtotal)
   end
   def item_count
-     items.sum(&:count)
+      items.sum(&:count)
   end
   def product_index
-     items.sum(&:product_id)
+      items.select(&:product_id)
   end
-  def item_price
-    items.sum(&:price)
-  end 
+  #  def item_price
+  #    items.sum(&:price)
+  #  end 
+
+  # def items_all
+  #   items.collect(&:count)
+  # end
 end

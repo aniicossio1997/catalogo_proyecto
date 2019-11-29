@@ -3,7 +3,7 @@ class Item < ApplicationRecord
   belongs_to :product
   belongs_to :buy
  
-  def total_price
+  def subtotal
     price * count
   end
 
