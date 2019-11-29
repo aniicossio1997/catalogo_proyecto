@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Profile < ApplicationRecord
-  enum kind: [:admin, :client, :visit]
+  enum kind: %i[admin client visit]
 
   # -- Relations
   has_many :users

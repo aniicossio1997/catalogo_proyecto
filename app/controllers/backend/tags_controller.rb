@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module Backend
   class TagsController < BackendController
-    before_action :set_tag, only: [
-      :edit,
-      :update,
-      :destroy
+    before_action :set_tag, only: %i[
+      edit
+      update
+      destroy
     ]
     authorize_resource
     def index

@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 module Backend
   class SlidersController < BackendController
-    before_action :set_slider, only: [
-      :edit,
-      :update,
-      :destroy
+    before_action :set_slider, only: %i[
+      edit
+      update
+      destroy
     ]
     authorize_resource
     def index
       @sliders = Slider.all
-      @config = Config.last 
+      @config = Config.last
     end
 
     def new

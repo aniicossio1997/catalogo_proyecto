@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProductDecorator < ApplicationDecorator
   delegate_all
 
@@ -22,7 +24,7 @@ class ProductDecorator < ApplicationDecorator
   def tags_name
     object.tags
           .pluck(:name)
-          .map{ |t| h.print_badge(t)}
+          .map { |t| h.print_badge(t) }
           .join
           .html_safe
   end

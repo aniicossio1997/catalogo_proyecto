@@ -9,9 +9,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  #def create
+  # def create
   #  super
-  #end
+  # end
 
   def build_resource(sign_up_params)
     super(sign_up_params)
@@ -64,7 +64,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
   protected
-
 
   def after_update_path_for(resource)
     resource.profile.admin? ? backend_root_path : root_path

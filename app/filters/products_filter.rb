@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class ProductsFilter
   include ActiveModel::Model
-  SORT_VALID_VALUES ||= [
-    'asc',
-    'desc',
-    'ASC',
-    'DESC'
+  SORT_VALID_VALUES ||= %w[
+    asc
+    desc
+    ASC
+    DESC
   ].freeze
   attr_accessor :query, :category_id, :sort
 

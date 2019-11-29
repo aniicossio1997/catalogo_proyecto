@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Backend
   class ClientsController < BackendController
     before_action :set_client, except: [

@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 module Backend
   class UsersController < BackendController
-    before_action :set_user, only: [  :edit,
-                                      :update,
-                                      :destroy
-                                   ]
+    before_action :set_user, only: %i[edit
+                                      update
+                                      destroy]
     authorize_resource
     def index
       @users = User.admins

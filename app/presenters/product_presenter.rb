@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProductPresenter
   def initialize(params)
     @params = params
@@ -7,7 +9,8 @@ class ProductPresenter
     @products ||= filter.call
                         .paginate(
                           page: @params[:page],
-                          per_page: Config.first.per_page)
+                          per_page: Config.first.per_page
+                        )
                         .decorate
   end
 

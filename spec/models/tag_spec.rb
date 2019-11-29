@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Tag, type: :model do
- # pending "add some examples to (or delete) #{__FILE__}"
+  # pending "add some examples to (or delete) #{__FILE__}"
 
   describe 'Factory' do
     it 'has a valid factory' do
       # Testear que el factory definido es válido.
       expect(build(:tag)).to be_valid
-      #expect(build(:tool, location: Location.new(name: 'Sta 72'), category: Category.new(name: 'Chainsaw'))).to be_valid
+      # expect(build(:tool, location: Location.new(name: 'Sta 72'), category: Category.new(name: 'Chainsaw'))).to be_valid
     end
   end
 
@@ -18,5 +20,4 @@ RSpec.describe Tag, type: :model do
   describe 'Presence validations' do
     it { should validate_presence_of(:name) }
   end
-
 end
