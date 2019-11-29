@@ -8,10 +8,14 @@ class User < ApplicationRecord
   #--Relations
   belongs_to :profile
   has_many :buys
+  
   #--Scope
   scope :clients, -> { where(profile: Profile.find_by(kind: 'client')) }
   scope :admins, -> { where(profile: Profile.find_by(kind: 'admin')) }
-  
+
+  before_destroy :check_buys
+
+  delegate :kind, to: :profile
   def set_default_password
     self.password = username
   end
@@ -24,10 +28,11 @@ class User < ApplicationRecord
     self.profile = Profile.find_by(kind: 'client')
   end
 
-  def before_destroy
-    byebug
-    return if buys.count <= 0
+  def check_buys
+    return if buys.count.zero?
 
-    errors.add(:buys, 'No se puede eliminar clientes con compras ') #Usar i18n
+    #errors.add(:username, :blank) #Usar i18n
+    errors.add(:base, 'No se puede eliminar un cliente que tenga compras asociadas')
+    throw(:abort)
   end
 end

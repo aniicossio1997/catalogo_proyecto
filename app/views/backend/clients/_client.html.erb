@@ -2,7 +2,7 @@
   <td><%= client.username %></td>
   <td><%= client.email %></td>
   <td class='text-right'>
+  <%= link_to 'Ver', backend_client_path(client), method: :get, class: 'btn btn-sm btn-outline-info' %>
   <%= link_to 'Borrar', backend_client_path(client), method: :delete, data: { confirm: 'Esta seguro?' }, class: 'btn btn-sm btn-outline-danger' %>
-
   </td>
 </tr>

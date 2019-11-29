@@ -41,6 +41,16 @@ module Backend
       end
     end
 
+    def destroy
+      @category.destroy
+      if @category.errors.present?
+        flash[:alert] = @category.errors[:base].to_s
+      else
+        flash[:notice] = "Se elimino exitosamente"
+      end
+      redirect_to backend_categories_path
+    end
+
     private
 
     def set_category
