@@ -1,10 +1,14 @@
-<tr>
+<tr id='<%= dom_id(buy) %>'>
   <td><%= buy.id %></td>
   <td><%= buy.client %></td>
   <td>
-    <%= buy.state %>
-    <%= render 'form' %>
+    <div class="row">
+      <div class="col">
+      <%= buy.state %>
+      </div>
+      <%= render partial: "state_change", locals: { buy: buy } %>
+    </div>
   </td>
-  <td>un precio</td>
+  <td><%= buy.pretty_price %> </td>
   <td><%= buy.date%></td>
 </tr>

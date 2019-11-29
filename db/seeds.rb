@@ -15,7 +15,7 @@
   5.times do |i|
     p = Product.new(name: "Product ##{i}",
                     description: 'A product.',
-                    price: 278,
+                    price: 250,
                     cost: 200,
                     active: true,
                     code: i,
@@ -31,3 +31,8 @@
 
   Item.create(product: Product.first, price: Product.first.price,count: 3, buy: Buy.first)
   Item.create(product: Product.last, price: Product.last.price,count: 2, buy: Buy.last)
+  Item.create(product: Product.last, price: Product.last.price,count: 2, buy: Buy.last)
+  Item.create(product: Product.last, price: Product.last.price,count: 2, buy:  Buy.last)
+
+  Item.create(product: Product.last, price: Product.last.price,count: 2, buy:  Buy.find(2))
+  Item.create(product: Product.last, price: Product.last.price,count: 2, buy:  Buy.find(2))

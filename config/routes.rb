@@ -20,7 +20,11 @@ Rails.application.routes.draw do
       get 'edit', on: :collection
     end
     resources :buys, only: [:index] do
-      get 'change_state_accept'
+    #get 'buys/:id/state_change_accepted', to: 'buys#state_change_accepted' , as: 'buy/change_accepted'
+      member do
+        get :state_change_accepted
+        get :state_change_rejected
+      end
     end
   end
 end
