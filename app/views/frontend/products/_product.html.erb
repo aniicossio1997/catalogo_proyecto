@@ -5,7 +5,9 @@
           <p class="card-text"><%= product.name %></p>
           <div class="row">
             <div class="col-sm text-left">
-              <%= link_to image_tag("cart2.png", size: "25x25", border: 0), root_path, class: "badge badge-success" %>
+              <button class= "badge badge-success js-add" id="add-cart-<%= product.id %>">
+                <%= image_tag("cart2.png", size: "25x25") %>
+              </button>
               
               <%# <a role="button"
                 tabindex="0" 
