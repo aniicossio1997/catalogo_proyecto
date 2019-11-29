@@ -28,12 +28,5 @@ class Buy < ApplicationRecord
   def item_count
     items.sum(&:count)
   end
-
-  def product_index
-    items.sum(&:product_id)
-  end
-
-  def item_price
-    items.sum(&:price)
-  end
+  
 end
