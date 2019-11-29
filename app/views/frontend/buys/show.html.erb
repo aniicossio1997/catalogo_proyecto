@@ -1,46 +1,39 @@
-  <h3>Compra #<%= @buy.id %></h3>
- <div class="row">
-    <div class="col-8">
-    <table>
-    <tbody>
+<br>
+<div class= "container-fluid"> 
+<table class="table">
+  <thead class="thead-light">
     <tr>
-        <th scope="row">Fecha</th>
-        <td><%= @buy.created_at %></td>
+     
+      <th scope="col">Producto</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Subtotal</th>
     </tr>
-    <tr>
-        <th scope="row">Estado</th>
-        <td> <%= @buy.state %> </td>
-     </tr>
-       </tbody>
-      </table>
-    </div> 
- </div> 
-  <br>
-  <div class="row">
-    <div class="col-8">
-      <table class="table table-striped">
-        <tbody>
-          <tr>
-            <th scope="row">Producto</th>
-            <td><%=  @buy.product_index %></td>
-          </tr>
-          <tr>
-            <th scope="row">Precio</th>
-            <td><%= @buy.item_price %></td>
-          </tr>
-          <tr>
-            <th scope="row">Cantidad</th>
-            <td><%= @buy.item_count %></td>
-          </tr>
-          <tr>
-            <th scope="row">Subtotal</th>
-            <td><%= @buy.total_buy %></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  </thead>
+  <tbody>
+   <%= render @buy.items %>
+  </tbody>
+</table>
+  <div class="p-3 mb-2 bg-secondary text-white">
+    <div class="row">
+      <div class="col">
+      TOTAL
+      </div>
+      <div class="col">
+        <div class="row">
+        <div class="col">
+        cantidad final: 
+        </div>
+        <div class="col">
+          <%= @buy.item_count%>
+        </div>
+        </div>
+      </div>
+      <div class="col">
+      <h4><%= @buy.pretty_price_total%></h4>
+      </div>
   </div>
-
-  <div class='card-footer'>
-    <%= link_to 'Volver', root_path, class: 'btn btn-outline-secondary' %>
-  </div>
+</div>
+<div class='card-footer'>
+    <%= link_to 'Volver', buys_path, class: 'btn btn-outline-secondary' %>
+</div>
