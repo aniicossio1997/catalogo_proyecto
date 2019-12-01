@@ -1,0 +1,24 @@
+<table class="table table-borderless">
+  <thead>
+    <tr class="text-secondary">
+      
+      <th scope="col">Cliente</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr  id='<%= dom_id(buy) %>' >
+     
+      <td><%= buy.client %></td>
+      <td><%= buy.date %></td>
+      <td>
+        <div class="row">
+          <div class="col"><%= buy.state_pretty %></div>
+          <%= render partial: "state_change", locals: { buy: buy } %>
+        </div>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
