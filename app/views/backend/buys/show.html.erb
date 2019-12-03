@@ -1,6 +1,18 @@
 <br>
 <%= render 'flash_message' %>
-<%= render partial: "header_show", locals: { buy: @buy } %>
+<table class="table table-borderless">
+  <thead>
+    <tr class="text-secondary">
+      
+      <th scope="col">Cliente</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "header_show", locals: { buy: @buy} %>
+  </tbody>
+</table>
 <table class="table">
   <thead class="thead-light">
     <tr>

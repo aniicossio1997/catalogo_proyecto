@@ -2,6 +2,6 @@
   <td><%= client.username %></td>
   <td><%= client.email %></td>
   <td class='text-right'>
-  <%= link_to 'Borrar', backend_client_path(client.buys), method: :delete, data: { confirm: 'Esta seguro?' }, class: 'btn btn-sm btn-outline-danger' %>
+  <%= link_to 'Borrar', backend_client_path(client), method: :delete, data: { confirm: 'Esta seguro?' }, class: 'btn btn-sm btn-outline-danger' %>
   </td>
 </tr>

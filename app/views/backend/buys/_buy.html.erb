@@ -6,7 +6,7 @@
       <div class="col">
       <%= buy.state_pretty %>
       </div>
-      <%= render partial: "state_change", locals: { buy: buy } %>
+      <%= render partial: "state_change", locals: { buy: buy , context:'index_buy'} %>
     </div>
   </td>
   <td><%= buy.pretty_price_total %> </td>

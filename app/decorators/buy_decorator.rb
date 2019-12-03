@@ -12,7 +12,7 @@ class BuyDecorator < ApplicationDecorator
   end
 
   def date
-    object.created_at.strftime('%A, %B %e')
+    object.created_at.strftime("%Y/%m/%d %H:%M:%S")
   end
 
   def state_pretty

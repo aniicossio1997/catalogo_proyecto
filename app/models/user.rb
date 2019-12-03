@@ -10,7 +10,6 @@ class User < ApplicationRecord
   #--Relations
   belongs_to :profile
   has_many :buys
-  
   #--Scope
   scope :clients, -> { where(profile: Profile.find_by(kind: 'client')) }
   scope :admins, -> { where(profile: Profile.find_by(kind: 'admin')) }
@@ -34,8 +33,7 @@ class User < ApplicationRecord
   def check_buys
     return if buys.count.zero?
     #Usar i18n
-    errors.add(:buys, 'No se puede eliminar clientes con compras ') # Usar i18n
+    errors.add(:error_user_destroy, 'No se puede eliminar los que cuenten con compras') # Usar i18n
     throw(:abort)
-
   end
 end

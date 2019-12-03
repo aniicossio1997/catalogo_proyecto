@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :return_config
   before_action :set_category
+  before_action :set_cart
   def current_ability
     @current_ability ||= Ability.new(current_user)
   end
@@ -34,5 +35,9 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     resource.profile.admin? ? backend_root_path : root_path
+  end
+
+  def set_cart
+    @cart = session[:cart] = []
   end
 end

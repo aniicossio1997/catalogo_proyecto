@@ -20,12 +20,15 @@ Rails.application.routes.draw do
     resources :configs, except: %i[show destroy index edit] do
       get 'edit', on: :collection
     end
+
     resources :buys, only: %i[index show] do
-      # get 'buys/:id/state_change_accepted', to: 'buys#state_change_accepted' , as: 'buy/change_accepted'
       member do
-        get :state_change_accepted
-        get :state_change_rejected
+        get :state_change_accepted, path: ':context/state_change_accepted'
+        get :state_change_rejected, path: ':context/state_change_rejected'
       end
+      # get ':id/:context/state_change_accepted', to: 'buys#state_change_accepted' , as: 'state_change_accepted'
+      # get ':id/:context/state_change_rejected', to: 'buys#state_change_rejected' , as: 'state_change_rejected'
+
     end
   end
 end

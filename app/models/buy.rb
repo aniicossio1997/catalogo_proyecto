@@ -10,10 +10,6 @@ class Buy < ApplicationRecord
   # -- Validations
   validate :profile_client
   #---atributos extras
-  def change_accepted_status
-    state = 'accepted'
-  end
-
   def profile_client
     user = User.find(user_id)
     return if user.profile.client?
@@ -28,5 +24,4 @@ class Buy < ApplicationRecord
   def item_count
     items.sum(&:count)
   end
-  
 end
