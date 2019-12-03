@@ -1,1 +1,3 @@
-<%= @cart.inject { |sum, item| sum + item.count } %>
+<%= a = 0 
+@cart.each { |id_prod, count| a += count }
+a %>
