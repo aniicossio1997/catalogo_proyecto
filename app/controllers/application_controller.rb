@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :return_config
   before_action :set_category
   before_action :set_cart
+
   def current_ability
     @current_ability ||= Ability.new(current_user)
   end
@@ -38,6 +39,9 @@ class ApplicationController < ActionController::Base
   end
 
   def set_cart
-    @cart = session[:cart] = []
+    if session[:cart].nil?
+      session[:cart] = {}
+    end
+    @cart = session[:cart]
   end
 end
