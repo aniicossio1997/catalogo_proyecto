@@ -14,7 +14,7 @@ module Backend
     end
 
     def state_change_accepted
-      if @buy.update(state: 'accepted')
+      if @buy.update_state(:accepted)
         flash.now[:notice] = t('change_buy_accepted')
       else
         flash.now[:alert] = t('error_buy_change')
@@ -23,7 +23,7 @@ module Backend
     end
 
     def state_change_rejected
-      if @buy.update(state: 'rejected')
+      if @buy.update_state(:rejected)
         flash.now[:notice] = t('change_buy_rejected')
       else
         flash.now[:alert] = t('error_buy_change')
