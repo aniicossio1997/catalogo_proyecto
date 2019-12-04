@@ -12,8 +12,10 @@ end
 
 require 'rspec/rails'
 require 'shoulda/matchers'
+require 'devise'
 
 ActiveRecord::Migration.maintain_test_schema!
+
 
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -29,6 +31,7 @@ RSpec.configure do |config|
   end
 
   config.include FactoryBot::Syntax::Methods
+  config.include Devise::Test::IntegrationHelpers, type: :request
 end
 
 RSpec::Matchers.define_negated_matcher :not_change, :change
