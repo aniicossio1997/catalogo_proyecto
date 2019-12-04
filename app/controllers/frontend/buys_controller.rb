@@ -2,7 +2,7 @@
 
 module Frontend
   class BuysController < FrontendController
-       
+    authorize_resource
     def index
       @buys = current_user.buys
     end
@@ -10,8 +10,9 @@ module Frontend
     def show
       @buy = Buy.find(params[:id]).decorate
     end
-    
+
     private
+
     def buy_params
       params.require(:buy).permit(:id)
     end
