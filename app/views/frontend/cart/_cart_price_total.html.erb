@@ -1,1 +1,3 @@
-<%= @cart.inject { | sum, item | sum + (item.price * item.count) } %>
+<%= total = 0
+@cart.each { | id_product, count | total += Product.find(id_product).price * count }
+total %>

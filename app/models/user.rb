@@ -7,9 +7,11 @@ class User < ApplicationRecord
          :rememberable, :validatable
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
+
   #--Relations
   belongs_to :profile
   has_many :buys
+
   #--Scope
   scope :clients, -> { where(profile: Profile.find_by(kind: 'client')) }
   scope :admins, -> { where(profile: Profile.find_by(kind: 'admin')) }

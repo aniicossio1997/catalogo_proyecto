@@ -5,10 +5,11 @@ class Buy < ApplicationRecord
   belongs_to :user
   has_many :items
 
-  enum state: %i[pending accepted rejected]
+  enum state: [:pending, :accepted, :rejected]
 
   # -- Validations
   validate :profile_client
+
   #---atributos extras
   def profile_client
     user = User.find(user_id)
@@ -23,5 +24,15 @@ class Buy < ApplicationRecord
 
   def item_count
     items.sum(&:count)
+  end
+
+  def update_state(state_new)
+    if pending?
+      update(state: state_new)
+      return true
+    else
+      errors.add(:state, 'Usar I18n')
+      return false
+    end
   end
 end

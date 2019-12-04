@@ -1,8 +1,8 @@
-<% @cart.each_with_index do |item, index| %>
-<tr id='item-<%= index %>%'>
-  <td><%= item.image %><%= item.name %></td>
-  <td><%= item.price %></td>
-  <td><%= item.count %></td>
-  <td><%= item.count * item.price %></td>
+<% @cart.each do |id_product, count| %>
+<tr id="item-#{id_product}">
+  <td><%= image_tag(Product.find(id_product).decorate.image_principal, size: "25x25") %><%= Product.find(id_product).name %></td>
+  <td><%= Product.find(id_product).price %></td>
+  <td><%= count %></td>
+  <td><%= count * Product.find(id_product).price %></td>
 </tr>
 <% end %>
