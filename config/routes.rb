@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :buys, only: %i[index show]
     get 'cart', to: 'cart#show'
     get 'add_product_to_cart/:id', to: 'cart#add_to_cart', as: 'add_product_to_cart'
+    get 'remove_from_cart/:id', to: 'cart#remove_from_cart', as: 'remove_product_from_cart'
   end
 
   namespace :backend do
@@ -24,8 +25,8 @@ Rails.application.routes.draw do
 
     resources :buys, only: %i[index show] do
       member do
-        get :state_change_accepted, path: ':context/state_change_accepted'
-        get :state_change_rejected, path: ':context/state_change_rejected'
+        put :state_change_accepted
+        put :state_change_rejected
       end
       # get ':id/:context/state_change_accepted', to: 'buys#state_change_accepted' , as: 'state_change_accepted'
       # get ':id/:context/state_change_rejected', to: 'buys#state_change_rejected' , as: 'state_change_rejected'

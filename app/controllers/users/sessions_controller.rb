@@ -28,4 +28,3 @@ class Users::root_path < Devise::root_path
   # end
 
 end
-

@@ -3,7 +3,7 @@
   <td><%= buy.date %></td>
   <td>
   <div class="row">
-    <div class="col">
+    <div class="col js-state-container">
     <%= buy.state_pretty %>
     </div>
     <%= render partial: "state_change", locals: { buy: buy, context:'show_buy'} %>

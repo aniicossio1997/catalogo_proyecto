@@ -1,11 +1,12 @@
 # frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
   def initialize(user)
     case user.profile.kind
     when 'admin'
+      alias_action :index, :state_change_accepted, :state_change_rejected, :show, to: :crud
+      
       can :manage, Product
       can :manage, Category
       can :manage, Item
@@ -14,8 +15,12 @@ class Ability
       can :manage, Config
       can :manage, User
       can :manage, Slider
+      can :crud, :backend_buy
+      #can :authorize_buy, :backend_buy
+      can :authorize_product, :backend_product
+      can :authorize_client, :backend_client
     when 'client' # or whatever role you assigned to a normal logged in user
-      can :manage, Buy
+      can :authorize_buy, :frontend_buy
       # can :manage, User, id => user.id
     end
   end
