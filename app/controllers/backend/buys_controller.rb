@@ -26,6 +26,7 @@ module Backend
     end
 
     def state_change_rejected
+<<<<<<< Updated upstream
 <<<<<<< HEAD
       #authorize! :state_change_rejected, :backendBuysController
       if @buy.rejected!
