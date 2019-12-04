@@ -51,7 +51,8 @@ module Backend
     private
 
     def authorize_product
-      authorize! :authorize_product, :backendProductController
+      
+      authorize! :authorize_product, :backend_product
     end
 
     def set_product

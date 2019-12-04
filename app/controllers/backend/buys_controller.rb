@@ -7,17 +7,13 @@ module Backend
     ]
 
     def index
-      authorize! :index, :backendBuysController
+      authorize! :index, :backend_buy
       @buys = Buy.all.decorate
     end
 
     def state_change_accepted
-<<<<<<< HEAD
-      #authorize! :state_change_accepted, :backendBuysController
-      if @buy.accepted!
-=======
+      authorize! :state_change_accepted, :backend_buy
       if @buy.update_state(:accepted)
->>>>>>> 9018f40d4c13e01b99e0938501442cd3066ac312
         flash.now[:notice] = t('change_buy_accepted')
       else
         flash.now[:alert] = t('error_buy_change')
@@ -26,13 +22,8 @@ module Backend
     end
 
     def state_change_rejected
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-      #authorize! :state_change_rejected, :backendBuysController
-      if @buy.rejected!
-=======
+      authorize! :state_change_rejected, :backend_buy
       if @buy.update_state(:rejected)
->>>>>>> 9018f40d4c13e01b99e0938501442cd3066ac312
         flash.now[:notice] = t('change_buy_rejected')
       else
         flash.now[:alert] = t('error_buy_change')
@@ -41,7 +32,7 @@ module Backend
     end
 
     def show
-      authorize! :show, :backendBuysController
+      authorize! :show, :backend_buy
     end
 
     private

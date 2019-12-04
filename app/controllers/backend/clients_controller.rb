@@ -27,7 +27,7 @@ module Backend
     private
 
     def authorize_buy
-      authorize! :authorize_buy, :backendBuysController
+      authorize! :authorize_client, :backend_client
     end
 
     def set_client

@@ -2,7 +2,7 @@
 
 module Frontend
   class BuysController < FrontendController
-    authorize_resource
+    before_action :authorize_buy
     def index
       @buys = current_user.buys
     end
@@ -12,6 +12,10 @@ module Frontend
     end
 
     private
+
+    def authorize_buy
+      authorize! :authorize_buy, :frontend_buy
+    end
 
     def buy_params
       params.require(:buy).permit(:id)

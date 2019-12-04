@@ -15,11 +15,12 @@ class Ability
       can :manage, Config
       can :manage, User
       can :manage, Slider
-      can :crud, :backendBuysController
-      can :authorize_buy, :backendBuysController
-      can :authorize_product, :backendProductController
+      can :crud, :backend_buy
+      #can :authorize_buy, :backend_buy
+      can :authorize_product, :backend_product
+      can :authorize_client, :backend_client
     when 'client' # or whatever role you assigned to a normal logged in user
-      #can :manage, Buy
+      can :authorize_buy, :frontend_buy
       # can :manage, User, id => user.id
     end
   end
