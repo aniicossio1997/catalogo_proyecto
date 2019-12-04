@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :return_config
   before_action :set_category
   before_action :set_cart
-  # Capturar una exeption asociada a CanCanCan
+
   rescue_from CanCan::AccessDenied do |exception|
     respond_to do |format|
       format.json { head :forbidden }
@@ -44,6 +44,9 @@ class ApplicationController < ActionController::Base
   end
 
   def set_cart
-    @cart = session[:cart] = []
+    if session[:cart].nil?
+      session[:cart] = {}
+    end
+    @cart = session[:cart]
   end
 end

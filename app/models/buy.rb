@@ -29,10 +29,10 @@ class Buy < ApplicationRecord
   def update_state(state_new)
     if pending?
       update(state: state_new)
-      return true
+      true
     else
       errors.add(:state, 'Usar I18n')
-      return false
+      false
     end
   end
 end

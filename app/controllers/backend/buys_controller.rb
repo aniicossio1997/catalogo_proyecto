@@ -12,7 +12,10 @@ module Backend
     end
 
     def state_change_accepted
+<<<<<<< HEAD
       authorize! :state_change_accepted, :backend_buy
+=======
+>>>>>>> 93314b79b156d030da8c9b6999c8c588ac7b965a
       if @buy.update_state(:accepted)
         flash.now[:notice] = t('change_buy_accepted')
       else
@@ -22,7 +25,10 @@ module Backend
     end
 
     def state_change_rejected
+<<<<<<< HEAD
       authorize! :state_change_rejected, :backend_buy
+=======
+>>>>>>> 93314b79b156d030da8c9b6999c8c588ac7b965a
       if @buy.update_state(:rejected)
         flash.now[:notice] = t('change_buy_rejected')
       else

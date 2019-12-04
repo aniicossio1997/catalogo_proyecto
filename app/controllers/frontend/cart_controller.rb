@@ -6,8 +6,11 @@ module Frontend
 
     def add_to_cart
       product_id = params[:id]
-      @cart[product_id].nil? ? @cart[product_id] = 1 : @cart[product_id] += 1
-      session[:cart] = @cart if session[:cart].nil?
+      if @cart[product_id].nil?
+        @cart[product_id] = 1
+      else
+        @cart[product_id] += 1
+      end
       render 'add_to_cart'
     end
   end

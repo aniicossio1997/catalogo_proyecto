@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :buys, only: %i[index show]
     get 'cart', to: 'cart#show'
     get 'add_product_to_cart/:id', to: 'cart#add_to_cart', as: 'add_product_to_cart'
+    get 'remove_from_cart/:id', to: 'cart#remove_from_cart', as: 'remove_product_from_cart'
   end
 
   namespace :backend do
