@@ -1,0 +1,8 @@
+$('#flash_messages_container').replaceWith('<%= j render 'flash_message' %>')
+
+<% if params[:source] == 'show_buy'%>
+  $('.js-state-container').html('<%= @buy.state_pretty %>');
+  $(".button-state").remove();
+<% elsif params[:source] == 'index_buy' %>
+  $('#<%= dom_id(@buy) %>').replaceWith('<%= j render 'buy', buy: @buy %>');
+<% end %>

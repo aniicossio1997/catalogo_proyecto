@@ -8,7 +8,7 @@ module Backend
       update
       destroy
     ]
-
+    before_action :authorize_product
     def index
       @presenter = ProductPresenter.new(params)
     end
@@ -49,6 +49,10 @@ module Backend
     end
 
     private
+
+    def authorize_product
+      authorize! :authorize_product, :backendProductController
+    end
 
     def set_product
       @product = Product.find(params[:id]).decorate

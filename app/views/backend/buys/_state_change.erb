@@ -1,8 +1,8 @@
 <%# if buy.pending?%>
 <div class="col">
-  <%= link_to 'Aceptar', state_change_accepted_backend_buy_path(buy,context), method: :get, remote: true, data: { confirm: 'Esta seguro de aceptar?' }, class: 'btn btn-sm btn-outline-info text-right' %>
+  <%= link_to 'Aceptar', state_change_accepted_backend_buy_path(buy, source: context), method: :put, remote: true, data: { confirm: 'Esta seguro de aceptar?' }, class: 'btn btn-sm btn-outline-info text-right button-state' %>
 </div>
 <div class= "col">
-  <%= link_to 'Rechazar', state_change_rejected_backend_buy_path(buy,context), method: :get, remote: true, data: { confirm: 'Esta seguro de rechazar?' }, class: 'btn btn-sm btn-outline-danger text-right' %>
+  <%= link_to 'Rechazar', state_change_rejected_backend_buy_path(buy, source: context), method: :put, remote: true, data: { confirm: 'Esta seguro de rechazar?' }, class: 'btn btn-sm btn-outline-danger text-right button-state' %>
 </div>
 <%# end %>

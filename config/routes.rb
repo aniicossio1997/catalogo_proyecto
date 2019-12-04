@@ -23,8 +23,8 @@ Rails.application.routes.draw do
 
     resources :buys, only: %i[index show] do
       member do
-        get :state_change_accepted, path: ':context/state_change_accepted'
-        get :state_change_rejected, path: ':context/state_change_rejected'
+        put :state_change_accepted
+        put :state_change_rejected
       end
       # get ':id/:context/state_change_accepted', to: 'buys#state_change_accepted' , as: 'state_change_accepted'
       # get ':id/:context/state_change_rejected', to: 'buys#state_change_rejected' , as: 'state_change_rejected'

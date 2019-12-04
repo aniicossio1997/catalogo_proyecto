@@ -2,9 +2,11 @@
 
 module Backend
   class ClientsController < BackendController
+    #authorize_resource class: false
     before_action :set_client, except: [
       :index
     ]
+    before_action :authorize_buy
     def index
       @clients = User.clients
     end
@@ -23,6 +25,10 @@ module Backend
     end
 
     private
+
+    def authorize_buy
+      authorize! :authorize_buy, :backendBuysController
+    end
 
     def set_client
       @client = User.find(params[:id])
