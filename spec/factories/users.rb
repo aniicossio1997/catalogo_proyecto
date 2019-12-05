@@ -6,7 +6,6 @@ FactoryBot.define do
     username { Faker::Name.unique.name }
     email { Faker::Internet.unique.email }
     password { SecureRandom.uuid }
-    
     factory :admin do
       profile { Profile.admin.take }
     end
@@ -15,4 +14,3 @@ FactoryBot.define do
     end
   end
 end
-

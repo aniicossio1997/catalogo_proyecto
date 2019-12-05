@@ -15,7 +15,7 @@ class Buy < ApplicationRecord
     user = User.find(user_id)
     return if user.profile.client?
 
-    errors.add(:user_id, t('profile.error.wrong_profile'))
+    errors.add(:user_id, I18n.t('profile.error.wrong_profile'))
   end
 
   def total_buy
