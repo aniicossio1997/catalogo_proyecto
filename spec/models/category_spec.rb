@@ -13,7 +13,7 @@ RSpec.describe Category, type: :model do
   end
 
   describe 'Associations' do
-    it { should have_many(:products).dependent(:destroy) }
+    it { should have_many(:products) } ##
   end
 
   describe 'Presence validations' do
