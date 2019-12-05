@@ -4,23 +4,22 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
 
-body {
-    overflow-x: hidden;
-}
-
-html,
-body {
-    height: 100%;
-}
-
-#page-content {
-    flex: 1 0 auto;
-}
-
-#sticky-footer {
-    flex-shrink: none;
-}
-
+ html {
+   min-height: 100%;
+   position: relative;
+ }
+ body {
+   margin: 0;
+   margin-bottom: 100px;
+ }
+ footer {
+   background-color: black;
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   height: 100px;
+   color: white;
+ }
 
 /* Other Classes for Page Styling */
 

@@ -16,7 +16,7 @@ Category.create(name: '')
 Tag.create(name: 'historico')
 Tag.create(name: 'cosas generales')
 
-5.times do |i|
+10.times do |i|
   p = Product.new(name: "Product ##{i}",
                   description: 'A product.',
                   price: 250,

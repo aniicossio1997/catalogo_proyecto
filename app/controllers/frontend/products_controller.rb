@@ -5,6 +5,7 @@ module Frontend
     #before_action :authorize_product
     def index
       @presenter = ProductPresenter.new(params)
+      #@presenter = Product.all
     end
 
     def show
