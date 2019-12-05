@@ -3,10 +3,9 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    case user.profile.kind
-    when 'admin'
+    user ||= User.new
+    if !user.profile.nil?  && user.profile.admin?
       alias_action :index, :state_change_accepted, :state_change_rejected, :show, to: :crud
-      
       can :manage, Product
       can :manage, Category
       can :manage, Item
@@ -16,12 +15,12 @@ class Ability
       can :manage, User
       can :manage, Slider
       can :crud, :backend_buy
-      #can :authorize_buy, :backend_buy
       can :authorize_product, :backend_product
       can :authorize_client, :backend_client
-    when 'client' # or whatever role you assigned to a normal logged in user
-      can :authorize_buy, :frontend_buy
-      # can :manage, User, id => user.id
+      can :authorize_main, :backend_main
+    end
+    if !user.profile.nil?
+      can :authorize_close_car, :frontend_cart
     end
   end
 

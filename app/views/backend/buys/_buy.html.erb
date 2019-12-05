@@ -1,10 +1,12 @@
-<tr id='<%= dom_id(buy) %>'>
+<tr id='<%= dom_id(buy) %>' >
   <td><%= buy.id %></td>
   <td><%= buy.client %></td>
   <td>
     <div class="row">
       <div class="col">
-      <%= buy.state_pretty %>
+        <span class='js-state-container-<%= dom_id(buy) %>'>
+          <%= buy.state_pretty %>
+        </span>
       </div>
       <%= render partial: "state_change", locals: { buy: buy , context:'index_buy'} %>
     </div>

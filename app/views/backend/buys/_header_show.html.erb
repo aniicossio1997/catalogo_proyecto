@@ -1,9 +1,9 @@
-<tr  id='<%= dom_id(buy) %>' >
+<tr id='<%= dom_id(buy) %>'>
   <td><%= buy.client %></td>
   <td><%= buy.date %></td>
   <td>
   <div class="row">
-    <div class="col js-state-container">
+    <div class='col js-state-container-<%= dom_id(@buy) %>'>
     <%= buy.state_pretty %>
     </div>
     <%= render partial: "state_change", locals: { buy: buy, context:'show_buy'} %>

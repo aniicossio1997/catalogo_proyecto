@@ -19,11 +19,11 @@
               cart_path,{method: :get, class: 'nav-link float-left'}%>
               <%= content_tag(:span, @cart.size, class: "badge badge-secondary align-middle js-cart-notif", id: "cart-notifier-id") %>
             </li>
-
+            <% if user_signed_in? == false %>
             <li class="nav-item">
               <%= link_to 'Login', new_user_session_path,{method: :get, class: 'nav-link'}%>
             </li>
-
+            <% end %>
             <li class="nav-item">
               <%= link_to 'Home', root_path,{method: :get, class: 'nav-link'}%>
             </li>

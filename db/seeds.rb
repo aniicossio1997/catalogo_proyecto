@@ -5,6 +5,8 @@ client = Profile.create(kind: 'client')
 admin = Profile.create(kind: 'admin')
 User.create(username: 'cliente', email: 'cliente@cliente.com', password: 'cliente', profile: client)
 User.create(username: 'master', email: 'master@master.com', password: 'master', profile: admin)
+User.create(username: 'may', email: 'may@may.com', password: 'may', profile: client)
+
 Config.create(per_page: 3)
 Category.create(name: 'Bazar')
 Category.create(name: 'Jugueteria')

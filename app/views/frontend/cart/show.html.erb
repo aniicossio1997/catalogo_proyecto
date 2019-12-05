@@ -1,3 +1,4 @@
+<br>
 <div class='d-flex justify-content-between bg-secondary p-3 mb-2 text-white text-left'>
 <h2>Carrito</h2>
 <br>
@@ -36,8 +37,17 @@
       <h4><%= render "cart_price_total" %></h4>
       </div>
   </div>
+
+  <% if can? :authorize_close_car, :frontend_cart %>
+    <button type="button" class="btn btn-primary">Cerrar Venta -esto es solo de prueba-deberia ser un link</button>
+  <% else %>
+    <p class="text-red">
+    Para cerra el carrito de compras debe de:
+    <%= link_to ' Iniciar sesión', new_user_session_path,{method: :get, class: 'btn btn-primary'}%>
+    </p>
+  <% end %>
 </div>
   <div class='card-footer'>
-    <%= link_to 'Volver', backend_buys_path, class: 'btn btn-outline-secondary' %>
+    <%= link_to 'Volver', backend_buys_path, class: 'btn btn-light' %>
   </div>
 </div>
