@@ -36,10 +36,10 @@
       </table>
     </div>
     <div class="col-4">
-        <b>Imagen principal: </b><br>
+        <b><%= t('image_principal') %></b><br>
         <%= image_tag(@product.image_principal, size:"150x150") %>
       <hr>
-      <h4>Images secundarias: </h4>
+      <h4><%= t('secondary_images') %></h4>
       <table class="table table-bordered scrolly">
         <tbody>
           <tr>

@@ -17,7 +17,9 @@ module Backend
 
     def update
       if @config.update(config_params)
-        flash.now[:notice] = '#Usar i18n'
+        flash.now[:notice] = t(:action_without_errors,
+                               element: :conifugración,
+                               action: :actualizada)
         redirect_to backend_sliders_path
       else
         flash.now[:alert] = '#Usar i18n'

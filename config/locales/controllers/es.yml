@@ -1,0 +1,8 @@
+es:
+  change_buy_accepted: Se ha aceptado la compra exitosamente!
+  error_buy_change: Lo sentimos, la acción no se ha guardado
+  change_buy_rejected: Se ha rechazado la compra exitosamente!
+  
+  action_without_errors: "%{element} %{action} correctamente"
+  action_error: "%{element} no pudo ser %{action} por un error"
+  

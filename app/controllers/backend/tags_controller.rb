@@ -24,7 +24,9 @@ module Backend
     def create
       @tag = Tag.new(tag_params)
       if @tag.save
-        flash.now[:notice] = '#Usar i18n'
+        flash.now[:notice] = t(:action_without_errors,
+                               element: :tag,
+                               action: :creado)
       else
         flash.now[:alert] = '#Usar i18n'
         render :modal

@@ -24,7 +24,7 @@ Tag.create(name: 'cosas generales')
                   cost: rand(5000),
                   active: true,
                   code: rand(10000),
-                  category_id: rand(6))
+                  category_id: rand(1..5))
   p.product_images.build(principal: true)
   p.save
 end

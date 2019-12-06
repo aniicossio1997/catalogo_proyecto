@@ -18,6 +18,7 @@ module Frontend
         redirect_to buys_path
       else
         flash.now[:alert] = t(:buy_created_without_errors)
+        redirect_to cart_path
       end
     end
   end

@@ -1,0 +1,5 @@
+es:
+  states:
+    rejected: Rechazado
+    accepted: Aceptado
+    pending: Pendiente

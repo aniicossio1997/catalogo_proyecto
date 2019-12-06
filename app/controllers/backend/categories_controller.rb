@@ -36,9 +36,13 @@ module Backend
 
     def update
       if @category.update(category_params)
-        flash.now[:notice] = '#Usar i18n'
+        flash.now[:notice] = t(:action_without_errors,
+                               element: :categoría,
+                               action: :creada)
       else
-        flash.now[:alert] = '#Usar i18n'
+        flash.now[:alert] = t(:action_error,
+                              element: :categoría,
+                              action: :creada)
         render :modal
       end
     end
@@ -48,7 +52,9 @@ module Backend
       if @category.errors.present?
         flash[:alert] = @category.errors[:base].to_s
       else
-        flash[:notice] = "Se elimino exitosamente"
+        flash[:notice] = t(:action_without_errors,
+                           element: :categoría,
+                           action: :eliminada)
       end
       redirect_to backend_categories_path
     end

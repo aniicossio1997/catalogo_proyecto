@@ -1,30 +1,5 @@
 es:
   welcome: 'Bienvenido'
-  index_client: 'Clientes'
-  index_user: Administradores
-  change_buy_accepted: Se ha aceptado la compra exitosamente!
-  error_buy_change: Lo sentimos, la acción no se ha guardado
-  change_buy_rejected: Se ha rechazado la compra exitosamente!
-  rejected: Rechazado
-  accepted: Aceptado
-  pending: Pendiente
-  unauthorized:
-    manage:
-      all: "No está autorizado para acceder a este sitio."
-  category_created_without_errors: La categoría creada correctamente
-  category_creation_error: La categoría no pudo ser creada por un error
-  profile:
-    error:
-      wrong_profile: el perfil de este usuario es incorrecto
-  devise:
-    forms:
-      edit:
-        passwords:
-          leave_blank: Dejar en blanco si no se quiere cambiar
-          minimum_characters: 'caractrer/es como mínimo'
-  date:
-    formats:
-      default: "%d / %m / %Y"
   activerecord:
     errors:
       messages:
@@ -47,8 +22,6 @@ es:
     - feb
     - mar
     - abr
-    - may
-    - jun
     - jul
     - ago
     - sep
@@ -64,7 +37,7 @@ es:
     - viernes
     - sábado
     formats:
-      default: "%-d/%-m/%Y"
+      default: "%d / %m / %Y"
       long: "%-d de %B de %Y"
       short: "%-d de %b"
     month_names:
@@ -86,44 +59,6 @@ es:
     - :month
     - :year
   datetime:
-    distance_in_words:
-      about_x_hours:
-        one: alrededor de 1 hora
-        other: alrededor de %{count} horas
-      about_x_months:
-        one: alrededor de 1 mes
-        other: alrededor de %{count} meses
-      about_x_years:
-        one: alrededor de 1 año
-        other: alrededor de %{count} años
-      almost_x_years:
-        one: casi 1 año
-        other: casi %{count} años
-      half_a_minute: medio minuto
-      less_than_x_seconds:
-        one: menos de 1 segundo
-        other: menos de %{count} segundos
-      less_than_x_minutes:
-        one: menos de 1 minuto
-        other: menos de %{count} minutos
-      over_x_years:
-        one: más de 1 año
-        other: más de %{count} años
-      x_seconds:
-        one: 1 segundo
-        other: "%{count} segundos"
-      x_minutes:
-        one: 1 minuto
-        other: "%{count} minutos"
-      x_days:
-        one: 1 día
-        other: "%{count} días"
-      x_months:
-        one: 1 mes
-        other: "%{count} meses"
-      x_years:
-        one: 1 año
-        other: "%{count} años"
     prompts:
       second: Segundo
       minute: Minuto
@@ -180,7 +115,7 @@ es:
     currency:
       format:
         delimiter: "."
-        format: "%n %u"
+        format: "%u %n"
         precision: 2
         separator: ","
         significant: false

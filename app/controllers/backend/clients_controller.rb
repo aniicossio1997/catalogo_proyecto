@@ -16,9 +16,11 @@ module Backend
     def destroy
       @client.destroy
       if @client.errors.present?
-        flash[:alert] = @client.errors[:error_user_destroy]
+        flash.now[:alert] = @client.errors[:error_user_destroy]
       else
-        flash[:notice]= "Se elimino exitosamente"
+        flash.now[:notice]= t(:action_without_errors,
+                              element: :cliente,
+                              action: :eliminó)
       end
       redirect_to backend_clients_path
     end
