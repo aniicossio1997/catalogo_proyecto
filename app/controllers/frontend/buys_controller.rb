@@ -11,6 +11,10 @@ module Frontend
       @buy = Buy.find(params[:id]).decorate
     end
 
+    def create
+      @buy = Buy.new()
+    end
+
     private
 
     def buy_params

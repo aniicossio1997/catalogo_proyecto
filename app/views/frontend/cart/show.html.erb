@@ -25,6 +25,7 @@
       </div>
       <div class="col">
         <div class="row">
+        <div class="col"></div>
         <div class="col">
         cantidad final: 
         </div>
@@ -39,7 +40,7 @@
   </div>
 
   <% if can? :authorize_close_car, :frontend_cart %>
-    <button type="button" class="btn btn-primary">Cerrar Venta -esto es solo de prueba-deberia ser un link</button>
+    <%= link_to 'Hacer pedido', , %>
   <% else %>
     <p class="text-red">
     Para cerra el carrito de compras debe de:
@@ -47,7 +48,4 @@
     </p>
   <% end %>
 </div>
-  <div class='card-footer'>
-    <%= link_to 'Volver', backend_buys_path, class: 'btn btn-light' %>
-  </div>
 </div>

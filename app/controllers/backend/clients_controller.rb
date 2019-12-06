@@ -20,7 +20,6 @@ module Backend
       else
         flash[:notice]= "Se elimino exitosamente"
       end
-      #Usar i18n
       redirect_to backend_clients_path
     end
 
