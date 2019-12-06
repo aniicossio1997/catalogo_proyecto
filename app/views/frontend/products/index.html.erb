@@ -2,3 +2,6 @@
 <div class="row">
   <%= render @presenter.products %>
 </div>
+<div class="row d-flex justify-content-center">
+  <%= will_paginate @presenter.products%>
+</div>
