@@ -40,7 +40,7 @@
   </div>
 
   <% if can? :authorize_close_car, :frontend_cart %>
-    <%= link_to 'Hacer pedido', , %>
+    <%= link_to 'Hacer pedido', create_buys_path, class: 'btn btn-outline-success float-right' %>
   <% else %>
     <p class="text-red">
     Para cerra el carrito de compras debe de:

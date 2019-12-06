@@ -11,7 +11,8 @@ Config.create(per_page: 3)
 Category.create(name: 'Bazar')
 Category.create(name: 'Jugueteria')
 Category.create(name: 'Electronica')
-Category.create(name: '')
+Category.create(name: 'Limpieza')
+Category.create(name: 'Comida')
 
 Tag.create(name: 'historico')
 Tag.create(name: 'cosas generales')
@@ -19,18 +20,18 @@ Tag.create(name: 'cosas generales')
 10.times do |i|
   p = Product.new(name: "Product ##{i}",
                   description: 'A product.',
-                  price: 250,
-                  cost: 200,
+                  price: rand(5000),
+                  cost: rand(5000),
                   active: true,
-                  code: i,
-                  category_id: 1)
+                  code: rand(10000),
+                  category_id: rand(6))
   p.product_images.build(principal: true)
   p.save
 end
 
-Buy.create(state: 'pending', user: User.first)
-Buy.create(state: 'accepted', user: User.first)
-Buy.create(state: 'rejected', user: User.first)
+Buy.create(state: 'pending', user: User.find(rand(1..3)))
+Buy.create(state: 'accepted', user: User.find(rand(1..3)))
+Buy.create(state: 'rejected', user: User.find(rand(1..3)))
 # pending
 Item.create(product: Product.first, price: Product.first.price, count: 3, buy: Buy.first)
 # rejected

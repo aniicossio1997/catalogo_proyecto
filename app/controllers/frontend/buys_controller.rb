@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-
 module Frontend
   class BuysController < FrontendController
     #before_action :authorize_buy
+
     def index
       @buys = current_user.buys
     end
@@ -12,13 +12,13 @@ module Frontend
     end
 
     def create
-      @buy = Buy.new()
-    end
-
-    private
-
-    def buy_params
-      params.require(:buy).permit(:id)
+      buy_manager = BuyManager.new(@cart, current_user)
+      if buy_manager.create
+        flash.now[:notice] = t(:buy_created_without_errors)
+        redirect_to buys_path
+      else
+        flash.now[:alert] = t(:buy_created_without_errors)
+      end
     end
   end
 end

@@ -3,7 +3,6 @@ module Frontend
   class CartController < FrontendController
     #before_action :authorize_cart
     before_action :set_product_id, only: [:add_to_cart, :remove_from_cart]
-    
     def show; end
 
     def add_to_cart

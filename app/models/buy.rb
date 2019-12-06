@@ -31,7 +31,7 @@ class Buy < ApplicationRecord
       update(state: state_new)
       true
     else
-      errors.add(:state, 'Usar I18n')
+      errors.add(:state, '#Usar i18n')
       false
     end
   end
