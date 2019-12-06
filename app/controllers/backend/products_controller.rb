@@ -49,6 +49,13 @@ module Backend
 
     private
 
+<<<<<<< Updated upstream
+=======
+    def authorize_product
+      authorize! :authorize_product, :backend_product
+    end
+
+>>>>>>> Stashed changes
     def set_product
       @product = Product.find(params[:id])
     end
