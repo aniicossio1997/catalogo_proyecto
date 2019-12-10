@@ -8,7 +8,7 @@
 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
   <% if user_signed_in? %>
     <%= link_to 'Editar perfil', edit_user_registration_path, {method: :get, class: 'nav-link dropdown-item'} %>
-    <% if can? :manage, Buy %>
+    <% if can? :authorize_buy_user_logged, :frontend_buy %>
   <!-- role checkboxes go here -->
       <%= link_to 'Mis Compras',buys_path,{method: :get, class: 'nav-link dropdown-item'} %>
 

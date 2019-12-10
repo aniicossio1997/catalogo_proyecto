@@ -21,7 +21,9 @@ class Ability
     end
     if !user.profile.nil?
       can :authorize_close_car, :frontend_cart
+      can :authorize_buy_user_logged, :frontend_buy
     end
+
   end
 
   # Define abilities for the passed in user here. For example:
