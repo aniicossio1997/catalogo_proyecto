@@ -25,7 +25,7 @@ RSpec.describe "Backend::ClientsController Requests", type: :request do
         
         it 'should not be removed' do
           expect(User.clients.count).to eq(1)
-          expect(flash[:alert]).to eq(['El usuario no puede ser eliminado porque cuenta con compras'])
+          expect(flash[:alert]).to eq(I18n.t(:invalid_destroy_with_buys))
         end
       end
 
@@ -38,17 +38,20 @@ RSpec.describe "Backend::ClientsController Requests", type: :request do
           expect(response).to render_template(:destroy)
           expect(response).to have_http_status(:ok)
           expect(User.clients.count).to eq(0)
+          expect(flash[:notice]).to eq(I18n.t(:action_without_errors, element: :cliente, action: :eliminado))
+
         end
       end
       end
     end
-    describe 'without user logged in' do
-      context 'should not show index' do
-        it 'fail request redirecto to sign_in' do
-          get backend_clients_path
-          expect(response).to redirect_to(user_session_path)
-          expect(response).to have_http_status(:found)
-        end
+
+  end
+  describe 'without user logged in' do
+    context 'should not show index' do
+      it 'fail request redirecto to sign_in' do
+        get backend_clients_path
+        expect(response).to redirect_to(user_session_path)
+        expect(response).to have_http_status(:found)
       end
     end
   end

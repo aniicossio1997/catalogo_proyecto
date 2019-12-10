@@ -98,5 +98,8 @@ RSpec.configure do |config|
     Config.create(per_page: 3)
     Profile.create(kind: 'client')
     Profile.create(kind: 'admin')
+    def t(string, options={})
+      I18n.t(string, options)
+    end
   end
 end
