@@ -9,8 +9,9 @@ class Category < ApplicationRecord
 
   def check_products
     return if products.count.zero?
-    #Usar i18n
-    errors.add(:base, 'No se puede eliminar una categoria que tenga productos asociadas')
+
+    errors.add(:base, t(:associations_with_products_error)
+    )
     throw(:abort)
   end
 end

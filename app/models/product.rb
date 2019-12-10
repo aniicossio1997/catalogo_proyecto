@@ -32,9 +32,10 @@ class Product < ApplicationRecord
   # scope :sort_asc_name,->{ order(name: :asc) }
   # scope :sort_desc_name, ->{ order(name: :desc) }
   scope :sort_name, ->(sort) { order(name: sort) }
+
   def only_one_image_checked
     return if product_images.select(&:principal).count == 1
 
-    errors.add(:product_images, '') # Usar i18n
+    errors.add(:product_images, t(:only_one_image_error))
   end
 end

@@ -19,10 +19,14 @@ module Backend
       @user.set_default_password
       @user.set_profile_admin
       if @user.save
-        flash[:notice] = '#Usar i18n'
+        flash[:notice] = t(:action_without_errors,
+                           element: :Usuario,
+                           action: :creado)
         redirect_to backend_users_path
       else
-        flash.now[:alert] = '#Usar i18n'
+        flash.now[:alert] = t(:action_error,
+                              element: :Usuario,
+                              action: :creado)
         render :new
       end
     end
@@ -31,10 +35,14 @@ module Backend
 
     def update
       if @user.update(user_params)
-        flash[:notice] = '#Usar i18n'
+        flash[:notice] = t(:action_without_errors,
+                           element: :Usuario,
+                           action: :actualizado)
         redirect_to backend_users_path
       else
-        flash.now[:alert] = '#Usar i18n'
+        flash.now[:alert] = t(:action_error,
+                              element: :Usuario,
+                              action: :actualizado)
         render :edit
       end
     end
@@ -42,9 +50,13 @@ module Backend
     def destroy
       if @user != current_user
         @user.destroy
-        flash[:notice] = '#Usar i18n'
+        flash[:notice] = t(:action_without_errors,
+                           element: :Usuario,
+                           action: :eliminado)
       else
-        flash[:alert] = '#Usar i18n'
+        flash[:alert] = t(:action_error,
+                          element: :Usuario,
+                          action: :eliminado)
       end
       redirect_to backend_users_path
     end

@@ -8,3 +8,4 @@ es:
         passwords:
           leave_blank: Dejar en blanco si no se quiere cambiar
           minimum_characters: 'caractrer/es como mínimo'
+  invalid_destroy_with_buys: El usuario no puede ser eliminado porque cuenta con compras

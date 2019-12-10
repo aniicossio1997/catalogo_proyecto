@@ -28,23 +28,31 @@ module Backend
                                element: :tag,
                                action: :creado)
       else
-        flash.now[:alert] = '#Usar i18n'
+        flash.now[:alert] = t(:action_error,
+                              element: :tag,
+                              action: :creado)
         render :modal
       end
     end
 
     def update
       if @tag.update(tag_params)
-        flash.now[:notice] = '#Usar i18n'
+        flash.now[:notice] = t(:action_without_errors,
+                               element: :tag,
+                               action: :actualizado)
       else
-        flash.now[:alert] = '#Usar i18n'
+        flash.now[:alert] = t(:action_error,
+                              element: :tag,
+                              action: :actualizado)
         render :modal
       end
     end
 
     def destroy
       @tag.destroy
-      flash.now[:notice] = '#Usar i18n'
+      flash.now[:notice] = t(:action_without_errors,
+                             element: :tag,
+                             action: :eliminado)
     end
 
     private

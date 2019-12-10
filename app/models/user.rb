@@ -34,8 +34,8 @@ class User < ApplicationRecord
 
   def check_buys
     return if buys.count.zero?
-    #Usar i18n
-    errors.add(:error_user_destroy, 'No se puede eliminar los que cuenten con compras') # Usar i18n
+
+    errors.add(:error_user_destroy, I18n.t(:invalid_destroy_with_buys))
     throw(:abort)
   end
 end

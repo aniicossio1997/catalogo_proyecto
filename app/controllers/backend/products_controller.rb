@@ -24,34 +24,43 @@ module Backend
     def create
       @product = Product.new(product_params)
       if @product.save
-        flash.now[:notice] = '#Usar i18n'
+        flash.now[:notice] = t(:action_without_errors,
+                               element: :Producto,
+                               action: :creado)
         redirect_to backend_products_path
       else
-        flash.now[:alert] = @product.decorate.errores
+        flash.now[:alert] = t(:action_error,
+                              element: :Producto,
+                              action: :creado)
         render :new
       end
     end
 
     def update
       if @product.update(product_params)
-        flash.now[:notice] = '#Usar i18n'
+        flash.now[:notice] = t(:action_without_errors,
+                               element: :Producto,
+                               action: :actualizado)
         redirect_to backend_products_path
       else
-        flash.now[:alert] = '#Usar i18n'
+        flash.now[:alert] = t(:action_error,
+                              element: :Producto,
+                              action: :actualizado)
         render :edit
       end
     end
 
     def destroy
       @product.destroy
-      flash[:notice] = '#Usar i18n'
+      flash[:notice] = t(:action_without_errors,
+                         element: :Producto,
+                         action: :eliminado)
       redirect_to backend_products_path
     end
 
     private
 
     def authorize_product
-      
       authorize! :authorize_product, :backend_product
     end
 

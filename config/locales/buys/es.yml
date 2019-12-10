@@ -3,3 +3,4 @@ es:
     rejected: Rechazado
     accepted: Aceptado
     pending: Pendiente
+  inmmutable_state_error: El estado de la compra no puede cambiar si no es pendiente

@@ -20,7 +20,7 @@ module Backend
       else
         flash.now[:notice]= t(:action_without_errors,
                               element: :cliente,
-                              action: :eliminó)
+                              action: :eliminado)
       end
       redirect_to backend_clients_path
     end

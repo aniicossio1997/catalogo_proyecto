@@ -25,25 +25,35 @@ module Backend
     def create
       @slider = Slider.new(slider_params)
       if @slider.save
-        flash.now[:notice] = 'Slider creado'
+        flash.now[:notice] = t(:action_without_errors,
+                               element: :Slider,
+                               action: :creado)
       else
-        flash.now[:alert] = 'Error creando slider'
+        flash.now[:alert] = t(:action_error,
+                              element: :Slider,
+                              action: :creado)
         render :modal
       end
     end
 
     def update
       if @slider.update(slider_params)
-        flash.now[:notice] = 'slider modificada'
+        flash.now[:notice] = t(:action_without_errors,
+                               element: :Slider,
+                               action: :creado)
       else
-        flash.now[:alert] = 'Error modificando slider'
+        flash.now[:alert] = t(:action_error,
+                              element: :Slider,
+                              action: :creado)
         render :modal
       end
     end
 
     def destroy
       @slider.destroy
-      flash.now[:notice] = 'Slider eliminado'
+      flash.now[:notice] = t(:action_without_errors,
+                             element: :Slider,
+                             action: :eliminado)
     end
 
     private

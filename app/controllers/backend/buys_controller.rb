@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 module Backend
   class BuysController < BackendController
-    #authorize_resource class: false
+    # authorize_resource class: false
     before_action :set_buy, except: [
       :index
     ]
@@ -13,18 +14,26 @@ module Backend
 
     def state_change_accepted
       if @buy.update_state(:accepted)
-        flash.now[:notice] = t('change_buy_accepted')
+        flash.now[:notice] = t(:action_without_errors,
+                               element: :Compra,
+                               action: :actualizada)
       else
-        flash.now[:alert] = t('error_buy_change')
+        flash.now[:alert] = t(:action_error,
+                              element: :Compra,
+                              action: :actualizada)
       end
       @buy.decorate
     end
 
     def state_change_rejected
       if @buy.update_state(:rejected)
-        flash.now[:notice] = t('change_buy_rejected')
+        flash.now[:notice] = t(:action_without_errors,
+                               element: :Compra,
+                               action: :actualizada)
       else
-        flash.now[:alert] = t('error_buy_change')
+        flash.now[:alert] = t(:action_error,
+                              element: :Compra,
+                              action: :actualizada)
       end
       @buy.decorate
     end

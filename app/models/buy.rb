@@ -31,7 +31,7 @@ class Buy < ApplicationRecord
       update(state: state_new)
       true
     else
-      errors.add(:state, '#Usar i18n')
+      errors.add(:state, t(:inmmutable_state_error))
       false
     end
   end
