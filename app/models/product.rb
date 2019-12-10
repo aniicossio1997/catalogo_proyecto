@@ -36,6 +36,6 @@ class Product < ApplicationRecord
   def only_one_image_checked
     return if product_images.select(&:principal).count == 1
 
-    errors.add(:product_images, message: t(:only_one_image_error))
+    errors.add(:product_images, message: I18n.t(:only_one_image_error))
   end
 end

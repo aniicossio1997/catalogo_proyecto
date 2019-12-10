@@ -27,9 +27,13 @@ module Backend
     def create
       @category = Category.new(category_params)
       if @category.save
-        flash.now[:notice] = t(:category_created_without_errors)
+        flash.now[:notice] = t(:action_without_errors,
+                               element: :Categoría,
+                               action: :creada)
       else
-        flash.now[:alert] = t(:category_creation_error)
+        flash.now[:alert] =  t(:action_error,
+                               element: :Categoría,
+                               action: :creada)
         render :modal
       end
     end
@@ -37,11 +41,11 @@ module Backend
     def update
       if @category.update(category_params)
         flash.now[:notice] = t(:action_without_errors,
-                               element: :categoría,
+                               element: :Categoría,
                                action: :creada)
       else
         flash.now[:alert] = t(:action_error,
-                              element: :categoría,
+                              element: :Categoría,
                               action: :creada)
         render :modal
       end
@@ -50,10 +54,10 @@ module Backend
     def destroy
       @category.destroy
       if @category.errors.present?
-        flash[:alert] = @category.errors[:base].to_s
+        flash[:alert] = @category.errors.full_messages.first
       else
         flash[:notice] = t(:action_without_errors,
-                           element: :categoría,
+                           element: :Categoría,
                            action: :eliminada)
       end
       redirect_to backend_categories_path

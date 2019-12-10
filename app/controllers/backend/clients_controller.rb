@@ -2,7 +2,7 @@
 
 module Backend
   class ClientsController < BackendController
-    #authorize_resource class: false
+    # authorize_resource class: false
     before_action :set_client, except: [
       :index
     ]
@@ -16,11 +16,11 @@ module Backend
     def destroy
       @client.destroy
       if @client.errors.present?
-        flash.now[:alert] = @client.errors[:error_user_destroy]
+        flash[:alert] = @client.errors[:error_user_destroy].first
       else
-        flash.now[:notice]= t(:action_without_errors,
-                              element: :cliente,
-                              action: :eliminado)
+        flash[:notice] = t(:action_without_errors,
+                           element: :cliente,
+                           action: :eliminado)
       end
       redirect_to backend_clients_path
     end

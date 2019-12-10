@@ -24,12 +24,12 @@ module Backend
     def create
       @product = Product.new(product_params)
       if @product.save
-        flash.now[:notice] = t(:action_without_errors,
+        flash[:notice] = t(:action_without_errors,
                                element: :Producto,
                                action: :creado)
         redirect_to backend_products_path
       else
-        flash.now[:alert] = t(:action_error,
+        flash[:alert] = t(:action_error,
                               element: :Producto,
                               action: :creado)
         render :new
@@ -38,12 +38,12 @@ module Backend
 
     def update
       if @product.update(product_params)
-        flash.now[:notice] = t(:action_without_errors,
+        flash[:notice] = t(:action_without_errors,
                                element: :Producto,
                                action: :actualizado)
         redirect_to backend_products_path
       else
-        flash.now[:alert] = t(:action_error,
+        flash[:alert] = t(:action_error,
                               element: :Producto,
                               action: :actualizado)
         render :edit

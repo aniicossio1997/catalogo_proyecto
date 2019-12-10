@@ -25,11 +25,11 @@ module Backend
       @tag = Tag.new(tag_params)
       if @tag.save
         flash.now[:notice] = t(:action_without_errors,
-                               element: :tag,
+                               element: :Tag,
                                action: :creado)
       else
         flash.now[:alert] = t(:action_error,
-                              element: :tag,
+                              element: :Tag,
                               action: :creado)
         render :modal
       end
@@ -38,11 +38,11 @@ module Backend
     def update
       if @tag.update(tag_params)
         flash.now[:notice] = t(:action_without_errors,
-                               element: :tag,
+                               element: :Tag,
                                action: :actualizado)
       else
         flash.now[:alert] = t(:action_error,
-                              element: :tag,
+                              element: :Tag,
                               action: :actualizado)
         render :modal
       end
@@ -51,7 +51,7 @@ module Backend
     def destroy
       @tag.destroy
       flash.now[:notice] = t(:action_without_errors,
-                             element: :tag,
+                             element: :Tag,
                              action: :eliminado)
     end
 

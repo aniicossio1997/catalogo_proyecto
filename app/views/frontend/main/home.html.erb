@@ -17,7 +17,7 @@
   <br>
   <hr>
   <div class="row">
-    <% @products.each do |product| %>
+    <% @products.order("RAND()").limit(4).each do |product| %>
       <%= render 'frontend/products/product', product: product %>
     <% end %>
   </div>
