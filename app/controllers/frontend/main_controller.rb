@@ -5,7 +5,7 @@ module Frontend
     #before_action :authorize_home
     def home
       @sliders = Slider.all
-      @products = Product.limit(4).decorate
+      @products = Product.order("RAND()").limit(4).decorate
     end
   end
 end
