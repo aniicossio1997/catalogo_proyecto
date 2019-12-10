@@ -10,8 +10,7 @@ class Category < ApplicationRecord
   def check_products
     return if products.count.zero?
 
-    errors.add(:base, t(:associations_with_products_error)
-    )
+    errors.add(:base, message: I18n.t(:associations_with_products_error))
     throw(:abort)
   end
 end

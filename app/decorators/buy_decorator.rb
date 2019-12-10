@@ -16,6 +16,6 @@ class BuyDecorator < ApplicationDecorator
   end
 
   def state_pretty
-    I18n.t(object.state)
+    I18n.t('states.'+object.state)
   end
 end
