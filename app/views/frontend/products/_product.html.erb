@@ -1,30 +1,32 @@
-<div class="col-3">
-  <div class="card border" style="width: 15rem;">
-    <%= image_tag(product.image_principal, class: 'card-img-top', size: "300x180") %>
-        <div class="card-body">
-          <p class="card-text"><%= product.name %></p>
-          <div class="row">
-            <div class="col-sm text-left">
-              <%= link_to image_tag("cart2.png", size: "25x25"), add_product_to_cart_path(product.id), remote: true, class: "btn btn-outline-success"%>
-              
-              <%# <a role="button"
-                tabindex="0" 
-                class="btn btn-lg btn-secondary"
-                data-toggle="popover" 
-                data-trigger="focus" 
-                title="Dismissible popover" 
-                data-placement="right"
-                data-content="Hola" >Add to cart</a>
-              %>
+<td>
+  <div class="col-3">
+    <div class="card border" style="width: 15rem;">
+      <%= image_tag(product.image_principal, class: 'card-img-top', size: "300x180") %>
+          <div class="card-body">
+            <p class="card-text"><%= product.name %></p>
+            <div class="row">
+              <div class="col-sm text-left">
+                <%= link_to image_tag("cart2.png", size: "25x25"), add_product_to_cart_path(product.id), remote: true, class: "btn btn-success"%>
+                
+                <%# <a role="button"
+                  tabindex="0" 
+                  class="btn btn-lg btn-secondary"
+                  data-toggle="popover" 
+                  data-trigger="focus" 
+                  title="Dismissible popover" 
+                  data-placement="right"
+                  data-content="Hola" >Add to cart</a>
+                %>
 
+              </div>
+              <div class="col-sm text-right">
+                <%= product.pretty_price %>
+              </div >
             </div>
-            <div class="col-sm text-right">
-              <%= product.pretty_price %>
-            </div >
+            <br>
+            <%= link_to 'Ver', product_path(product),  class: 'btn btn-primary btn-lg btn-block' %>
           </div>
-          <br>
-          <%= link_to 'Ver', product_path(product),  class: 'btn btn-primary btn-lg btn-block' %>
         </div>
-      </div>
-</div>
-<br><br>
+  </div>
+  <br><br>
+</td>
