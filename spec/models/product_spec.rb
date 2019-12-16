@@ -9,7 +9,7 @@ RSpec.describe Product, type: :model do
     it 'has a valid factory' do
       # Testear que el factory definido es válido.
       # prdoductot debe tener active en true
-      expect(build(:product)).to be_valid
+      expect(build(:product, :product_image_principal)).to be_valid
     end
   end
   describe 'validations fails' do
@@ -31,9 +31,8 @@ RSpec.describe Product, type: :model do
     it { should validate_presence_of(:description) }
     it { should validate_presence_of(:price) }
     it { should validate_presence_of(:cost) }
-    it { should validate_presence_of(:active) }
     it { should validate_presence_of(:code) }
-    it { should validate_presence_of(:category_id) }
+    it { should validate_presence_of(:category) }
 
     # it 'category_valid' do
     #   category = build(:category)

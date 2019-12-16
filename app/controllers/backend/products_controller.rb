@@ -22,7 +22,7 @@ module Backend
     def edit; end
 
     def create
-      binding.pry
+      #binding.pry
       @product = Product.new(product_params)
       if @product.save
         flash[:notice] = t(:action_without_errors,
@@ -30,6 +30,7 @@ module Backend
                                action: :creado)
         redirect_to backend_products_path
       else
+       # binding.pry
         flash[:alert] = t(:action_error,
                               element: :Producto,
                               action: :creado)

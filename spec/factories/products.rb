@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 FactoryBot.define do
   # Implementar factory
   factory :product do
@@ -22,4 +21,3 @@ FactoryBot.define do
     end
   end
 end
-
