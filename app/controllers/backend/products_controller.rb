@@ -22,6 +22,7 @@ module Backend
     def edit; end
 
     def create
+      binding.pry
       @product = Product.new(product_params)
       if @product.save
         flash[:notice] = t(:action_without_errors,

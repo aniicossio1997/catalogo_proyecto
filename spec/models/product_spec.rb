@@ -8,8 +8,17 @@ RSpec.describe Product, type: :model do
   describe 'Factory' do
     it 'has a valid factory' do
       # Testear que el factory definido es válido.
-      # prdoducto debe tener active en true
+      # prdoductot debe tener active en true
       expect(build(:product)).to be_valid
+    end
+  end
+  describe 'validations fails' do
+    it 'dont without category' do
+      product = build(:product)
+      product.category = nil
+      expect(product.save).to be false
+      expect(product.errors.messages[:category]).to eq [I18n.t('errors.messages.required'),I18n.t('errors.messages.blank')]
+
     end
   end
 
@@ -25,5 +34,11 @@ RSpec.describe Product, type: :model do
     it { should validate_presence_of(:active) }
     it { should validate_presence_of(:code) }
     it { should validate_presence_of(:category_id) }
+
+    # it 'category_valid' do
+    #   category = build(:category)
+    #   category.product = category
+    #   expect { category.save }.to_not change{ Category.count }
+    #end
   end
 end
