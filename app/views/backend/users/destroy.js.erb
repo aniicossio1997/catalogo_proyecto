@@ -1,0 +1,5 @@
+<% if @user.errors.empty? %>
+  $('#<%= dom_id(@user)%>').remove();
+<% end %>
+
+$('#flash_messages_container').replaceWith('<%= j render 'flash_message' %>');

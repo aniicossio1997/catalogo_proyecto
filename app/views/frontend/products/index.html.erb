@@ -1,6 +1,10 @@
 <%= render 'filter' %>
 <div class="row">
-  <%= render @presenter.products %>
+  <table class="table">
+    <tbody>
+      <%= render @presenter.products %>
+    </tbody>
+  </table>
 </div>
 <br>
 <div class="row d-flex justify-content-center">

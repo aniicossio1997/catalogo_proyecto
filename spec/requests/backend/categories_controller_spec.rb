@@ -95,12 +95,6 @@ RSpec.describe "Backend::CategoriesController Requests", type: :request do
       subject { create(:category) }
       it 'ok request' do
         sign_in admin
-
-        params = {
-          category: {
-            name: Faker::Name.unique.name
-          }
-        }
         delete backend_category_path(subject, format: :js), xhr: true
         expect(response.content_type).to eq('text/javascript')
         expect(response).to redirect_to(backend_categories_path)
