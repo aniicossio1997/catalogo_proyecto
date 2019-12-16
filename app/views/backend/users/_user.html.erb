@@ -1,10 +1,10 @@
-<tr>
+<tr id='<%= dom_id(user) %>'>
   <td><%= user.username %></td>
   <td><%= user.email %></td>
   <td class='text-right'>
     <%#link_to 'Ver', user_path(user), class: 'btn btn-sm btn-outline-info' %>
     <%= link_to 'Editar', edit_backend_user_path(user), class: 'btn btn-sm btn-outline-warning' %>
-    <%= link_to 'Borrar', backend_user_path(user), method: :delete, data: { confirm: 'Esta seguro?' }, class: 'btn btn-sm btn-outline-danger' %>
+    <%= link_to 'Borrar', backend_user_path(user),remote: true,  method: :delete, data: { confirm: 'Esta seguro?' }, class: 'btn btn-sm btn-outline-danger' %>
 
   </td>
 </tr>

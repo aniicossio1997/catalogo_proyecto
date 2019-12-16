@@ -19,7 +19,7 @@ module Backend
       @user.set_default_password
       @user.set_profile_admin
       if @user.save
-        flash[:notice] = t(:action_without_errors,
+        flash.now[:notice] = t(:action_without_errors,
                            element: :Usuario,
                            action: :creado)
         redirect_to backend_users_path
@@ -35,7 +35,7 @@ module Backend
 
     def update
       if @user.update(user_params)
-        flash[:notice] = t(:action_without_errors,
+        flash.now[:notice] = t(:action_without_errors,
                            element: :Usuario,
                            action: :actualizado)
         redirect_to backend_users_path
@@ -50,15 +50,14 @@ module Backend
     def destroy
       if @user != current_user
         @user.destroy
-        flash[:notice] = t(:action_without_errors,
+        flash.now[:notice] = t(:action_without_errors,
                            element: :Usuario,
                            action: :eliminado)
       else
-        flash[:alert] = t(:action_error,
+        flash.now[:alert] = t(:action_error,
                           element: :Usuario,
                           action: :eliminado)
       end
-      redirect_to backend_users_path
     end
 
     private
