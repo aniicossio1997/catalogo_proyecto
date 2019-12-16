@@ -12,7 +12,6 @@ RSpec.describe "Backend::UsersController Requests", type: :request do
         expect(response).to render_template(:index)
         expect(response).to have_http_status(:ok)
       end
-
     end
     describe '#new' do
       it 'ok request' do

@@ -4,7 +4,7 @@ FactoryBot.define do
   # Implementar factory
   factory :product_image do
     association :product
-    after(:build) do |product_image|
+    after(:create) do |product_image|
       product_image.image.attach(io: File.open(Rails.root.join('spec', 'test_images', 'test.jpg')), filename: 'test.jpg', content_type: 'image/jpg')
     end
     principal { Faker::Boolean.boolean }
