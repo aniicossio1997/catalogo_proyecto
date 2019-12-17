@@ -13,6 +13,7 @@ module Frontend
 
     def create
       buy_manager = BuyManager.new(@cart, current_user)
+
       if buy_manager.create
         flash.now[:notice] = t(:buy_created_without_errors)
         redirect_to buys_path

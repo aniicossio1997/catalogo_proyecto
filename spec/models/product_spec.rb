@@ -33,11 +33,5 @@ RSpec.describe Product, type: :model do
     it { should validate_presence_of(:cost) }
     it { should validate_presence_of(:code) }
     it { should validate_presence_of(:category) }
-
-    # it 'category_valid' do
-    #   category = build(:category)
-    #   category.product = category
-    #   expect { category.save }.to_not change{ Category.count }
-    #end
   end
 end
