@@ -6,4 +6,10 @@ class Config < ApplicationRecord
   def logo_attached
     logo.attached? ? logo : 'missing.png'
   end
+
+  # -- Validations
+  validates :per_page, numericality: {
+    only_integer: true,
+    greater_than: 0
+  }
 end

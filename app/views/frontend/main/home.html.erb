@@ -16,7 +16,7 @@
   </div>
   <br>
   <hr>
-  <div class="row">
+  <div class="card-deck">
     <% @products.order("RAND()").limit(4).each do |product| %>
       <%= render 'frontend/products/product', product: product %>
     <% end %>
