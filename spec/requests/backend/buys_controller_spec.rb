@@ -18,10 +18,8 @@ RSpec.describe "Backend::BuysController Requests", type: :request do
       let!(:product) { create(:product, :product_image_principal) }
       let!(:product_image) { create(:product_image, product: product) }
       let!(:buy) { create(:buy, state: :pending, user: client) }
-     
      # let!(:item) { create_list(:item, 2, product: product, buy: buy) }
       it 'ok request' do
-       
         get backend_buy_path(buy)
         expect(response).to render_template(:show)
         expect(response).to have_http_status(:ok)

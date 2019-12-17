@@ -4,10 +4,11 @@ RSpec.describe "Backend::ProductsController Requests", type: :request do
   let(:admin) { create(:admin) }
 
   describe 'with user logged in' do
-    describe 'index' do
+    before do
+      sign_in admin
+    end
+    describe '#index' do
       it 'ok request' do
-        sign_in admin
-
         get backend_products_path
         expect(response).to render_template(:index)
         expect(response).to have_http_status(:ok)
@@ -15,8 +16,6 @@ RSpec.describe "Backend::ProductsController Requests", type: :request do
     end
     describe 'Action new' do
       it 'ok request' do
-        sign_in admin
-
         get new_backend_product_path
         expect(response).to render_template(:new)
         expect(response).to have_http_status(:ok)
@@ -25,8 +24,6 @@ RSpec.describe "Backend::ProductsController Requests", type: :request do
     describe 'Action edit' do
       subject { create(:product, :product_image_principal) }
       it 'ok request' do
-        sign_in admin
-
         get edit_backend_product_path(subject.id)
         expect(response).to render_template(:edit)
         expect(response).to have_http_status(:ok)
@@ -35,9 +32,7 @@ RSpec.describe "Backend::ProductsController Requests", type: :request do
     describe 'Action create' do
       subject { create(:category) }
       it 'ok request' do
-        sign_in admin
         file =  fixture_file_upload('files/coke.png', 'image/png')
-      
         params = {
           product: {
             name: Faker::Name.unique.name,
@@ -66,7 +61,7 @@ RSpec.describe "Backend::ProductsController Requests", type: :request do
         expect(response).to have_http_status(:ok)
       end
       it 'fail validation' do
-        sign_in admin
+        
 
         params = {
           product: {
@@ -87,66 +82,59 @@ RSpec.describe "Backend::ProductsController Requests", type: :request do
         expect(response).to have_http_status(:ok)
       end
     end
-    
     describe 'update' do
-      subject { create(:product) }
+      let!(:product) { create(:product,:product_image_principal) }
       let(:category) { create(:category) }
-       it 'ok request' do
-         sign_in admin
-
-        params = {
-          product: {
-            name: Faker::Name.unique.name,
-            description: Faker::Lorem.sentence,
-            price: Faker::Number.decimal(l_digits: 3, r_digits: 3), 
-            cost: Faker::Number.decimal(l_digits: 3, r_digits: 3),
-            active: Faker::Boolean.boolean,
-            code: Faker::Code.nric(min_age: 27, max_age: 34),
-            category_id: category.id,
-            tag_ids: []
-            #product_images_attributes: [
-            #  {
-            #    image: file,
-            #    principal: 1
-            #  }
-            #]
+      context 'when params correct' do
+        it 'ok request' do
+          params = {
+            product: {
+              name: Faker::Name.unique.name,
+              description: Faker::Lorem.sentence,
+              price: Faker::Number.decimal(l_digits: 3, r_digits: 3), 
+              cost: Faker::Number.decimal(l_digits: 3, r_digits: 3),
+              active: Faker::Boolean.boolean,
+              code: Faker::Code.nric(min_age: 27, max_age: 34),
+              category_id: category.id,
+            }
           }
-        }
-        patch backend_product_path(subject, params: params)
-        expect(response).to render_template(:edit)
-        expect(response).to have_http_status(:ok)
+          patch backend_product_path(product, params: params)
+          expect(response).to redirect_to backend_products_path
+          expect(response).to have_http_status(:found)
+        end
       end
-      it 'fail validation' do
-        sign_in admin
-
-        params = {
-          product: {
-            name: '',
-            description: '',
-            active: true,
-            code: 2,
-            price: 100,
-            cost: 100,
-            category_id: rand(1000),
-            tags_id: [],
-            product_images_attributes: %i[]
+      context 'when params incorrect' do
+        it 'fail validation' do
+          params = {
+            product: {
+              name: '',
+              description: '',
+              active: true,
+              code: 2,
+              price: 100,
+              cost: 100,
+              category_id: rand(1000),
+              tags_id: [],
+              product_images_attributes: %i[]
+            }
           }
-        }
-        patch backend_product_path(subject, params: params)
-        expect(response).to render_template(:edit)
-        expect(response).to have_http_status(:ok)
+          patch backend_product_path(product, params: params)
+          expect(response).to render_template(:edit)
+          expect(response).to have_http_status(:ok)
+        end
       end
     end
     describe 'destroy' do
-      subject { create(:product) }
+      let!(:product) { create(:product, :product_image_principal) }
+      let(:category) { create(:category) }
       it 'ok request' do
-        sign_in admin
-        delete backend_category_path(subject.id)
-        expect(response).to redirect_to(backend_product_path)
-        expect(response).to have_http_status(:ok)
+        delete backend_product_path(product)
+        expect(response).to redirect_to(backend_products_path)
+        expect(response).to have_http_status(:found)
       end
     end
   end
+
   describe 'without user logged in' do
     describe 'index' do
       it 'fail request redirecto to sign_in' do
