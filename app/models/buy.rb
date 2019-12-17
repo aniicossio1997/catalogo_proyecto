@@ -9,6 +9,7 @@ class Buy < ApplicationRecord
 
   # -- Validations
   validate :profile_client
+  validates :items, presence: true
 
   #---atributos extras
   def profile_client
