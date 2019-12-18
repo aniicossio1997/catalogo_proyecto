@@ -1,7 +1,7 @@
 
 <%= form_with model:  [:backend, @user], local: true do |f| %>
 
-    <small  class="form-text text-muted">Recuerde que la contraseña es igual al nombre de usuario</small>
+    <small  class="form-text text-muted"> <%= I18n.t(:remember_password_same_username)%> </small>
     <br>
     <div class="form-group">
       <%= f.label :username, 'Nombre de usuario' %>

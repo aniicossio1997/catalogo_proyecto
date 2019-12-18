@@ -1,4 +1,7 @@
 es:
+  name: Nombre
+  email: Correo electrónico
+  remember_password_same_username: 'Recuerde que la contraseña va ser igual al nombre de usuario'
   unauthorized:
     manage:
       all: "No está autorizado para acceder a este sitio."

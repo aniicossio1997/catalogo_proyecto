@@ -4,7 +4,7 @@
 <table class="table table-bordered">
   <thead class="thead-light">
     <tr>
-      <th>Nombre</th>
+      <th><%= I18n.t(:name)%></th>
       <th class='text-right'><%= link_to 'Nuevo', new_backend_category_path, remote: true, class: 'btn btn-primary' %></th>
     </tr>
   </thead>

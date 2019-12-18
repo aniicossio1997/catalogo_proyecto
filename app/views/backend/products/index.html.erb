@@ -8,7 +8,7 @@
       <th>Productos</th>
       <th>Activo</th>
       <th>Precio</th>
-      <th class="text-right"><%= link_to 'Nueva', new_backend_product_path, class: 'btn btn-primary' %></th>
+      <th class="text-right"><%= link_to I18n.t(:new), new_backend_product_path, class: 'btn btn-primary' %></th>
     </tr>
   </thead>
   <tbody id='products_container'>

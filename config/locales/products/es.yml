@@ -1,4 +1,8 @@
 es:
   product: producto
   products: productos
+  description: Descripción
+  active: Activo
+  cost: Costo
+  sliders: Sliders
   only_one_image_error: El producto debe tener una y sólo una imagen principal

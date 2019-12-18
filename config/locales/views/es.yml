@@ -1,2 +1,9 @@
 es:
-  buys: Compras
+  index: Lista
+  date: Fecha
+  options: Opciones
+  total: Total
+  state: Estado
+  new: Nuevo
+  edit: Editar
+  destroy: Eliminar
