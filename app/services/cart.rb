@@ -16,4 +16,10 @@ class Cart
   def size
     @products.size
   end
+
+  def total_products
+    suma = 0
+    @cart.each { |product,count| suma = suma + count}
+    suma
+  end
 end

@@ -3,7 +3,12 @@ module Frontend
   class CartController < FrontendController
     #before_action :authorize_cart
     before_action :set_product_id, only: [:add_to_cart, :remove_from_cart]
-    def show; end
+    def show
+      if @cart.size.zero?
+        flash[:alert] = t(:the_cart_does_not_have_products)
+        redirect_to root_path
+      end
+    end
 
     def add_to_cart
       product_id = params[:id]
@@ -21,7 +26,11 @@ module Frontend
 
     def remove_from_cart
       @cart.delete(params[:id])
-      render 'update_cart'
+      product_total = 0
+      @cart.each { |product,count| product_total = product_total + count}
+      params[:product_total] = product_total
+      params[:cart] = @cart
+      product_total
     end
 
     private

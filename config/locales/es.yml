@@ -165,6 +165,7 @@ es:
     precision:
       format:
         delimiter: ''
+  the_cart_does_not_have_products: 'el carrito esta vacio, debe de agregar productos al carrito'
   support:
     array:
       last_word_connector: " y "

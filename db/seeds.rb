@@ -3,9 +3,9 @@
 # User.create(email: 'master@master.com', username: 'master', password: 'master')
 client = Profile.create(kind: 'client')
 admin = Profile.create(kind: 'admin')
-User.create(username: 'cliente', email: 'cliente@cliente.com', password: 'cliente', profile: client)
 User.create(username: 'master', email: 'master@master.com', password: 'master', profile: admin)
-User.create(username: 'may', email: 'may@may.com', password: 'may', profile: client)
+user_juan = User.create(username: 'juan', email: 'juan@juan.com', password: 'juan', profile: client)
+user_lia = User.create(username: 'lia', email: 'lia@lia.com', password: 'lia', profile: client)
 
 Config.create(per_page: 3)
 Category.create(name: 'Bazar')
@@ -29,19 +29,39 @@ Tag.create(name: 'cosas generales')
   p.save
 end
 
-Buy.create(state: 'pending', user: User.find(rand(1..3)))
-Buy.create(state: 'accepted', user: User.find(rand(1..3)))
-Buy.create(state: 'rejected', user: User.find(rand(1..3)))
-# pending
-Item.create(product: Product.first, price: Product.first.price, count: rand(1..10), buy: Buy.first)
-# rejected
-Item.create(product: Product.last, price: Product.last.price, count: rand(1..10), buy: Buy.last)
-Item.create(product: Product.find(3), price: Product.find(3).price, count: rand(1..10), buy: Buy.last)
-Item.create(product: Product.last, price: Product.last.price, count: rand(1..10), buy:  Buy.last)
-# accepted
-Item.create(product: Product.last, price: Product.last.price, count: rand(1..10), buy:  Buy.second)
-Item.create(product: Product.last, price: Product.last.price, count: rand(1..10), buy:  Buy.second)
-Item.create(product: Product.find(2), price: Product.find(2).price, count: rand(1..10), buy: Buy.second)
+# Compras
+buy_1 = Buy.new
+buy_2 = Buy.new
+buy_3 = Buy.new
+
+buy_1.items.<< Item.new(price: Product.first.price,
+  count: 1,
+  product: Product.first,
+  buy: buy_1)
+buy_1.user = user_lia
+buy_1.save
+
+buy_2.items.<< Item.new(price: Product.find(3).price,
+  count: 5,
+  product: Product.find(3),
+  buy: buy_2)
+buy_2.user = user_juan
+buy_2.save
+Item.create(product: Product.find(4), price: Product.find(4).price, count: 1, buy: buy_2)
+Item.create(product: Product.find(5), price: Product.find(5).price, count: 1, buy: buy_2)
+
+
+buy_3.items.<< Item.new(price: Product.find(2).price,
+  count: 2,
+  product: Product.find(2),
+  buy: buy_3)
+buy_3.user = user_lia
+buy_3.save
+
+Item.create(product: Product.find(5), price: Product.find(5).price, count: rand(1..10), buy: buy_3)
+
+
+
 
 # Sliders
 images_path = 'app/assets/images/'

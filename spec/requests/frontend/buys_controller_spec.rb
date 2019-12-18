@@ -12,7 +12,6 @@ RSpec.describe "Frontend::BuysController Requests", type: :request do
       end
     end
   end
-<<<<<<< HEAD
   describe 'show' do
     let!(:buy) { create(:buy, :items, user: client) }
     it 'ok request' do
@@ -23,19 +22,6 @@ RSpec.describe "Frontend::BuysController Requests", type: :request do
       expect(response).to have_http_status(:ok)
     end
   end
-=======
-  # describe 'show' do
-  #   let!(:client) { create(:user, profile: Profile.client.take) }
-  #   let!(:buy) { create(:buy, state: :pending, user: client) }
-  #   it 'ok request' do
-  #     sign_in client
-  #     get buy_path(buy)
-  #     expect(response).to render_template(:show)
-  #     expect(response).to have_http_status(:ok)
-  #   end
-  # end
-  
->>>>>>> b1c0d5d04d51b40905e159a07c36c5b5eb727135
   describe 'Action create' do
     let(:product) { create(:product, :product_image_principal) }
     it 'ok request' do

@@ -1,3 +1,5 @@
+<span id="cart_price_total">
 <%= total = 0
 @cart.each { | id_product, count | total += Product.find(id_product).price * count }
 total %>
+</span>

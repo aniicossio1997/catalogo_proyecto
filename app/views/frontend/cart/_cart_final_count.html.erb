@@ -1,3 +1,7 @@
-<%= a = 0 
-@cart.each { |id_prod, count| a += count }
-a %>
+<span id="cart_count">
+<%=
+    suma = 0
+    @cart.each { |product,count| suma = suma + count}
+    suma
+%>
+</span>

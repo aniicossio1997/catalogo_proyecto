@@ -1,0 +1,6 @@
+<% if @cart == {} || (@cart.nil?) || params[:product_total].zero? %>
+  <%  CartController.redirect_to root_path %>
+<% end %>
+$('#cart_count').replaceWith('<%= j render 'cart_final_count', cart: params[:cart] %>');
+$('#cart_price_total').replaceWith('<%= j render 'cart_price_total', cart: params[:cart] %>');
+$('#item-<%= @product_id %>').remove();

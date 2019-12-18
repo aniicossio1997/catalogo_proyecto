@@ -54,9 +54,13 @@ module Backend
 
     def destroy
       @product.destroy
-      flash[:notice] = t(:action_without_errors,
-                         element: :Producto,
-                         action: :eliminado)
+      if @product.errors.present?
+        flash[:alert] = @product.errors.full_messages.first
+      else
+        flash[:notice] = t(:action_without_errors,
+          element: :Producto,
+          action: :eliminado)
+      end
       redirect_to backend_products_path
     end
 

@@ -1,13 +1,11 @@
 <%= render 'flash_message' %>
-<br>
-<div class='d-flex justify-content-between bg-secondary p-3 mb-2 text-white text-left'>
-<h2>Carrito</h2>
-<br>
+
+<div class='d-flex justify-content-between  p-3 mb-2 text-left'>
 <div class= "container-fluid"> 
-<table class="table">
-  <thead class="thead-light">
+<h2>Mi carrito</h2>
+<table class="table table-hover">
+  <thead class="thead-dark">
     <tr>
-     
       <th scope="col">Producto</th>
       <th scope="col">Precio</th>
       <th scope="col">Cantidad</th>
@@ -17,36 +15,22 @@
   </thead>
   <tbody>
    <%= render "items_in_cart" %>
+   <tr class="bg-secondary text-white">
+   <td colspan="2">Total</td>
+   <td class= "text-left"> <%= render "cart_final_count" %> </td>
+   <td colspan="2"> $ <%=render "cart_price_total" %> </td>
+   </tr>
   </tbody>
 </table>
-  <div class="p-3 mb-2 bg-secondary text-white">
-    <div class="row">
-      <div class="col">
-      TOTAL
-      </div>
-      <div class="col">
-        <div class="row">
-        <div class="col"></div>
-        <div class="col">
-        cantidad final: 
-        </div>
-        <div class="col">
-          <%= render "cart_final_count" %>
-        </div>
-        </div>
-      </div>
-      <div class="col">
-      <h4><%= render "cart_price_total" %></h4>
-      </div>
-  </div>
+
 
   <% if (can? :authorize_close_car, :frontend_cart) %>
     <%= link_to 'Hacer pedido', create_buys_path, class: 'btn btn-success' %>
   <% else %>
-    <p class="text-red">
-    Para cerrar el carrito de compras debe de:
-    <%= link_to ' Iniciar sesión', new_user_session_path,{method: :post, class: 'btn btn-primary'}%>
+    <p class="text-secondary">
+    Debe de Iniciar sesión para finalizar la compra
     </p>
+    <%= link_to ' Iniciar sesión', new_user_session_path,{method: :post, class: 'btn btn-primary'}%>
   <% end %>
 </div>
 </div>

@@ -39,6 +39,7 @@ module Backend
     end
 
     def show
+      @buy
       authorize! :show, :backend_buy
     end
 

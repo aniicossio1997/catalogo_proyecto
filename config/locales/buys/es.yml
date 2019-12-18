@@ -1,4 +1,5 @@
 es:
+  destroy_products_error: Lo sentimos no se puede borrar productos con compras asociadas, recuerde que lo puede dejar inactivo
   states:
     rejected: Rechazado
     accepted: Aceptado

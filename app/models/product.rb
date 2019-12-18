@@ -26,16 +26,28 @@ class Product < ApplicationRecord
             }
   validate :only_one_image_checked
 
+  before_destroy :check_buys
+
+
+
   # -- Scopes
   scope :with_name, ->(name) { where('name LIKE ?', "%#{name}%") }
   scope :with_category, ->(category_id) { where(category_id: category_id) }
   # scope :sort_asc_name,->{ order(name: :asc) }
   # scope :sort_desc_name, ->{ order(name: :desc) }
   scope :sort_name, ->(sort) { order(name: sort) }
-
+  scope :actives, -> { where(active: true) }
   def only_one_image_checked
     return if product_images.select(&:principal).count == 1
 
     errors.add(:product_images, message: I18n.t(:only_one_image_error))
+  end
+  private 
+
+  def check_buys
+    return if self.items.count.zero?
+
+    errors.add(:base, I18n.t(:destroy_products_error))
+    throw(:abort)
   end
 end
