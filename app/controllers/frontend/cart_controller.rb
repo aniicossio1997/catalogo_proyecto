@@ -8,6 +8,7 @@ module Frontend
         flash[:alert] = t(:the_cart_does_not_have_products)
         redirect_to root_path
       end
+      @elements_cart = Cart.new(@cart)
     end
 
     def add_to_cart
@@ -26,11 +27,7 @@ module Frontend
 
     def remove_from_cart
       @cart.delete(params[:id])
-      product_total = 0
-      @cart.each { |product,count| product_total = product_total + count}
-      params[:product_total] = product_total
-      params[:cart] = @cart
-      product_total
+      @elements_cart = Cart.new(@cart)
     end
 
     private

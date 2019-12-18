@@ -1,0 +1,16 @@
+<br>
+<div class='d-flex justify-content-between form-group bg-secondary p-3 mb-2 text-white text-left'>
+  <h2> Productos </h2>
+  <%= form_with url: products_path, model:@presenter.filter,
+                local:true,
+                remote:true,
+                method: :get, class: 'form-inline' do |f|
+  %>
+  <div class="form-group mx-sm-3 mb-2">
+    <%= f.select(:sort, [['Activos', :true], ['Inactivos', :false]],{ include_blank: 'Todos' }, class: 'form-control mb-2 ') %>
+  </div>
+   <div class="form-group mx-sm-3 mb-2">
+    <%= f.submit 'Buscar', class: 'btn btn-info mb-2' %>
+  </div>
+  <% end %>
+</div>

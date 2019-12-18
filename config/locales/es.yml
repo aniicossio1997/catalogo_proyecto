@@ -1,5 +1,7 @@
 es:
   welcome: 'Bienvenido'
+  footer: 'Copyright &copy ~ Catalogo ~ Sprint II'
+  Catalog: 'Catalogo'
   activerecord:
     errors:
       messages:
@@ -171,6 +173,7 @@ es:
       last_word_connector: " y "
       two_words_connector: " y "
       words_connector: ", "
+  index_config: Configuración
   time:
     am: am
     formats:

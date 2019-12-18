@@ -10,7 +10,7 @@
     <%= f.select(:sort, [['Ordenado A-Z', :asc], ['Ordenado Z-A', :desc]],{ include_blank: 'Ordenación' }, class: 'form-control mb-2 ') %>
   </div><br>
   <div class="form-group mx-sm-3 mb-2">
-    <%= f.collection_select :category_id, Category.all, :id, :name, { include_blank: 'Categoria' }, class: 'form-control mb-2 mr-sm-2' %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, { include_blank: 'Todos' }, class: 'form-control mb-2 mr-sm-2' %>
   </div>
   <div class="form-group mx-sm-3 mb-2">
     <%= f.text_field :query, class: 'form-control mb-2 mr-sm-2' %>

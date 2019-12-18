@@ -1,2 +1,4 @@
 es:
+  category: Categoria
+  categories: categorias
   associations_with_products_error: No se puede eliminar una categoria que tenga productos asociados

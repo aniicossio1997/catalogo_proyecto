@@ -1,16 +1,8 @@
 # frozen_string_literal: true
-
 class Cart
-  def initialize
-    @products = []
-  end
-
-  def add_product(product, count = 0)
-    @products << { product: product, count: count }
-  end
-
-  def remove_product(product)
-    @products.select { |prod| prod[:product].id == product.id }
+  attr_accessor :cart
+  def initialize(cart)
+    @cart = cart
   end
 
   def size
@@ -19,7 +11,13 @@ class Cart
 
   def total_products
     suma = 0
-    @cart.each { |product,count| suma = suma + count}
+    @cart.each { |product, count| suma = suma + count}
     suma
+  end
+
+  def price_total
+    total = 0
+    @cart.each { | id_product, count | total += Product.find(id_product).price * count }
+    total
   end
 end

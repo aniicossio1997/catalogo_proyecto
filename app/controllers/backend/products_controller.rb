@@ -10,7 +10,7 @@ module Backend
     ]
     before_action :authorize_product
     def index
-      @presenter = ProductPresenter.new(params)
+      @presenter = ProductBackendPresenter.new(params)
     end
 
     def show; end

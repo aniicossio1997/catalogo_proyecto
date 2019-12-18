@@ -8,9 +8,9 @@ user_juan = User.create(username: 'juan', email: 'juan@juan.com', password: 'jua
 user_lia = User.create(username: 'lia', email: 'lia@lia.com', password: 'lia', profile: client)
 
 Config.create(per_page: 3)
-Category.create(name: 'Bazar')
-Category.create(name: 'Jugueteria')
-Category.create(name: 'Electronica')
+bazar =Category.create(name: 'Bazar')
+jugueteria = Category.create(name: 'Jugueteria')
+electronica=Category.create(name: 'Electronica')
 Category.create(name: 'Limpieza')
 Category.create(name: 'Comida')
 

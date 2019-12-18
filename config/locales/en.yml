@@ -30,6 +30,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  footer: 'Copyright &copy; Catalog ~ Sprint II'
+  catalogo: 'Catalog'
   welcome: 'Wellcome'
   hello: "Hello world"
   index_client: 'Clients list'

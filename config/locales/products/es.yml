@@ -1,2 +1,4 @@
 es:
+  product: producto
+  products: productos
   only_one_image_error: El producto debe tener una y sólo una imagen principal

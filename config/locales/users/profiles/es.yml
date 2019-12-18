@@ -1,6 +1,8 @@
 es:
-  index_client: Clientes
-  index_user: Administradores
+  client: Cliente
+  user: Administrador
+  clients: Clientes
+  users: Administradores
   profile:
     error:
       wrong_profile: el perfil de este usuario es incorrecto
