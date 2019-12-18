@@ -1,3 +1,4 @@
+<%= render 'flash_message' %>
 <br>
 <div class='d-flex justify-content-between bg-secondary p-3 mb-2 text-white text-left'>
 <h2>Carrito</h2>
@@ -39,12 +40,12 @@
       </div>
   </div>
 
-  <% if can? :authorize_close_car, :frontend_cart %>
-    <%= link_to 'Hacer pedido', create_buys_path, class: 'btn btn-outline-success float-right' %>
+  <% if (can? :authorize_close_car, :frontend_cart) %>
+    <%= link_to 'Hacer pedido', create_buys_path, class: 'btn btn-success' %>
   <% else %>
     <p class="text-red">
-    Para cerra el carrito de compras debe de:
-    <%= link_to ' Iniciar sesión', new_user_session_path,{method: :get, class: 'btn btn-primary'}%>
+    Para cerrar el carrito de compras debe de:
+    <%= link_to ' Iniciar sesión', new_user_session_path,{method: :post, class: 'btn btn-primary'}%>
     </p>
   <% end %>
 </div>

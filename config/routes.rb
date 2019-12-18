@@ -28,8 +28,6 @@ Rails.application.routes.draw do
         put :state_change_accepted
         put :state_change_rejected
       end
-      # get ':id/:context/state_change_accepted', to: 'buys#state_change_accepted' , as: 'state_change_accepted'
-      # get ':id/:context/state_change_rejected', to: 'buys#state_change_rejected' , as: 'state_change_rejected'
     end
   end
 end

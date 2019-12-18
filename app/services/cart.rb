@@ -12,4 +12,8 @@ class Cart
   def remove_product(product)
     @products.select { |prod| prod[:product].id == product.id }
   end
+
+  def size
+    @products.size
+  end
 end

@@ -14,11 +14,7 @@ RSpec.describe "Backend::BuysController Requests", type: :request do
       end
     end
     describe 'show' do
-      let!(:client) { create(:user, profile: Profile.client.take) }
-      let!(:product) { create(:product, :product_image_principal) }
-      let!(:product_image) { create(:product_image, product: product) }
-      let!(:buy) { create(:buy, state: :pending, user: client) }
-     # let!(:item) { create_list(:item, 2, product: product, buy: buy) }
+      let!(:buy) { create(:buy, :items) }
       it 'ok request' do
         get backend_buy_path(buy)
         expect(response).to render_template(:show)
@@ -26,11 +22,10 @@ RSpec.describe "Backend::BuysController Requests", type: :request do
       end
     end
     describe '#state_change_accepted' do 
-      let!(:client) { create(:user, profile: Profile.client.take) }
       context 'when state pending' do
-        subject { create(:buy, state: :pending, user: client) }
+        let!(:buy) { create(:buy, :items) }
         it 'ok request' do
-          put state_change_accepted_backend_buy_path(subject, format: :js), xhr: true
+          put state_change_accepted_backend_buy_path(buy, format: :js), xhr: true
           expect(response.content_type).to eq('text/javascript')
           expect(response).to render_template(:state_change_accepted)
           expect(flash[:notice]).to eq(I18n.t(:action_without_errors,
@@ -39,9 +34,9 @@ RSpec.describe "Backend::BuysController Requests", type: :request do
         end
       end
       context 'when state distinct pending' do
-        subject { create(:buy, state: :accepted, user: client) }
+        let!(:buy) { create(:buy, :items, :accepted) }
         it 'ok request' do
-          put state_change_accepted_backend_buy_path(subject, format: :js), xhr: true
+          put state_change_accepted_backend_buy_path(buy, format: :js), xhr: true
           expect(response.content_type).to eq('text/javascript')
           expect(response).to render_template(:state_change_accepted)
           expect(flash[:alert]).to eq(I18n.t(:action_error,
@@ -51,11 +46,10 @@ RSpec.describe "Backend::BuysController Requests", type: :request do
       end
     end
     describe '#state_change_rejected' do
-      let!(:client) { create(:user, profile: Profile.client.take) }
       context 'when state pending' do
-        subject { create(:buy, state: :pending, user: client) }
+        let!(:buy) { create(:buy, :items) }
         it 'ok request' do
-          put state_change_rejected_backend_buy_path(subject, format: :js), xhr: true
+          put state_change_rejected_backend_buy_path(buy, format: :js), xhr: true
           expect(response.content_type).to eq('text/javascript')
           expect(response).to render_template(:state_change_rejected)
           expect(flash[:notice]).to eq(I18n.t(:action_without_errors,
@@ -64,9 +58,9 @@ RSpec.describe "Backend::BuysController Requests", type: :request do
         end
       end
       context 'when state distinct pending' do
-        subject { create(:buy, state: :accepted, user: client) }
+        let!(:buy) { create(:buy, :items, :rejected) }
         it 'ok request' do
-          put state_change_rejected_backend_buy_path(subject, format: :js), xhr: true
+          put state_change_rejected_backend_buy_path(buy, format: :js), xhr: true
           expect(response.content_type).to eq('text/javascript')
           expect(response).to render_template(:state_change_rejected)
           expect(flash[:alert]).to eq(I18n.t(:action_error,

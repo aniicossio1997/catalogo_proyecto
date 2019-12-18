@@ -1,5 +1,5 @@
+# des
 FactoryBot.define do
-    # Implementar factory
   factory :buy do
     trait :pending do
       state { :pending }
@@ -9,6 +9,16 @@ FactoryBot.define do
     end
     trait :rejected do
       state { :rejected }
+    end
+    trait :items do
+      before(:create) do |buy|
+        @product = create(:product, :product_image_principal)
+        buy.user = create(:client)
+        buy.items.<< Item.new(price: @product.price,
+          count: 4,
+          product: @product,
+          buy: buy)
+      end
     end
   end
 end

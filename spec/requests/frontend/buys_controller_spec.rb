@@ -6,29 +6,24 @@ RSpec.describe "Frontend::BuysController Requests", type: :request do
     context 'with user logged in' do
       it 'ok request' do
         sign_in client
-  
         get buys_path
         expect(response).to render_template(:index)
         expect(response).to have_http_status(:ok)
       end
     end
   end
-  # describe 'show' do
-  #   let(:product) { create(:product, :product_image_principal) }
-  #   it 'ok request' do
-  #     sign_in client
-  #     get buy_path(product)
-  #     expect(response).to render_template(:show)
-  #     expect(response).to have_http_status(:ok)
-  #   end
-  # end
-  
+  describe 'show' do
+    let!(:buy) { create(:buy, :items, user: client) }
+    it 'ok request' do
+      sign_in client
+      get create_buys_path(buy)
+      get buy_path(buy)
+      expect(response).to render_template(:show)
+      expect(response).to have_http_status(:ok)
+    end
+  end
   describe 'Action create' do
     let(:product) { create(:product, :product_image_principal) }
-
-    before do
-      #allow_any_instance_of(BuyManager).to receive(:create).and_return(true)
-    end
     it 'ok request' do
       allow_any_instance_of(BuyManager).to receive(:create).and_return(true)
       sign_in client
