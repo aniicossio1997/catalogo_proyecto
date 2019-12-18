@@ -4,9 +4,9 @@
   <thead>
     <tr class="text-secondary">
       
-      <th scope="col">Cliente</th>
-      <th scope="col">Fecha</th>
-      <th scope="col">Estado</th>
+      <th scope="col"><%= I18n.t(:client) %></th>
+      <th scope="col"><%= I18n.t(:date)%></th>
+      <th scope="col"><%= I18n.t(:state)%></th>
     </tr>
   </thead>
   <tbody>
@@ -17,16 +17,16 @@
   <thead class="thead-light">
     <tr>
       <th scope="col"></th>
-      <th scope="col">Producto</th>
-      <th scope="col">Precio</th>
-      <th scope="col">Cantidad</th>
-      <th scope="col">Subtotal</th>
+      <th scope="col"><%= I18n.t(:product) %></th>
+      <th scope="col"><%= I18n.t(:price) %></th>
+      <th scope="col"><%= I18n.t(:count) %></th>
+      <th scope="col"><%= I18n.t(:subtotal) %></th>
     </tr>
   </thead>
   <tbody>
    <%= render @buy.items %>
   <tr class="bg-secondary text-white">
-   <td colspan="3">TOTAL</td>
+   <td colspan="3"><%= I18n.t(:total) %></td>
    <td class= "text-left"> <%= @buy.item_count%> </td>
    <td colspan="2"> <h4><%= @buy.pretty_price_total%></h4> </td>
    </tr>

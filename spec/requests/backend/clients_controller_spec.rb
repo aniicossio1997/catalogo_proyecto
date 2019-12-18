@@ -7,7 +7,6 @@ RSpec.describe "Backend::ClientsController Requests", type: :request do
     describe 'index' do
       it 'ok request' do
         sign_in admin
-
         get backend_clients_path
         expect(response).to render_template(:index)
         expect(response).to have_http_status(:ok)
@@ -15,14 +14,11 @@ RSpec.describe "Backend::ClientsController Requests", type: :request do
     end
     describe '#destroy' do
       context 'when user has buys' do
-        let!(:client) { create(:user, profile: Profile.client.first) }
-        let!(:buys) { create_list(:buy, 2, user: client) }
-
+        let!(:client) { create(:user, :user_client_with_buys) }
         before do
           sign_in admin
           delete backend_client_path(client, format: :js), xhr: true
         end
-        
         it 'should not be removed' do
           expect(User.clients.count).to eq(1)
           expect(flash[:alert]).to eq(I18n.t(:invalid_destroy_with_buys))

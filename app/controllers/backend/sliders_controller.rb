@@ -32,6 +32,7 @@ module Backend
         flash.now[:alert] = t(:action_error,
                               element: :Slider,
                               action: :creado)
+        
         render :modal
       end
     end

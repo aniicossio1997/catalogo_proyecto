@@ -4,7 +4,7 @@ RSpec.describe "Backend::SliderController Requests", type: :request do
   let(:admin) { create(:admin) }
 
   describe 'with user logged in' do
-    describe 'index' do
+    describe '#index' do
       it 'ok request' do
         sign_in admin
 
@@ -14,7 +14,7 @@ RSpec.describe "Backend::SliderController Requests", type: :request do
       end
     end
 
-    describe 'new' do
+    describe '#new' do
       it 'ok request' do
         sign_in admin
 
@@ -25,7 +25,7 @@ RSpec.describe "Backend::SliderController Requests", type: :request do
       end
     end
 
-    describe 'edit' do
+    describe '#edit' do
       subject { create(:slider) }
       it 'ok request' do
         sign_in admin
@@ -37,10 +37,10 @@ RSpec.describe "Backend::SliderController Requests", type: :request do
       end
     end
 
-    describe 'create' do
+    describe '#create' do      
       it 'ok request' do
         sign_in admin
-
+        
         params = {
           slider: { name: Faker::Commerce.product_name }
         }
@@ -53,21 +53,17 @@ RSpec.describe "Backend::SliderController Requests", type: :request do
 
       it 'fail validation' do
         sign_in admin
-
-        create(:slider, name: 'Testing')
-
         params = {
-          slider: { name: 'Testing' }
+          slider: { name: '' }
         }
-
         post backend_sliders_path(params: params, format: :js), xhr: true
         expect(response.content_type).to eq('text/javascript')
         expect(response).to render_template(:modal)
         expect(response).to have_http_status(:ok)
       end
     end
-
-    describe 'update' do
+    
+    describe '#update' do
       subject { create(:slider) }
       it 'ok request' do
         sign_in admin
@@ -99,7 +95,7 @@ RSpec.describe "Backend::SliderController Requests", type: :request do
       end
     end
 
-    describe 'destroy' do
+    describe '#destroy' do
       subject { create(:slider) }
       it 'ok request' do
         sign_in admin

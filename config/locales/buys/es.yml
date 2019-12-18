@@ -2,7 +2,9 @@ es:
   buys: Compras
   price: Precio
   count: Cantidad
-  Subtotal: Subtotal
+  subtotal: Subtotal
+  final_price: Precio Final
+  final_count: Cantidad Final
   destroy_products_error: Lo sentimos no se puede borrar productos con compras asociadas, recuerde que lo puede dejar inactivo
   states:
     rejected: Rechazado

@@ -1,4 +1,7 @@
 es:
+  login: Iniciar sesión
+  accept: Aceptado
+  reject: Rechazado
   index: Lista
   date: Fecha
   options: Opciones

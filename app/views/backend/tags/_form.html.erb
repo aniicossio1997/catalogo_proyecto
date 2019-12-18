@@ -10,13 +10,13 @@
   <div class="modal-body">
 
     <div class="form-group">
-      <%= f.label :name, 'Nombre' %>
+      <%= f.label :name, I18n.t(:name) %>
       <%= f.text_field :name, class: 'form-control' %>
     </div>
 
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-    <%= f.submit 'Guardar', class: 'btn btn-primary' %>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= I18n.t(:close)%></button>
+    <%= f.submit I18n.t(:save), class: 'btn btn-primary' %>
   </div>
 <% end %>

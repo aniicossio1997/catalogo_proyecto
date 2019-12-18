@@ -1,7 +1,7 @@
 <% if !@config.nil? %>
   <%= image_tag(@config.logo_attached, size:'100x100', id: 'js-logo' )%>
 <% end %>
-  <%= link_to 'Edit config', new_backend_config_path, remote: true, class: 'btn btn-info' %>
+  <%= link_to I18n.t(:edit), new_backend_config_path, remote: true, class: 'btn btn-info' %>
 
 
 <h1 class='mt-2'>Sliders</h1>

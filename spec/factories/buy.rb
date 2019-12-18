@@ -20,5 +20,15 @@ FactoryBot.define do
           buy: buy)
       end
     end
+    trait :with_user do
+      before(:create) do |buy, user|
+        @product = create(:product, :product_image_principal)
+        buy.user = user
+        buy.items.<< Item.new(price: @product.price,
+          count: 4,
+          product: @product,
+          buy: buy)
+      end
+    end
   end
 end
