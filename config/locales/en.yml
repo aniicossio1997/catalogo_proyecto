@@ -31,7 +31,7 @@
 
 en:
   footer: 'Copyright &copy; Catalog ~ Sprint II'
-  catalogo: 'Catalog'
+  catalog: 'Catálogo'
   welcome: 'Wellcome'
   hello: "Hello world"
   index_client: 'Clients list'

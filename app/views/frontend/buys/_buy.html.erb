@@ -1,6 +1,6 @@
 <!--<tr id='<%= dom_id(buy) %>'>-->
   <td><%= buy.id %></td>
-  <td><%= buy.state %></td>
+  <td><%= buy.decorate.state_pretty %></td>
   <td>
     <%= buy.item_count %>
   </td>
@@ -12,7 +12,7 @@
   </td>
   <td class='text-right'>
     <div >
-      <%= link_to 'Ver', buy_path(buy),  class: 'btn btn-sm btn-outline-info' %>
+      <%= link_to I18n.t(:show), buy_path(buy),  class: 'btn btn-sm btn-outline-info' %>
     </div>
   </td>
 </tr>

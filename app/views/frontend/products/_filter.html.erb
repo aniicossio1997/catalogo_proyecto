@@ -1,20 +1,20 @@
 <br>
 <div class='d-flex justify-content-between form-group bg-secondary p-3 mb-2 text-white text-left'>
-  <h2> Productos </h2>
+  <h2> <%= I18n.t(:products) %> </h2>
   <%= form_with url: products_path, model:@presenter.filter,
                 local:true,
                 remote:true,
                 method: :get, class: 'form-inline' do |f|
   %>
   <div class="form-group mx-sm-3 mb-2">
-    <%= f.select(:sort, [['Ordenado A-Z', :asc], ['Ordenado Z-A', :desc]],{ include_blank: 'Ordenación' }, class: 'form-control mb-2 ') %>
+    <%= f.select(:sort, [['Ordenado A-Z', :asc], ['Ordenado Z-A', :desc]],{ include_blank: I18n.t(:order) }, class: 'form-control mb-2 ') %>
   </div><br>
   <div class="form-group mx-sm-3 mb-2">
-    <%= f.collection_select :category_id, Category.all, :id, :name, { include_blank: 'Todos' }, class: 'form-control mb-2 mr-sm-2' %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, { include_blank: I18n.t(:all) }, class: 'form-control mb-2 mr-sm-2' %>
   </div>
   <div class="form-group mx-sm-3 mb-2">
     <%= f.text_field :query, class: 'form-control mb-2 mr-sm-2' %>
-    <%= f.submit 'Buscar', class: 'btn btn-info mb-2' %>
+    <%= f.submit I18n.t(:find), class: 'btn btn-info mb-2' %>
   </div>
   <% end %>
 </div>

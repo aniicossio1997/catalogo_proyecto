@@ -2,21 +2,21 @@
 
 <div class='d-flex justify-content-between  p-3 mb-2 text-left'>
 <div class= "container-fluid"> 
-<h2>Mi carrito</h2>
+<h2> Mi Carrito </h2>
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">Producto</th>
-      <th scope="col">Precio</th>
-      <th scope="col">Cantidad</th>
-      <th scope="col">Subtotal</th>
+      <th scope="col"><%= I18n.t(:product) %></th>
+      <th scope="col"><%= I18n.t(:price) %></th>
+      <th scope="col"><%= I18n.t(:count) %></th>
+      <th scope="col"><%= I18n.t(:subtotal) %></th>
       <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
    <%= render "items_in_cart" %>
    <tr class="bg-secondary text-white">
-   <td colspan="2">Total</td>
+   <td colspan="2"><%= I18n.t(:total) %></td>
    <td class= "text-left"> <%= render "cart_final_count" %> </td>
    <td colspan="2"> $ <%=render "cart_price_total" %> </td>
    </tr>
@@ -25,10 +25,10 @@
 
 
   <% if (can? :authorize_close_car, :frontend_cart) %>
-    <%= link_to 'Hacer pedido', create_buys_path, class: 'btn btn-success' %>
+    <%= link_to I18n.t(:make_an_order), create_buys_path, class: 'btn btn-success' %>
   <% else %>
     <p class="text-secondary">
-    Debe de Iniciar sesión para finalizar la compra
+    <%= I18n.t(:you_must_login) %>
     </p>
     <%= link_to ' Iniciar sesión', new_user_session_path,{method: :post, class: 'btn btn-primary'}%>
   <% end %>
