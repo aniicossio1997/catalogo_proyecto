@@ -8,13 +8,13 @@
   <div class="list-group list-group-flush">
 
     <% if user_signed_in? %>
-    <%= link_to I18n.t(:index_buy), backend_buys_path,{method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
-    <%= link_to I18n.t(:index_client), backend_clients_path,{method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
-    <%= link_to I18n.t(:index_user), backend_users_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
-    <%= link_to I18n.t(:index_product), backend_products_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
-    <%= link_to I18n.t(:index_category), backend_categories_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
-    <%= link_to I18n.t(:index_tag), backend_tags_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
-    <%= link_to I18n.t(:index_config), backend_sliders_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
+    <%= link_to I18n.t(:buys), backend_buys_path,{method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
+    <%= link_to I18n.t(:clients), backend_clients_path,{method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
+    <%= link_to I18n.t(:users), backend_users_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
+    <%= link_to I18n.t(:products), backend_products_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
+    <%= link_to I18n.t(:categories), backend_categories_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
+    <%= link_to I18n.t(:tags), backend_tags_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
+    <%= link_to I18n.t(:configs), backend_sliders_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
     <% else %>
     <%= link_to 'Iniciar sesión', new_user_session_path, {method: :get, class: 'list-group-item list-group-item-action bg-light'} %>
     <% end %>
