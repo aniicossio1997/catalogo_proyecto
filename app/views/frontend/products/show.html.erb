@@ -8,24 +8,24 @@
 <div class="col-8">
   <div class="row">
     <div class="col">
-      <p class="text-secondary">Categoria</p>
+      <p class="text-secondary"><%= I18n.t(:category) %></p>
       <%= @product.category_name%>
     </div>
     <div class="col">
-    <p class="text-secondary">Precio</p>
+    <p class="text-secondary"><%= I18n.t(:price) %></p>
     <%= @product.pretty_price%>
     </div>
   </div>
 <div class="row">
   <div class="col">
-    <p class="text-secondary"> Tags</p>
+    <p class="text-secondary"><%= I18n.t(:tags) %></p>
     <%=@product.tags_name%>
   </div>
 </div>
 <br>
 <div class="row">
   <div class="col">
-    <p class="text-secondary"> Descripción</p>
+    <p class="text-secondary"> <%= I18n.t(:description) %></p>
     <%= @product.description%>
   </div>
 </div>
@@ -50,5 +50,5 @@
 </div>
 </div>
 <div class='card-footer'>
-  <%= link_to 'Todos los productos', products_path, class: 'btn btn-outline-secondary' %>
+  <%= link_to I18n.t(:all_products), products_path, class: 'btn btn-outline-secondary' %>
 </div>

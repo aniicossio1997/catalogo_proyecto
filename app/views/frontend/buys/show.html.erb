@@ -4,10 +4,10 @@
   <thead class="thead-light">
     <tr>
       <th scope="col"></th>
-      <th scope="col">Producto</th>
-      <th scope="col">Precio Unitario</th>
-      <th scope="col">Cantidad</th>
-      <th scope="col">Subtotal</th>
+      <th scope="col"><%= I18n.t(:product) %></th>
+      <th scope="col"><%= I18n.t(:price) %>o</th>
+      <th scope="col"><%= I18n.t(:count) %></th>
+      <th scope="col"><%= I18n.t(:subtotal) %></th>
     </tr>
   </thead>
   <tbody>
@@ -22,7 +22,7 @@
       <div class="col">
         <div class="row">
           <div class="col">
-           cantidad final: 
+           <%= I18n.t(:final_count) %>
           </div>
           <div class="col">
             <%= @buy.item_count%>
@@ -32,7 +32,7 @@
     <div class="col">
       <div class="row">
       <div class="col">
-      <p>precio final:</p>
+      <p><%= I18n.t(:final_price) %></p>
       </div>
       <div class="col">
       <h4><%= @buy.pretty_price_total%></h4>
@@ -43,5 +43,5 @@
  </div>
 </div>  
 <div class='card-footer'>
-    <%= link_to 'Volver', buys_path, class: 'btn btn-outline-secondary' %>
+    <%= link_to I18n.t(:return), buys_path, class: 'btn btn-outline-secondary' %>
 </div>
