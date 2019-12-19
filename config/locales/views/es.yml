@@ -10,10 +10,11 @@ es:
   new: Nuevo
   show: Ver
   find: Buscar
-  edit: Editar
+  edit: "Editar"
   destroy: Eliminar
   return: Volver
   order: Ordenación
   all: Todos
   make_an_order: Hacer Pedido
   you_must_login: Debe de Iniciar sesión para finalizar la compra 
+  

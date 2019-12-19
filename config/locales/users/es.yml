@@ -1,4 +1,5 @@
 es:
+  name_user: Nombre de usuario
   name: Nombre
   email: Correo electrónico
   remember_password_same_username: 'Recuerde que la contraseña va ser igual al nombre de usuario'

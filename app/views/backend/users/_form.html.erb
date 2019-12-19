@@ -4,11 +4,11 @@
     <small  class="form-text text-muted"> <%= I18n.t(:remember_password_same_username)%> </small>
     <br>
     <div class="form-group">
-      <%= f.label :username, 'Nombre de usuario' %>
+      <%= f.label :username, I18n.t(:name_user) %>
       <%= f.text_field :username, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.label :email, 'Email' %>
+      <%= f.label :email, I18n.t(:email) %>
       <%= f.email_field :email, class: 'form-control' %>
     </div>
   <div class='card-footer'>

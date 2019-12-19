@@ -11,7 +11,7 @@
   <thead class="thead-light">
     <tr>
       <th>Sliders</th>
-      <th class='text-right'><%= link_to 'Nuevo slider', new_backend_slider_path, remote: true, class: 'btn btn-primary' %></th>
+      <th class='text-right'><%= link_to (I18n.t('new')), new_backend_slider_path, remote: true, class: 'btn btn-primary' %></th>
     </tr>
   </thead>
   <tbody id='sliders_container'>
