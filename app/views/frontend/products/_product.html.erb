@@ -6,15 +6,6 @@
   <div class="card-body">
     <p class="card-text"><%= product.name %></p>
         <%= link_to image_tag("cart2.png", size: "25x25"), add_product_to_cart_path(product.id), remote: true, class: "btn btn-success text-left"%>
-        <%# <a role="button"
-                tabindex="0" 
-                class="btn btn-lg btn-secondary"
-                data-toggle="popover" 
-                data-trigger="focus" 
-                title="Dismissible popover" 
-                data-placement="right"
-                data-content="Hola" >Add to cart</a>
-              %>
       <div class="col-sm text-right">
         <%= product.pretty_price %>
       </div >
