@@ -10,10 +10,11 @@ FactoryBot.define do
     trait :rejected do
       state { :rejected }
     end
-    trait :items do
+    trait :buy_with_user_items do
       before(:create) do |buy|
         @product = create(:product, :product_image_principal)
-        buy.user = create(:client)
+        @user = create(:user, profile: Profile.client.take)
+        buy.user = @user
         buy.items.<< Item.new(price: @product.price,
           count: 4,
           product: @product,

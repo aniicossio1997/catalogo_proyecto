@@ -14,7 +14,7 @@ RSpec.describe "Backend::BuysController Requests", type: :request do
       end
     end
     describe 'show' do
-      let!(:buy) { create(:buy, :items) }
+      let!(:buy) { create(:buy, :buy_with_user_items) }
       it 'ok request' do
         get backend_buy_path(buy)
         expect(response).to render_template(:show)
@@ -23,7 +23,7 @@ RSpec.describe "Backend::BuysController Requests", type: :request do
     end
     describe '#state_change_accepted' do 
       context 'when state pending' do
-        let!(:buy) { create(:buy, :items) }
+        let!(:buy) { create(:buy, :buy_with_user_items) }
         it 'ok request' do
           put state_change_accepted_backend_buy_path(buy, format: :js), xhr: true
           expect(response.content_type).to eq('text/javascript')
@@ -34,7 +34,7 @@ RSpec.describe "Backend::BuysController Requests", type: :request do
         end
       end
       context 'when state distinct pending' do
-        let!(:buy) { create(:buy, :items, :accepted) }
+        let!(:buy) { create(:buy, :buy_with_user_items, :accepted) }
         it 'ok request' do
           put state_change_accepted_backend_buy_path(buy, format: :js), xhr: true
           expect(response.content_type).to eq('text/javascript')
@@ -47,7 +47,7 @@ RSpec.describe "Backend::BuysController Requests", type: :request do
     end
     describe '#state_change_rejected' do
       context 'when state pending' do
-        let!(:buy) { create(:buy, :items) }
+        let!(:buy) { create(:buy, :buy_with_user_items) }
         it 'ok request' do
           put state_change_rejected_backend_buy_path(buy, format: :js), xhr: true
           expect(response.content_type).to eq('text/javascript')
@@ -58,7 +58,7 @@ RSpec.describe "Backend::BuysController Requests", type: :request do
         end
       end
       context 'when state distinct pending' do
-        let!(:buy) { create(:buy, :items, :rejected) }
+        let!(:buy) { create(:buy, :buy_with_user_items, :rejected) }
         it 'ok request' do
           put state_change_rejected_backend_buy_path(buy, format: :js), xhr: true
           expect(response.content_type).to eq('text/javascript')

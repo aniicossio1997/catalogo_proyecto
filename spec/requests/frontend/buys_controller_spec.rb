@@ -13,7 +13,7 @@ RSpec.describe "Frontend::BuysController Requests", type: :request do
     end
   end
   describe 'show' do
-    let!(:buy) { create(:buy, :items, user: client) }
+    let!(:buy) { create(:buy, :buy_with_user_items, user: client) }
     it 'ok request' do
       sign_in client
       get create_buys_path(buy)
