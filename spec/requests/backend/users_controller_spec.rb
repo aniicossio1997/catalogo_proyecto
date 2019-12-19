@@ -106,5 +106,12 @@ RSpec.describe "Backend::UsersController Requests", type: :request do
         expect(response).to have_http_status(:found)
       end
     end
+    describe 'should not show new' do
+      it 'fail request redirecto to sign_in' do
+        get new_backend_user_path
+        expect(response).to redirect_to(user_session_path)
+        expect(response).to have_http_status(:found)
+      end
+    end
   end
 end
